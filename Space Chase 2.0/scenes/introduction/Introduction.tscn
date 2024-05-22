@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpbcuem4wj75m"]
+
+[ext_resource type="Script" path="res://scripts/screen/introduction.gd" id="1_xwdnx"]
+[ext_resource type="AudioStream" uid="uid://c27dqvh1hr7qy" path="res://sounds/logo/vegggieee.mp3" id="2_444r2"]
+[ext_resource type="Texture2D" uid="uid://cbfwgs3vr3ir4" path="res://images/introduction/1.png" id="3_e5hhi"]
+[ext_resource type="Texture2D" uid="uid://ctvi1gtylb3eo" path="res://images/introduction/2.png" id="4_r4ua0"]
+[ext_resource type="Texture2D" uid="uid://cqcb13f8bqsgj" path="res://images/introduction/3.png" id="5_xqfk8"]
+
+[node name="Introduction" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xwdnx")
+
+[node name="LogoAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_444r2")
+volume_db = 24.0
+attenuation = 0.965938
+bus = &"LogoSpeech"
+
+[node name="Imagem 1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e5hhi")
+
+[node name="Imagem 2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_r4ua0")
+
+[node name="Imagem 3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_xqfk8")

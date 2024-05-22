@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://wsgrpqkfr77x"]
+
+[ext_resource type="Texture2D" uid="uid://btwaa5urtlkyb" path="res://sprites/SpaceShuttleSprite.png" id="1_n3o03"]
+[ext_resource type="Script" path="res://scripts/objects/SpaceShuttle.gd" id="1_weyb8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3ful"]
+radius = 7.97292
+height = 38.6872
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f521c"]
+
+[node name="SpaceShuttle" type="Node2D"]
+script = ExtResource("1_weyb8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-13, -1)
+texture = ExtResource("1_n3o03")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Sprite2D"]
+mass = 2000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/RigidBody2D"]
+position = Vector2(13, -39)
+scale = Vector2(8.40345, 10.8563)
+shape = SubResource("CapsuleShape2D_a3ful")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+modulate = Color(1, 0.0509804, 1, 1)
+position = Vector2(13, 96)
+scale = Vector2(6.03176, 6.66782)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+modulate = Color(1, 1, 0.929412, 1)
+self_modulate = Color(1, 0.996078, 0.72549, 1)
+shape = SubResource("RectangleShape2D_f521c")
+debug_color = Color(0.931341, 0.164308, 0.513493, 0.42)
