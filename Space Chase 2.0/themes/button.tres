@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://6ygqf7ni8mc4"]
+
+[ext_resource type="FontFile" uid="uid://du8c5l2k2q1ff" path="res://Assets/fonts/space age.ttf" id="1_k8km6"]
+
+[resource]
+Button/fonts/font = ExtResource("1_k8km6")

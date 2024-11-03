@@ -1,15 +1,17 @@
 extends Node
 @export_category("Control Variables")
-@onready var oxigen : int = 10000 #Liters
-@onready var hidrogen : int = 50 #Liters
-@onready var energy : int = 300 #A/h
-@onready var fuel : int = 0 #Liters
-@onready var metal : int = 500 #Kg
-@onready var water : int = 50 #Liters
-@onready var organics : int = 30 #Kg
+
+@export var oxigen : int = 10000 #Liters
+@export var hidrogen : int = 50 #Liters
+@export var energy : int = 300 #A/h
+@export var fuel : int = 0 #Liters
+@export var metal : int = 500 #Kg
+@export var water : int = 50 #Liters
+@export var organics : int = 30 #Kg
 
 @export var Player : Player 
 @onready var is_player_outside : bool = false
+@onready var is_player_touching_interaction_area = false
 
 @export_category("Time Adjustment")
 @onready var dia : int = 01

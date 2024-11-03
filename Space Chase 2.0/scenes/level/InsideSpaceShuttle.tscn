@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://kmmxg2kivr0l"]
 
-[ext_resource type="Texture2D" uid="uid://g6gu7u4wqlc0" path="res://images/backgrounds/CabinSpaceShuttle.png" id="1_73wx3"]
+[ext_resource type="Texture2D" uid="uid://g6gu7u4wqlc0" path="res://Assets/images/backgrounds/CabinSpaceShuttle.png" id="1_73wx3"]
 
 [node name="InsideSpaceShuttle" type="Node2D"]
 
