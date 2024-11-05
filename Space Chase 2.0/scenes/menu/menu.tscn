@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://hnkjtjexbsdd"]
+[gd_scene load_steps=9 format=3 uid="uid://hnkjtjexbsdd"]
 
 [ext_resource type="Theme" uid="uid://6ygqf7ni8mc4" path="res://themes/button.tres" id="1_0qpd4"]
 [ext_resource type="Script" path="res://scripts/menu/menu.gd" id="1_puhc7"]
+[ext_resource type="Texture2D" uid="uid://yihsfhvdm8w6" path="res://Assets/images/backgrounds/Space Background.png" id="2_ihgtf"]
 [ext_resource type="PackedScene" uid="uid://c5y6yoxxl0un1" path="res://scenes/labels/game_title.tscn" id="3_ytrk0"]
 [ext_resource type="PackedScene" uid="uid://ckweb0fnjli80" path="res://scenes/labels/godot_edition.tscn" id="4_isqql"]
+[ext_resource type="PackedScene" uid="uid://e46mj1ks1x3q" path="res://Assets/models/Mars.fbx" id="4_r6610"]
+[ext_resource type="Script" path="res://scripts/planets/planet_rotation.gd" id="5_7hr6p"]
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_jk6wy"]
 file = "videos/Mars.ogg"
@@ -17,15 +20,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_puhc7")
 
+[node name="SpaceBackground" type="Sprite2D" parent="."]
+position = Vector2(563, 343)
+scale = Vector2(0.915873, 0.787008)
+texture = ExtResource("2_ihgtf")
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -585.0
-offset_top = -320.0
-offset_right = -585.0
-offset_bottom = -320.0
+offset_left = 5.0
+offset_top = 8.0
+offset_right = 5.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 stream = SubResource("VideoStreamTheora_jk6wy")
@@ -33,47 +41,75 @@ autoplay = true
 loop = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 326)
 
-[node name="StartNewGame" type="Button" parent="."]
-layout_mode = 2
-offset_left = -186.0
-offset_top = 4.0
-offset_right = 214.0
-offset_bottom = 44.0
-theme = ExtResource("1_0qpd4")
-
-[node name="ContinueGame" type="Button" parent="."]
-layout_mode = 2
-offset_left = -186.0
-offset_top = 72.0
-offset_right = 214.0
-offset_bottom = 112.0
-
-[node name="Options" type="Button" parent="."]
-layout_mode = 2
-offset_left = -188.0
-offset_top = 140.0
-offset_right = 212.0
-offset_bottom = 180.0
-
-[node name="ExitGame" type="Button" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 0
-offset_left = -188.0
-offset_top = 228.0
-offset_right = 212.0
-offset_bottom = 268.0
+offset_left = 314.0
+offset_top = 57.0
+offset_right = 354.0
+offset_bottom = 97.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+
+[node name="Mars" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_r6610")]
+transform = Transform3D(1.39071e-07, 0, -1, 0, 1, 0, 1, 0, 1.39071e-07, 0, 0, 0)
+script = ExtResource("5_7hr6p")
+degress_to_rotate = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.137758)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="GameTitle" parent="." instance=ExtResource("3_ytrk0")]
 layout_mode = 0
-offset_left = -391.0
-offset_top = -167.0
-offset_right = 429.0
-offset_bottom = -67.0
+offset_left = 188.0
+offset_top = 260.0
+offset_right = 1008.0
+offset_bottom = 360.0
 
 [node name="GodotEdition" parent="." instance=ExtResource("4_isqql")]
 layout_mode = 0
-offset_left = -133.0
-offset_top = -89.0
-offset_right = 152.0
-offset_bottom = -22.0
+offset_left = 446.0
+offset_top = 338.0
+offset_right = 731.0
+offset_bottom = 405.0
 theme_override_font_sizes/font_size = 40
+
+[node name="StartNewGame" type="Button" parent="."]
+layout_mode = 2
+offset_left = 34.0
+offset_top = 413.0
+offset_right = 434.0
+offset_bottom = 453.0
+theme = ExtResource("1_0qpd4")
+text = "New Game"
+
+[node name="ContinueGame" type="Button" parent="."]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 496.0
+offset_right = 436.0
+offset_bottom = 536.0
+theme = ExtResource("1_0qpd4")
+text = "Continue"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 2
+offset_left = 722.0
+offset_top = 413.0
+offset_right = 1122.0
+offset_bottom = 453.0
+theme = ExtResource("1_0qpd4")
+text = "Options"
+
+[node name="ExitGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 496.0
+offset_right = 1125.0
+offset_bottom = 536.0
+theme = ExtResource("1_0qpd4")
+text = "Exit"
