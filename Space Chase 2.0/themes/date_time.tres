@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b4krcgr3ui2kl"]
+
+[ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="1_ncn2b"]
+
+[resource]
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_ncn2b")

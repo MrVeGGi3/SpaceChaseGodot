@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://kmmxg2kivr0l"]
+[gd_scene load_steps=2 format=3 uid="uid://htmt4jmpujlc"]
 
-[ext_resource type="Texture2D" uid="uid://g6gu7u4wqlc0" path="res://Assets/images/backgrounds/CabinSpaceShuttle.png" id="1_73wx3"]
+[ext_resource type="Texture2D" uid="uid://g6gu7u4wqlc0" path="res://Assets/images/backgrounds/CabinSpaceShuttle.png" id="1_do0ql"]
 
 [node name="InsideSpaceShuttle" type="Node2D"]
 
@@ -15,7 +15,7 @@ offset_bottom = 434.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.65344, 1.48786)
-texture = ExtResource("1_73wx3")
+texture = ExtResource("1_do0ql")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 719.0

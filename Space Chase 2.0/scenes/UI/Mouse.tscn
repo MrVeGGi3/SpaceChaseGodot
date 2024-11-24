@@ -1,18 +1,18 @@
 [gd_scene load_steps=7 format=3 uid="uid://clweohchcjbsa"]
 
-[ext_resource type="Texture2D" uid="uid://b7kee0x432dba" path="res://Assets/icons/mouse/Mouse-removebg-preview.png" id="1_kmvth"]
-[ext_resource type="Script" path="res://scripts/ui/Mouse.gd" id="1_rxm8q"]
-[ext_resource type="Texture2D" uid="uid://bcxdnnysnyfoh" path="res://Assets/icons/mouse/Mouse_Left_Click-removebg-preview.png" id="2_l445t"]
-[ext_resource type="Texture2D" uid="uid://dhjp8iejijw5k" path="res://Assets/icons/mouse/Mouse_Right_Click-removebg-preview.png" id="3_w5740"]
+[ext_resource type="Script" path="res://scripts/ui/Mouse.gd" id="1_tmswx"]
+[ext_resource type="Texture2D" uid="uid://b7kee0x432dba" path="res://Assets/icons/mouse/Mouse-removebg-preview.png" id="2_r8xi8"]
+[ext_resource type="Texture2D" uid="uid://bcxdnnysnyfoh" path="res://Assets/icons/mouse/Mouse_Left_Click-removebg-preview.png" id="3_gyi4i"]
+[ext_resource type="Texture2D" uid="uid://dhjp8iejijw5k" path="res://Assets/icons/mouse/Mouse_Right_Click-removebg-preview.png" id="4_78nsy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m3431"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_kmvth")
+"texture": ExtResource("2_r8xi8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_l445t")
+"texture": ExtResource("3_gyi4i")
 }],
 "loop": true,
 "name": &"default",
@@ -23,10 +23,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_kmvth")
+"texture": ExtResource("2_r8xi8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_w5740")
+"texture": ExtResource("4_78nsy")
 }],
 "loop": true,
 "name": &"default",
@@ -40,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rxm8q")
+script = ExtResource("1_tmswx")
 
 [node name="MouseLeftClicked" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m3431")

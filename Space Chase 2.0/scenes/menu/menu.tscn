@@ -52,6 +52,8 @@ offset_bottom = 97.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
 
 [node name="Mars" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_r6610")]
 transform = Transform3D(1.39071e-07, 0, -1, 0, 1, 0, 1, 0, 1.39071e-07, 0, 0, 0)
@@ -89,19 +91,19 @@ text = "New Game"
 
 [node name="ContinueGame" type="Button" parent="."]
 layout_mode = 2
-offset_left = 36.0
-offset_top = 496.0
-offset_right = 436.0
-offset_bottom = 536.0
+offset_left = 724.0
+offset_top = 412.0
+offset_right = 1124.0
+offset_bottom = 452.0
 theme = ExtResource("1_0qpd4")
 text = "Continue"
 
 [node name="Options" type="Button" parent="."]
 layout_mode = 2
-offset_left = 722.0
-offset_top = 413.0
-offset_right = 1122.0
-offset_bottom = 453.0
+offset_left = 34.0
+offset_top = 498.0
+offset_right = 434.0
+offset_bottom = 538.0
 theme = ExtResource("1_0qpd4")
 text = "Options"
 

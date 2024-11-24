@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx4ckn55atgno"]
 
-[ext_resource type="Script" path="res://scripts/characther/player.gd" id="1_rm684"]
-[ext_resource type="Texture2D" uid="uid://df3dks4drsr2h" path="res://Assets/images/test/astronaut.png" id="2_yannj"]
+[ext_resource type="Script" path="res://scripts/characther/player.gd" id="1_1xff8"]
+[ext_resource type="Texture2D" uid="uid://df3dks4drsr2h" path="res://Assets/images/test/astronaut.png" id="2_by7u5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njbqs"]
 radius = 46.3522
 height = 272.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_rm684")
+script = ExtResource("1_1xff8")
 speed = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_yannj")
+texture = ExtResource("2_by7u5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 14)

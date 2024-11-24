@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://w8if7rx07dgx"]
 
-[ext_resource type="Script" path="res://scripts/ui/StatusControl.gd" id="1_0dbvs"]
-[ext_resource type="FontFile" uid="uid://hff8wigx8w8f" path="res://Assets/fonts/SPACEMAN.TTF" id="2_oh6ek"]
+[ext_resource type="Script" path="res://scripts/ui/StatusControl.gd" id="1_3lw74"]
+[ext_resource type="FontFile" uid="uid://hff8wigx8w8f" path="res://Assets/fonts/SPACEMAN.TTF" id="2_6jv4v"]
 
 [node name="StatusControl" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0dbvs")
+script = ExtResource("1_3lw74")
 
 [node name="HourDisplay" type="Panel" parent="."]
 layout_mode = 0
@@ -27,7 +27,7 @@ offset_top = 3.47968
 offset_right = 57.5321
 offset_bottom = 26.4797
 scale = Vector2(0.539124, 1.067)
-theme_override_fonts/font = ExtResource("2_oh6ek")
+theme_override_fonts/font = ExtResource("2_6jv4v")
 
 [node name="DiaMonth" type="Label" parent="HourDisplay"]
 layout_mode = 0
@@ -36,7 +36,7 @@ offset_top = 16.9634
 offset_right = 41.5357
 offset_bottom = 39.9634
 scale = Vector2(0.339232, 0.818917)
-theme_override_fonts/font = ExtResource("2_oh6ek")
+theme_override_fonts/font = ExtResource("2_6jv4v")
 
 [node name="TimeDisplay" type="Panel" parent="."]
 layout_mode = 0
