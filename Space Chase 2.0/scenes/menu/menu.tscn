@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hnkjtjexbsdd"]
+[gd_scene load_steps=10 format=3 uid="uid://hnkjtjexbsdd"]
 
 [ext_resource type="Theme" uid="uid://6ygqf7ni8mc4" path="res://themes/button.tres" id="1_0qpd4"]
 [ext_resource type="Script" path="res://scripts/menu/menu.gd" id="1_puhc7"]
@@ -7,9 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ckweb0fnjli80" path="res://scenes/labels/godot_edition.tscn" id="4_isqql"]
 [ext_resource type="PackedScene" uid="uid://e46mj1ks1x3q" path="res://Assets/models/Mars.fbx" id="4_r6610"]
 [ext_resource type="Script" path="res://scripts/planets/planet_rotation.gd" id="5_7hr6p"]
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_jk6wy"]
-file = "videos/Mars.ogg"
+[ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="8_fpyja"]
+[ext_resource type="PackedScene" uid="uid://bvvxr3j4ck2q3" path="res://scenes/SaveLoad/SaveLoadScreen.tscn" id="9_bbiu0"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -24,21 +23,6 @@ script = ExtResource("1_puhc7")
 position = Vector2(563, 343)
 scale = Vector2(0.915873, 0.787008)
 texture = ExtResource("2_ihgtf")
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 8.0
-offset_right = 5.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-stream = SubResource("VideoStreamTheora_jk6wy")
-autoplay = true
-loop = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 326)
@@ -80,7 +64,12 @@ offset_right = 731.0
 offset_bottom = 405.0
 theme_override_font_sizes/font_size = 40
 
-[node name="StartNewGame" type="Button" parent="."]
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartNewGame" type="Button" parent="Buttons"]
 layout_mode = 2
 offset_left = 34.0
 offset_top = 413.0
@@ -89,7 +78,7 @@ offset_bottom = 453.0
 theme = ExtResource("1_0qpd4")
 text = "New Game"
 
-[node name="ContinueGame" type="Button" parent="."]
+[node name="ContinueGame" type="Button" parent="Buttons"]
 layout_mode = 2
 offset_left = 724.0
 offset_top = 412.0
@@ -98,7 +87,7 @@ offset_bottom = 452.0
 theme = ExtResource("1_0qpd4")
 text = "Continue"
 
-[node name="Options" type="Button" parent="."]
+[node name="Options" type="Button" parent="Buttons"]
 layout_mode = 2
 offset_left = 34.0
 offset_top = 498.0
@@ -107,7 +96,7 @@ offset_bottom = 538.0
 theme = ExtResource("1_0qpd4")
 text = "Options"
 
-[node name="ExitGame" type="Button" parent="."]
+[node name="ExitGame" type="Button" parent="Buttons"]
 layout_mode = 0
 offset_left = 725.0
 offset_top = 496.0
@@ -115,3 +104,52 @@ offset_right = 1125.0
 offset_bottom = 536.0
 theme = ExtResource("1_0qpd4")
 text = "Exit"
+
+[node name="ExitWindow" type="Window" parent="."]
+title = "Sair do Jogo"
+position = Vector2i(430, 286)
+size = Vector2i(300, 100)
+visible = false
+
+[node name="Label" type="Label" parent="ExitWindow"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -18.5
+offset_right = 18.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Sair?"
+
+[node name="Confirm" type="Button" parent="ExitWindow"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 37.0
+grow_vertical = 0
+theme = ExtResource("8_fpyja")
+text = "SIM"
+
+[node name="Cancel" type="Button" parent="ExitWindow"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("8_fpyja")
+text = "NÃO"
+
+[node name="SaveLoadScreen" parent="." instance=ExtResource("9_bbiu0")]
+visible = false
+
+[connection signal="pressed" from="Buttons/StartNewGame" to="." method="_on_start_new_game_pressed"]
+[connection signal="pressed" from="Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
+[connection signal="pressed" from="Buttons/ExitGame" to="." method="_on_exit_game_pressed"]
+[connection signal="close_requested" from="ExitWindow" to="." method="_on_exit_window_close_requested"]
+[connection signal="pressed" from="ExitWindow/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="ExitWindow/Cancel" to="." method="_on_cancel_pressed"]

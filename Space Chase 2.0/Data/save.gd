@@ -19,6 +19,7 @@ extends Node
 @export var WaterLabel: Label 
 
 
+var labels = [DateLabel, HourLabel, o2Label, H2Label, EnergyLabel, MetalLabel, OrganicsLabel, WaterLabel, GameDateTimeLabel, GameHourTimeLabel]
 
 var slot_1 = "res://Data/slot_1.json"
 var slot_2 = "res://Data/slot_2.json"
@@ -121,6 +122,11 @@ func _showSlot(index):
 	jsonFile.close()
 	var worldData = JSON.parse_string(jsonPlayer)
 	
+	if worldData == null:
+		for label in labels:
+			label.text = str("0")
+		GameTypeLabel.text = str("Não Criado")
+	
 	DateLabel.text = str("%d-%02-%02" % [worldData.t_year, worldData.t_month, worldData.t_day])
 	HourLabel.text = str("%02:%02" % [worldData.t_hour, worldData.t_minutes])
 	o2Label.text = str(worldData.oxygen)
@@ -132,3 +138,4 @@ func _showSlot(index):
 	WaterLabel.text = str(worldData.water)
 	GameDateTimeLabel.text = str("%02-%02" % [worldData.month, worldData.day])
 	GameHourTimeLabel.text = str("%02:%02" % [worldData.hour, worldData.minutes])
+	

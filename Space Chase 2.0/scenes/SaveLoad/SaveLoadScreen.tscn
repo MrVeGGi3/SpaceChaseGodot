@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bvvxr3j4ck2q3"]
+[gd_scene load_steps=23 format=3 uid="uid://bvvxr3j4ck2q3"]
 
 [ext_resource type="Script" path="res://Data/save_screen.gd" id="1_ef01h"]
 [ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="1_wugry"]
@@ -16,6 +16,7 @@
 [ext_resource type="Theme" uid="uid://cby0yb3qwi843" path="res://themes/game_dt.tres" id="12_b7qcp"]
 [ext_resource type="Theme" uid="uid://bmy37obfh77ks" path="res://themes/gamehour_dt.tres" id="13_mqrxb"]
 [ext_resource type="PackedScene" uid="uid://egtw8jclboos" path="res://scenes/SaveLoad/SaveManager.tscn" id="15_gsdy1"]
+[ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="17_rcc8e"]
 
 [sub_resource type="Theme" id="Theme_6yx32"]
 Label/colors/font_color = Color(0.933333, 1, 0, 1)
@@ -47,6 +48,7 @@ offset_bottom = 249.0
 theme = ExtResource("2_tmdnt")
 
 [node name="GameType" type="Label" parent="Save1"]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 42.0
 offset_right = 360.0
@@ -183,53 +185,6 @@ offset_bottom = 85.0
 theme = SubResource("Theme_cqxda")
 text = "Select Slot"
 
-[node name="Background" type="Panel" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_atach")
-
-[node name="SaveManager" parent="." node_paths=PackedStringArray("DateLabel", "HourLabel", "GameDateTimeLabel", "GameHourTimeLabel", "o2Label", "H2Label", "EnergyLabel", "MetalLabel", "OrganicsLabel", "GameTypeLabel", "WaterLabel") instance=ExtResource("15_gsdy1")]
-DateLabel = NodePath("../Save1/LastTimeContainer/LastDateTimeSaved")
-HourLabel = NodePath("../Save1/LastHourTimeSaved")
-GameDateTimeLabel = NodePath("../Save1/GameTimeContainer/GameDateTimeLabel")
-GameHourTimeLabel = NodePath("../Save1/GameTimeContainer/GameHourTimeLabel")
-o2Label = NodePath("../Save1/ResourcesContainer/O2")
-H2Label = NodePath("../Save1/ResourcesContainer/H2")
-EnergyLabel = NodePath("../Save1/ResourcesContainer/Energy")
-MetalLabel = NodePath("../Save1/ResourcesContainer/Metal")
-OrganicsLabel = NodePath("../Save1/ResourcesContainer/Organics")
-GameTypeLabel = NodePath("../Save1/GameType")
-WaterLabel = NodePath("../Save1/ResourcesContainer/Water")
-
-[node name="SaveManager2" parent="." node_paths=PackedStringArray("DateLabel", "HourLabel", "GameDateTimeLabel", "GameHourTimeLabel", "o2Label", "H2Label", "EnergyLabel", "MetalLabel", "OrganicsLabel", "GameTypeLabel", "WaterLabel") instance=ExtResource("15_gsdy1")]
-DateLabel = NodePath("../Save2/LastTimeContainer/LastDateTimeSaved")
-HourLabel = NodePath("../Save2/LastHourTimeSaved")
-GameDateTimeLabel = NodePath("../Save2/GameTimeContainer/GameDateTimeLabel")
-GameHourTimeLabel = NodePath("../Save2/GameTimeContainer/GameHourTimeLabel")
-o2Label = NodePath("../Save2/ResourcesContainer/O2")
-H2Label = NodePath("../Save2/ResourcesContainer/H2")
-EnergyLabel = NodePath("../Save2/ResourcesContainer/Energy")
-MetalLabel = NodePath("../Save2/ResourcesContainer/Metal")
-OrganicsLabel = NodePath("../Save2/ResourcesContainer/Organics")
-GameTypeLabel = NodePath("../Save2/GameType")
-WaterLabel = NodePath("../Save2/ResourcesContainer/Water")
-
-[node name="SaveManager3" parent="." node_paths=PackedStringArray("DateLabel", "HourLabel", "GameDateTimeLabel", "GameHourTimeLabel", "o2Label", "H2Label", "EnergyLabel", "MetalLabel", "OrganicsLabel", "GameTypeLabel", "WaterLabel") instance=ExtResource("15_gsdy1")]
-DateLabel = NodePath("../Save3/LastTimeContainer/LastDateTimeSaved")
-HourLabel = NodePath("../Save3/LastHourTimeSaved")
-GameDateTimeLabel = NodePath("../Save3/GameTimeContainer/GameDateTimeLabel")
-GameHourTimeLabel = NodePath("../Save3/GameTimeContainer/GameHourTimeLabel")
-o2Label = NodePath("../Save3/ResourcesContainer/O2")
-H2Label = NodePath("../Save3/ResourcesContainer/H2")
-EnergyLabel = NodePath("../Save3/ResourcesContainer/Energy")
-MetalLabel = NodePath("../Save3/ResourcesContainer/Metal")
-OrganicsLabel = NodePath("../Save3/ResourcesContainer/Organics")
-GameTypeLabel = NodePath("../Save3/GameType")
-WaterLabel = NodePath("../Save3/ResourcesContainer/Water")
-
 [node name="Save2" type="Button" parent="."]
 offset_left = 24.0
 offset_top = 261.0
@@ -238,6 +193,7 @@ offset_bottom = 431.0
 theme = ExtResource("2_tmdnt")
 
 [node name="GameType" type="Label" parent="Save2"]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 42.0
 offset_right = 360.0
@@ -374,6 +330,7 @@ offset_bottom = 610.0
 theme = ExtResource("2_tmdnt")
 
 [node name="GameType" type="Label" parent="Save3"]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 42.0
 offset_right = 360.0
@@ -501,3 +458,145 @@ theme = ExtResource("5_m3isi")
 text = "18:20
 
 "
+
+[node name="SaveManager" parent="." node_paths=PackedStringArray("DateLabel", "HourLabel", "GameDateTimeLabel", "GameHourTimeLabel", "o2Label", "H2Label", "EnergyLabel", "MetalLabel", "OrganicsLabel", "GameTypeLabel", "WaterLabel") instance=ExtResource("15_gsdy1")]
+DateLabel = NodePath("../Save1/LastTimeContainer/LastDateTimeSaved")
+HourLabel = NodePath("../Save1/LastHourTimeSaved")
+GameDateTimeLabel = NodePath("../Save1/GameTimeContainer/GameDateTimeLabel")
+GameHourTimeLabel = NodePath("../Save1/GameTimeContainer/GameHourTimeLabel")
+o2Label = NodePath("../Save1/ResourcesContainer/O2")
+H2Label = NodePath("../Save1/ResourcesContainer/H2")
+EnergyLabel = NodePath("../Save1/ResourcesContainer/Energy")
+MetalLabel = NodePath("../Save1/ResourcesContainer/Metal")
+OrganicsLabel = NodePath("../Save1/ResourcesContainer/Organics")
+GameTypeLabel = NodePath("../Save1/GameType")
+WaterLabel = NodePath("../Save1/ResourcesContainer/Water")
+
+[node name="SaveManager2" parent="." node_paths=PackedStringArray("DateLabel", "HourLabel", "GameDateTimeLabel", "GameHourTimeLabel", "o2Label", "H2Label", "EnergyLabel", "MetalLabel", "OrganicsLabel", "GameTypeLabel", "WaterLabel") instance=ExtResource("15_gsdy1")]
+DateLabel = NodePath("../Save2/LastTimeContainer/LastDateTimeSaved")
+HourLabel = NodePath("../Save2/LastHourTimeSaved")
+GameDateTimeLabel = NodePath("../Save2/GameTimeContainer/GameDateTimeLabel")
+GameHourTimeLabel = NodePath("../Save2/GameTimeContainer/GameHourTimeLabel")
+o2Label = NodePath("../Save2/ResourcesContainer/O2")
+H2Label = NodePath("../Save2/ResourcesContainer/H2")
+EnergyLabel = NodePath("../Save2/ResourcesContainer/Energy")
+MetalLabel = NodePath("../Save2/ResourcesContainer/Metal")
+OrganicsLabel = NodePath("../Save2/ResourcesContainer/Organics")
+GameTypeLabel = NodePath("../Save2/GameType")
+WaterLabel = NodePath("../Save2/ResourcesContainer/Water")
+
+[node name="SaveManager3" parent="." node_paths=PackedStringArray("DateLabel", "HourLabel", "GameDateTimeLabel", "GameHourTimeLabel", "o2Label", "H2Label", "EnergyLabel", "MetalLabel", "OrganicsLabel", "GameTypeLabel", "WaterLabel") instance=ExtResource("15_gsdy1")]
+DateLabel = NodePath("../Save3/LastTimeContainer/LastDateTimeSaved")
+HourLabel = NodePath("../Save3/LastHourTimeSaved")
+GameDateTimeLabel = NodePath("../Save3/GameTimeContainer/GameDateTimeLabel")
+GameHourTimeLabel = NodePath("../Save3/GameTimeContainer/GameHourTimeLabel")
+o2Label = NodePath("../Save3/ResourcesContainer/O2")
+H2Label = NodePath("../Save3/ResourcesContainer/H2")
+EnergyLabel = NodePath("../Save3/ResourcesContainer/Energy")
+MetalLabel = NodePath("../Save3/ResourcesContainer/Metal")
+OrganicsLabel = NodePath("../Save3/ResourcesContainer/Organics")
+GameTypeLabel = NodePath("../Save3/GameType")
+WaterLabel = NodePath("../Save3/ResourcesContainer/Water")
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_atach")
+
+[node name="NewGameWindow" type="Window" parent="."]
+title = "Começar Novo Jogo"
+position = Vector2i(365, 300)
+size = Vector2i(395, 150)
+
+[node name="Text" type="Label" parent="NewGameWindow"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_right = 81.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Confirma Novo Jogo?"
+
+[node name="Confirm" type="Button" parent="NewGameWindow"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.06
+offset_right = 65.64
+offset_bottom = -0.904999
+grow_vertical = 0
+theme = ExtResource("17_rcc8e")
+text = "SIM"
+icon_alignment = 1
+
+[node name="Cancel" type="Button" parent="NewGameWindow"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.17
+offset_top = -46.32
+offset_right = -3.53
+offset_bottom = -0.170013
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("17_rcc8e")
+text = "NÃO"
+
+[node name="ContinueGameWindow" type="Window" parent="."]
+auto_translate_mode = 1
+title = "Carregar"
+position = Vector2i(365, 300)
+size = Vector2i(395, 150)
+
+[node name="Text" type="Label" parent="ContinueGameWindow"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_right = 81.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Carregar Jogo Salvo?"
+
+[node name="Confirm" type="Button" parent="ContinueGameWindow"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.06
+offset_right = 65.64
+offset_bottom = -0.904999
+grow_vertical = 0
+theme = ExtResource("17_rcc8e")
+text = "SIM"
+icon_alignment = 1
+
+[node name="Cancel" type="Button" parent="ContinueGameWindow"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.285
+offset_top = -46.41
+offset_right = -0.644989
+offset_bottom = -0.26001
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("17_rcc8e")
+text = "NÃO"
+
+[connection signal="pressed" from="Save1" to="." method="_on_save_1_pressed"]
+[connection signal="pressed" from="Save2" to="." method="_on_save_2_pressed"]
+[connection signal="pressed" from="Save3" to="." method="_on_save_3_pressed"]
+[connection signal="close_requested" from="NewGameWindow" to="." method="_on_new_game_close_requested"]
+[connection signal="pressed" from="NewGameWindow/Confirm" to="." method="_on_new_game_windoow_confirm_pressed"]
+[connection signal="pressed" from="NewGameWindow/Cancel" to="." method="_on_new_game_window_cancel_pressed"]
+[connection signal="close_requested" from="ContinueGameWindow" to="." method="_on_continue_game_close_requested"]
+[connection signal="pressed" from="ContinueGameWindow/Confirm" to="." method="_on_continue_window_confirm_pressed"]
+[connection signal="pressed" from="ContinueGameWindow/Cancel" to="." method="_on_continue_window_cancel_pressed"]
