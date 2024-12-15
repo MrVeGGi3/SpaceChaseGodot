@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cv2smlod0tns4"
+path="res://.godot/imported/MMSEV.obj-0cbf5e8d36dfa8ba42110009f33aabdc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MMSEV.obj-0cbf5e8d36dfa8ba42110009f33aabdc.mesh"]
+
+source_file="res://Assets/models/Level/MMSEV/MMSEV.obj"
+dest_files=["res://.godot/imported/MMSEV.obj-0cbf5e8d36dfa8ba42110009f33aabdc.mesh", "res://.godot/imported/MMSEV.obj-0cbf5e8d36dfa8ba42110009f33aabdc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

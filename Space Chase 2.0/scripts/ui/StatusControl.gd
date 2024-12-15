@@ -1,50 +1,53 @@
 extends Control
 
-@export var Player : Player 
+@export var player : Player
 @onready var hora_minutos = $HourDisplay/HoraMinutos
 @onready var dia_month = $HourDisplay/DiaMonth
 
-#Variáveis de Tempo do Game Manager
-@onready var dia = GameManager.dia
-@onready var mes = GameManager.mes
-@onready var hora = GameManager.hora
-@onready var minutos = GameManager.minutos
-
-#Variáveis de Status do Game Manager
-@onready var water = GameManager.water
-@onready var o2 = GameManager.oxigen
-@onready var h2 = GameManager.hidrogen
-@onready var energy = GameManager.energy
-@onready var metal = GameManager.metal
-@onready var food = GameManager.organics
-
 #labels
-@onready var water_label = $StatusDisplay/Water
-@onready var o2_label = $StatusDisplay/O2
-@onready var h2_label = $StatusDisplay/H2
-@onready var energy_label = $StatusDisplay/Energy
-@onready var metal_label = $StatusDisplay/Metal
-@onready var food_label = $StatusDisplay/Food
-#variaveis do player
+@onready var water_label = $ResourcesBackground/WaterVBoxContainer/Water
+@onready var o2_label = $ResourcesBackground/O2VBoxContainer/O2
+@onready var h2_label = $ResourcesBackground/H2VBoxContainer/H2
+@onready var energy_label = $ResourcesBackground/EnergyVBoxContainer/Energy
+@onready var metal_label = $ResourcesBackground/MetalVBoxContainer/Metal
+@onready var food_label = $ResourcesBackground/FoodVBoxContainer/Food
 
-@onready var p_thirsty = Player.thirsty
-@onready var p_hungry = Player.hungry
-@onready var p_oxigen = Player.oxigen_player
-@onready var p_crazyness = Player.crazyness
-@onready var p_sleepy = Player.sleepy
+@onready var thirsty_progress_bar: ProgressBar = $StatusBackground/ThirstyVBoxContainer/ThirstyProgressBar
+@onready var hungry_progress_bar: ProgressBar = $StatusBackground/HungryVBoxContainer/HungryProgressBar
+@onready var oxygen_progress_bar: ProgressBar = $StatusBackground/OxygenVBoxContainer2/OxygenProgressBar
+@onready var tired_progress_bar: ProgressBar = $StatusBackground/TiredVBoxContainer3/TiredProgressBar
+@onready var crazyness_progress_bar: ProgressBar = $StatusBackground/CrazynessVBoxContainer4/CrazynessProgressBar
+@onready var time_scale_label: Label = $TimeScaleLabel
+
+@onready var play_time_button: Button = $GameTimeDisplayBackground/TimeDisplay/PlayTime
+@onready var pause_time_button: Button = $GameTimeDisplayBackground/TimeDisplay/PauseTime
+@onready var accelerate_time_button: Button = $GameTimeDisplayBackground/TimeDisplay/AccelerateTime
+
 
 
 #booleanas de controle de status
-@onready var is_time_double : bool = false
 @onready var is_paused : bool = false
 @onready var is_time_slowed : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
+	var dia = GameManager.dia
+	var mes = GameManager.mes
+	var hora = GameManager.hora
+	var minutos = GameManager.minutos
+	
+	var water = GameManager.water
+	var o2 = GameManager.oxigen
+	var h2 = GameManager.hidrogen
+	var energy = GameManager.energy
+	var metal = GameManager.metal
+	var food = GameManager.organics
+	
+	
 	hora_minutos.text = "%02d:%02d" % [hora, minutos]
 	dia_month.text = "%02d/%02d" % [dia, mes]
 	water_label.text = "%d L" % [water]
@@ -54,6 +57,13 @@ func _process(delta):
 	metal_label.text = "%d Kg" % [metal]
 	food_label.text = "%d Kg" % [food]
 	
+	thirsty_progress_bar.value = player.thirsty
+	hungry_progress_bar.value = player.hungry
+	oxygen_progress_bar.value = player.oxigen_player
+	tired_progress_bar.value = player.sleepy
+	crazyness_progress_bar.value = player.crazyness
+	
+	time_scale_label.text = str("Escala de Tempo:", Engine.time_scale, " x")
 	#A amostra dos status do player serão mostrados em 4 cores diferentes:
 	#Verde = Ok, Amarelo = Mais ou Menos, Vermelho = Risco, Preto = Prestes ao Game Over
 	#Condições de Game Over:
@@ -66,38 +76,34 @@ func _process(delta):
 	#if p_oxigen <= 100 and p_oxigem >= 50:
 	#   status_oxigen
 	
-func _on_acelerate_time_pressed():
-	if not is_time_double and not is_time_slowed:
-		Engine.time_scale = 2.0
-		is_time_double = true
+	
+
+func _on_play_time_pressed() -> void:
+	if is_paused:
+		Engine.time_scale = 1.0
+		get_tree().paused = false
+		pause_time_button.normal
+		accelerate_time_button.normal
 	else:
 		return
-		
-	if is_time_double and not is_time_slowed:
-		Engine.time_scale = 1.0
-		is_time_double = false
-	else: 
-		return
 
 
-func _on_pause_time_pressed():
-	if not is_paused:
+
+func _on_pause_time_pressed() -> void:
+	if !is_paused:
 		get_tree().paused = true
 		is_paused = true
-	if is_paused:
-		get_tree().paused = false
-		is_paused = false
-		
+		play_time_button.normal
+		accelerate_time_button.normal
+	else: 
+		return
+	
 
-func _on_slow_time_pressed():
-	if not is_time_slowed and not is_time_double:
-		Engine.time_scale = 0.25
-		is_time_slowed = true
+func _on_accelerate_time_pressed() -> void:
+	if !is_paused:
+		Engine.time_scale += 0.5
+		pause_time_button.normal
+		play_time_button.normal
 	else:
 		return
 		
-	if is_time_slowed and not is_time_double:
-		Engine.time_scale = 1.0
-		is_time_slowed = false
-	else: 
-		return

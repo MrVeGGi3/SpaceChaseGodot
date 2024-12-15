@@ -2,7 +2,6 @@ class_name DataManipulator
 extends Node
 
 @onready var player : Player = get_tree().get_first_node_in_group("player")
-@onready var manager : GameManager = get_tree().get_first_node_in_group("manager")
 
 @export var DateLabel : Label
 @export var HourLabel : Label
@@ -42,23 +41,23 @@ func _save(index):
 		"speed": round(player.speed)		
 	}
 	var resources_var ={
-		"oxygen": round(manager.oxigen),
-		"hidrogen": round(manager.hidrogen),
-		"energy": round(manager.energy),
-		"fuel": round(manager.fuel),
-		"metal": round(manager.metal),
-		"water": round(manager.water),
-		"organics": round(manager.organics)
+		"oxygen": round(GameManager.oxigen),
+		"hidrogen": round(GameManager.hidrogen),
+		"energy": round(GameManager.energy),
+		"fuel": round(GameManager.fuel),
+		"metal": round(GameManager.metal),
+		"water": round(GameManager.water),
+		"organics": round(GameManager.organics)
 	}
 	
 	var gametype_var={
-		"type": round(manager.game_type)
+		"type": round(GameManager.game_type)
 	}
 	var gametime_var={
-		"day": round(manager.day),
-		"month": round(manager.month),
-		"hour": round(manager.hour),
-		"minutes": round(manager.minutes)
+		"day": round(GameManager.day),
+		"month": round(GameManager.month),
+		"hour": round(GameManager.hour),
+		"minutes": round(GameManager.minutes)
 	}
 	
 	var time_var={
@@ -102,19 +101,19 @@ func _load(index):
 	player.is_outside = worldData.outside
 	player.speed = worldData.speed
 	
-	manager.oxygen = worldData.oxygen
-	manager.hidrogen = worldData.hidrogen
-	manager.energy = worldData.energy
-	manager.metal = worldData.metal
-	manager.water = worldData.water
-	manager.organics = worldData.organics
+	GameManager.oxygen = worldData.oxygen
+	GameManager.hidrogen = worldData.hidrogen
+	GameManager.energy = worldData.energy
+	GameManager.metal = worldData.metal
+	GameManager.water = worldData.water
+	GameManager.organics = worldData.organics
 	
-	manager.game_type = worldData.type
+	GameManager.game_type = worldData.type
 	
-	manager.day = worldData.day
-	manager.hour = worldData.hour
-	manager.month = worldData.month
-	manager.minutes = worldData.minutes
+	GameManager.day = worldData.day
+	GameManager.hour = worldData.hour
+	GameManager.month = worldData.month
+	GameManager.minutes = worldData.minutes
 
 func _showSlot(index):
 	var jsonFile = FileAccess.open(slots[index], FileAccess.READ)

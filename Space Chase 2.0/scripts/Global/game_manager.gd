@@ -23,6 +23,11 @@ extends Node
 
 var time_elapsed: float = 0.0
 var minute_per_second = 24 
+
+@export_category("Control")
+var slot_index : int
+var type_game 
+var is_new_game : bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

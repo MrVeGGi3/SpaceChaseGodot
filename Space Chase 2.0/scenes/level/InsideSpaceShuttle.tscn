@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://g6gu7u4wqlc0" path="res://Assets/images/backgrounds/CabinSpaceShuttle.png" id="1_do0ql"]
 
 [node name="InsideSpaceShuttle" type="Node2D"]
+position = Vector2(-2, 0)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15

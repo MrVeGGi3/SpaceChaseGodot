@@ -510,6 +510,7 @@ theme = SubResource("Theme_atach")
 title = "Começar Novo Jogo"
 position = Vector2i(365, 300)
 size = Vector2i(395, 150)
+visible = false
 
 [node name="Text" type="Label" parent="NewGameWindow"]
 anchors_preset = 5
@@ -553,6 +554,7 @@ auto_translate_mode = 1
 title = "Carregar"
 position = Vector2i(365, 300)
 size = Vector2i(395, 150)
+visible = false
 
 [node name="Text" type="Label" parent="ContinueGameWindow"]
 anchors_preset = 5
