@@ -28,113 +28,103 @@ var slots = [slot_1, slot_2, slot_3]
 
 func _save(index):
 	var current_time = Time.get_datetime_dict_from_system()
-	var player_var ={
-		"x": round(player.position.x),
-		"y": round(player.position.y),
-		"scene": round(player.get_current_scene()),
-		"thirsty": round(player.thirsty),
-		"hungry": round(player.hungry),
-		"sleepy": round(player.sleepy),
-		"crazyness": round(player.sleepy),
-		"oxygen_tank": round(player.oxigen_player),
-		"outside": round(player.is_outside),
-		"speed": round(player.speed)		
-	}
-	var resources_var ={
-		"oxygen": round(GameManager.oxigen),
-		"hidrogen": round(GameManager.hidrogen),
-		"energy": round(GameManager.energy),
-		"fuel": round(GameManager.fuel),
-		"metal": round(GameManager.metal),
-		"water": round(GameManager.water),
-		"organics": round(GameManager.organics)
-	}
-	
-	var gametype_var={
-		"type": round(GameManager.game_type)
-	}
-	var gametime_var={
-		"day": round(GameManager.day),
-		"month": round(GameManager.month),
-		"hour": round(GameManager.hour),
-		"minutes": round(GameManager.minutes)
-	}
-	
-	var time_var={
-		"t_day": round(current_time.day),
-		"t_month": round(current_time.month),
-		"t_year": round(current_time.year),
-		"t_hour": round(current_time.hour),
-		"t_minutes": round(current_time.minutes)
-	}
-	
-	var jsonPlayerString = JSON.stringify(player_var)
-	var jsonResourcesString = JSON.stringify(resources_var)
-	var jsonGameType = JSON.stringify(gametime_var)
-	var jsonGametimeString = JSON.stringify(gametime_var)
-	var jsonTime = JSON.stringify(time_var)
+	var data = {
+		"player": {
+			"position": player.position,
+			"thirsty": player.thirsty,
+			"hungry": player.hungry,
+			"sleepy": player.sleepy,
+			"crazyness": player.sleepy,
+			"oxygen_tank": player.oxigen_player,
+			"outside": player.is_outside,
+			"speed": player.speed		
+		},
+	 	"resources":{
+			"oxygen": GameManager.oxigen,
+			"hidrogen":GameManager.hidrogen,
+			"energy": GameManager.energy,
+			"fuel": GameManager.fuel,
+			"metal": GameManager.metal,
+			"water": GameManager.water,
+			"organics": GameManager.organics
+		},
+	 	"gametype":{
+			"type": GameManager.game_type
+		},
+	 	"gametime":{
+			"day": GameManager.day,
+			"month": GameManager.month,
+			"hour": GameManager.hour,
+			"minutes": GameManager.minutes
+		},
+		"time_var":{
+			"t_day": current_time.day,
+			"t_month": current_time.month,
+			"t_year": current_time.year,
+			"t_hour": current_time.hour,
+			"t_minutes": current_time.minutes
+		},
+		}
+
+	var jsonData = JSON.stringify(data)
 	var jsonFile = FileAccess.open(slots[index], FileAccess.WRITE)
 	
-	jsonFile.store_line(jsonPlayerString)
-	jsonFile.store_line(jsonResourcesString)
-	jsonFile.store_line(jsonGameType)
-	jsonFile.store_line(jsonGametimeString)
-	jsonFile.store_line(jsonTime)
+	jsonFile.store_line(jsonData)
 	
 	jsonFile.close()
 
 func _load(index):
 	var jsonFile = FileAccess.open(slots[index], FileAccess.READ)
-	var jsonPlayer = jsonFile.get_as_text()
+	var jsonData = jsonFile.get_as_text()
 	jsonFile.close()
-	var worldData = JSON.parse_string(jsonPlayer)
+	var data = JSON.parse_string(jsonData)
 	
-	get_tree().change_scene_to_file(worldData.scene)
+	player.position = data.player.position 
+	player.thirsty = data.player.thirsty
+	player.hungry = data.player.hungry
+	player.sleepy = data.player.sleepy
+	player.crazyness = data.player.crazyness
+	player.oxigen_player = data.player.oxigen_tank
+	player.is_outside = data.player.is_outside
+	player.speed = data.player.speed
 	
-	player.position.x = worldData.x
-	player.position.y = worldData.y
-	player.thirsty = worldData.thirsty
-	player.hungry = worldData.hungry
-	player.sleepy = worldData.sleepy
-	player.crazyness = worldData.crazyness
-	player.oxigen_player = worldData.crazyness
-	player.is_outside = worldData.outside
-	player.speed = worldData.speed
+	GameManager.oxygen = data.resources.oxygen
+	GameManager.hidrogen = data.resources.hidrogen
+	GameManager.energy = data.resources.energy
+	GameManager.metal = data.resources.metal
+	GameManager.water = data.resources.water
+	GameManager.organics = data.resources.organics
 	
-	GameManager.oxygen = worldData.oxygen
-	GameManager.hidrogen = worldData.hidrogen
-	GameManager.energy = worldData.energy
-	GameManager.metal = worldData.metal
-	GameManager.water = worldData.water
-	GameManager.organics = worldData.organics
+	GameManager.game_type = data.gametype.type
 	
-	GameManager.game_type = worldData.type
-	
-	GameManager.day = worldData.day
-	GameManager.hour = worldData.hour
-	GameManager.month = worldData.month
-	GameManager.minutes = worldData.minutes
+	GameManager.day = data.gametime.day
+	GameManager.hour = data.gametime.hour
+	GameManager.month = data.gametime.month
+	GameManager.minutes = data.gametime.minutes
 
 func _showSlot(index):
 	var jsonFile = FileAccess.open(slots[index], FileAccess.READ)
-	var jsonPlayer = jsonFile.get_as_text()
+	var jsonData = jsonFile.get_as_text()
 	jsonFile.close()
-	var worldData = JSON.parse_string(jsonPlayer)
+	var data = JSON.parse_string(jsonData)
 	
-	if worldData == null:
-		for label in labels:
-			label.text = str("0")
-		GameTypeLabel.text = str("Não Criado")
+	if data == null:
+		_clear_labels()
+		return
 	
-	DateLabel.text = str("%d-%02-%02" % [worldData.t_year, worldData.t_month, worldData.t_day])
-	HourLabel.text = str("%02:%02" % [worldData.t_hour, worldData.t_minutes])
-	o2Label.text = str(worldData.oxygen)
-	H2Label.text = str(worldData.hidrogen)
-	EnergyLabel.text = str(worldData.energy)
-	MetalLabel.text = str(worldData.metal)
-	OrganicsLabel.text = str(worldData.organics)
-	GameTypeLabel.text = str(worldData.type)
-	WaterLabel.text = str(worldData.water)
-	GameDateTimeLabel.text = str("%02-%02" % [worldData.month, worldData.day])
-	GameHourTimeLabel.text = str("%02:%02" % [worldData.hour, worldData.minutes])
+	DateLabel.text = str("%d-%02-%02" % [data.time_var.t_year, data.time_var.t_month, data.time_var.t_day])
+	HourLabel.text = str("%02:%02" % [data.time_var.t_hour, data.time_var.t_minutes])
+	o2Label.text = str(data.resources.oxygen)
+	H2Label.text = str(data.resources.hidrogen)
+	EnergyLabel.text = str(data.resources.energy)
+	MetalLabel.text = str(data.resources.metal)
+	OrganicsLabel.text = str(data.resources.organics)
+	GameTypeLabel.text = str(data.gametype.type)
+	WaterLabel.text = str(data.resources.water)
+	GameDateTimeLabel.text = str("%02-%02" % [data.gametime.month, data.gametime.day])
+	GameHourTimeLabel.text = str("%02:%02" % [data.gametime.hour, data.gametime.minutes])
 	
+func _clear_labels():
+	for label in [DateLabel,HourLabel, o2Label, H2Label, EnergyLabel, MetalLabel, OrganicsLabel, WaterLabel, GameDateTimeLabel, GameHourTimeLabel]:
+		label.text = "0"
+	GameTypeLabel.text = "Não Criado"	

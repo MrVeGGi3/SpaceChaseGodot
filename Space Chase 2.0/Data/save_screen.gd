@@ -10,12 +10,11 @@ extends Node2D
 
 var LoadingScreen = "res://scenes/menu/LoadingScreen.tscn"
 
-var manager_nodes = [save_manager_1, save_manager_2, save_manager_3]
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	new_game_window.hide()
 	continue_game_window.hide()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

@@ -105,10 +105,10 @@ text = "Um ano em marte equivale a 600 dias terrestres?"
 horizontal_alignment = 1
 
 [node name="ChangeCuriosity" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 
 [node name="ChangeScene" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
 [connection signal="timeout" from="ChangeCuriosity" to="." method="_on_change_curiosity_timeout"]
 [connection signal="timeout" from="ChangeScene" to="." method="_on_change_scene_timeout"]

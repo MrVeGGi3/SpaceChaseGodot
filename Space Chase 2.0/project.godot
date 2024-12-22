@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://scripts/Global/game_manager.gd"
+GameManager="*res://scripts/Global/GameManager.gd"
 
 [input]
 

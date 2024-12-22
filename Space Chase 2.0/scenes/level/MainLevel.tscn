@@ -1,7 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://fq3h44myryer"]
 
 [ext_resource type="Script" path="res://scripts/level/main_level.gd" id="1_0ohvt"]
-[ext_resource type="PackedScene" uid="uid://cs5l5q6txofc1" path="res://scenes/manager.tscn" id="2_oreiw"]
 [ext_resource type="PackedScene" uid="uid://dx4ckn55atgno" path="res://scenes/Player/Player.tscn" id="3_lyp37"]
 [ext_resource type="PackedScene" uid="uid://w8if7rx07dgx" path="res://scenes/UI/StatusControl.tscn" id="4_kx0l0"]
 [ext_resource type="Script" path="res://Data/save_screen.gd" id="5_ew62o"]
@@ -21,6 +20,7 @@
 [ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="19_0x7jq"]
 [ext_resource type="PackedScene" uid="uid://egtw8jclboos" path="res://scenes/SaveLoad/SaveManager.tscn" id="20_52mor"]
 [ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="21_l44ek"]
+[ext_resource type="PackedScene" uid="uid://wsgrpqkfr77x" path="res://scenes/objects/SpaceShuttle.tscn" id="22_0jwsq"]
 
 [sub_resource type="Theme" id="Theme_6yx32"]
 Label/colors/font_color = Color(0.933333, 1, 0, 1)
@@ -44,9 +44,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_q0v65")
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_0ohvt")
 
-[node name="Manager" parent="." instance=ExtResource("2_oreiw")]
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_lyp37")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_lyp37")]
 position = Vector2(454, 299)
 
 [node name="StatusControl" parent="." instance=ExtResource("4_kx0l0")]
@@ -609,6 +607,10 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("21_l44ek")
 text = "NÃO"
+
+[node name="SpaceShuttle" parent="." instance=ExtResource("22_0jwsq")]
+position = Vector2(198, 144)
+scale = Vector2(1.51391, 1.51391)
 
 [connection signal="pressed" from="SaveLoadScreen/Save1" to="SaveLoadScreen" method="_on_save_1_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/Save2" to="SaveLoadScreen" method="_on_save_2_pressed"]
