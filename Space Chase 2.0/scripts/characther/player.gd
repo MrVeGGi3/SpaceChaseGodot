@@ -6,11 +6,11 @@ extends CharacterBody2D
 @onready var is_moving : bool = false
 @onready var target_position : Vector2
 @export_category("Status do Player")
-@onready var oxigen_player : int = 100
-@onready var thirsty : int = 100
-@onready var hungry : int = 100
-@onready var sleepy : int = 100
-@onready var crazyness : int = 100
+@export var oxigen_tank : float = 100.00
+@export var thirsty : float = 100.00
+@export var hungry : float = 100.00
+@export var sleepy : float = 100.00
+@export var crazyness : float = 100.00
 @export_category("Limite Alcançado")
 @export var is_hungry_limit : bool = false
 @export var is_thirsty_limit : bool = false
@@ -23,9 +23,8 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.pressed:
+		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 			target_position = event.position
-			
 			is_moving = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -40,11 +39,11 @@ func _process(delta):
 		else: 
 			position += movement
 	
-	for value in [oxigen_player, hungry, thirsty, crazyness, sleepy]:
+	for value in [oxigen_tank, hungry, thirsty, crazyness, sleepy]:
 		if value < 0:
 			value = 0
 	
-	if oxigen_player <= 0:
+	if oxigen_tank <= 0:
 		is_oxygen_limit = true
 	if thirsty <= 0 :
 		is_crazyness_limit = true
@@ -63,7 +62,7 @@ func _set_crazyness_limit(state : bool):
 	is_crazyness_limit = state
 func _set_sleepy_limit(state : bool):
 	is_sleepy_limit = state
-func _set_oxygen_limit(state : bool):
+func _set_oxigen_limit(state : bool):
 	is_oxygen_limit = state
 
 func _get_hungry_limit():
@@ -74,7 +73,7 @@ func _get_crazyness_limit():
 	return is_crazyness_limit
 func _get_sleepy_limit():
 	return is_sleepy_limit
-func _get_oxygen_limit():
+func _get_oxigen_limit():
 	return is_oxygen_limit
 	
 

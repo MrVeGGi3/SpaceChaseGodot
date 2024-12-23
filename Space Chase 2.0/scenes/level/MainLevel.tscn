@@ -43,6 +43,14 @@ Panel/styles/panel = SubResource("StyleBoxFlat_q0v65")
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_0ohvt")
+hungry_maximum_time_ = 8040.0
+thirsty_maximum_time = 4320.0
+crazyness_maximum_time = 10080.0
+sleepy_maximum_time = 480.0
+loss_hungry_per_min = 0.2
+loss_thirsty_per_min = 0.4
+loss_crazyness_per_min = 0.01
+loss_sleepy_per_min = 0.06
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_lyp37")]
 position = Vector2(454, 299)
@@ -609,7 +617,7 @@ theme = ExtResource("21_l44ek")
 text = "NÃO"
 
 [node name="SpaceShuttle" parent="." instance=ExtResource("22_0jwsq")]
-position = Vector2(198, 144)
+position = Vector2(1003, 275)
 scale = Vector2(1.51391, 1.51391)
 
 [connection signal="pressed" from="SaveLoadScreen/Save1" to="SaveLoadScreen" method="_on_save_1_pressed"]

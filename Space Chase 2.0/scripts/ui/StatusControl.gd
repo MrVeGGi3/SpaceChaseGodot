@@ -13,11 +13,11 @@ extends Control
 @onready var metal_label = $ResourcesBackground/MetalVBoxContainer/Metal
 @onready var food_label = $ResourcesBackground/FoodVBoxContainer/Food
 
-@onready var thirsty_progress_bar: ProgressBar = $StatusBackground/ThirstyVBoxContainer/ThirstyProgressBar
-@onready var hungry_progress_bar: ProgressBar = $StatusBackground/HungryVBoxContainer/HungryProgressBar
-@onready var oxygen_progress_bar: ProgressBar = $StatusBackground/OxygenVBoxContainer2/OxygenProgressBar
-@onready var tired_progress_bar: ProgressBar = $StatusBackground/TiredVBoxContainer3/TiredProgressBar
-@onready var crazyness_progress_bar: ProgressBar = $StatusBackground/CrazynessVBoxContainer4/CrazynessProgressBar
+@onready var thirsty_progress_bar: ProgressBar = $ThirstyVBoxContainer/ThirstyProgressBar
+@onready var hungry_progress_bar: ProgressBar = $HungryVBoxContainer/HungryProgressBar
+@onready var oxygen_progress_bar: ProgressBar = $OxygenVBoxContainer2/OxygenProgressBar
+@onready var tired_progress_bar: ProgressBar = $TiredVBoxContainer3/TiredProgressBar
+@onready var crazyness_progress_bar: ProgressBar = $CrazynessVBoxContainer4/CrazynessProgressBar
 @onready var time_scale_label: Label = $TimeScaleLabel
 
 
@@ -26,7 +26,6 @@ extends Control
 @onready var accelerate_time_button: Button = $GameTimeDisplayBackground/TimeDisplay/AccelerateTime
 
 #booleanas de controle de status
-@onready var is_paused : bool = false
 @onready var is_time_slowed : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,11 +45,11 @@ func _process(_delta):
 	metal_label.text = "%d Kg" % [GameManager.metal]
 	food_label.text = "%d Kg" % [GameManager.organics]
 	
-	thirsty_progress_bar.value = player.thirsty
-	hungry_progress_bar.value = player.hungry
-	oxygen_progress_bar.value = player.oxigen_player
-	tired_progress_bar.value = player.sleepy
-	crazyness_progress_bar.value = player.crazyness
+	thirsty_progress_bar.value = floori(player.thirsty)
+	hungry_progress_bar.value = floori(player.hungry)
+	oxygen_progress_bar.value = floori(player.oxigen_tank)
+	tired_progress_bar.value = floori(player.sleepy)
+	crazyness_progress_bar.value = floori(player.crazyness)
 	
 	time_scale_label.text = str("Escala de Tempo:", Engine.time_scale, " x")
 	#A amostra dos status do player serão mostrados em 4 cores diferentes:
@@ -65,17 +64,15 @@ func _process(_delta):
 	
 
 func _on_play_time_pressed() -> void:
-	if is_paused:
-		Engine.time_scale = 1.0
-		get_tree().paused = false
+	print("Botão Play Apertado")
+	get_tree().paused = false
+	Engine.time_scale = 1.0
 
 func _on_pause_time_pressed() -> void:
-	if !is_paused:
-		get_tree().paused = true
-		is_paused = true
+	print("Botão Pausa Apertado")
+	get_tree().paused = true
 	
-
 func _on_accelerate_time_pressed() -> void:
-	if !is_paused:
-		Engine.time_scale += 0.5
+	print("Botão Acelerar Apertado")
+	Engine.time_scale += 0.5
 		
