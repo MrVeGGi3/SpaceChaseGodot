@@ -51,7 +51,7 @@ func _process(_delta):
 	tired_progress_bar.value = floori(player.sleepy)
 	crazyness_progress_bar.value = floori(player.crazyness)
 	
-	time_scale_label.text = str("Escala de Tempo:", Engine.time_scale, " x")
+	time_scale_label.text = str("Escala de Tempo: ", Engine.time_scale, " x")
 	#A amostra dos status do player serão mostrados em 4 cores diferentes:
 	#Verde = Ok, Amarelo = Mais ou Menos, Vermelho = Risco, Preto = Prestes ao Game Over
 	#Condições de Game Over:

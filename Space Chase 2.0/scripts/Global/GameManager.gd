@@ -2,13 +2,13 @@ extends Node
 
 @export_category("Control Variables")
 
-@export var oxigen : int #Liters
-@export var hidrogen : int #Liters
-@export var energy : int #A/h
-@export var fuel : int #Liters
-@export var metal : int  #Kg
-@export var water : int #Liters
-@export var organics : int #Kg
+@export var oxigen : float #Liters
+@export var hidrogen : float #Liters
+@export var energy : float #A/h
+@export var fuel : float #Liters
+@export var metal : float  #Kg
+@export var water : float #Liters
+@export var organics : float #Kg
 
 @onready var is_player_outside : bool = false
 @onready var is_player_touching_interaction_area = false

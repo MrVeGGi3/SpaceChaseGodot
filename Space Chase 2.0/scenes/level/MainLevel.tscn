@@ -47,15 +47,17 @@ hungry_maximum_time_ = 8040.0
 thirsty_maximum_time = 4320.0
 crazyness_maximum_time = 10080.0
 sleepy_maximum_time = 480.0
+oxigen_maximum_time = 10.0
+loss_oxigen_external = 0.27
+loss_oxigen_internal = 0.1
 loss_hungry_per_min = 0.2
 loss_thirsty_per_min = 0.4
 loss_crazyness_per_min = 0.01
 loss_sleepy_per_min = 0.06
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_lyp37")]
+z_index = 2
 position = Vector2(454, 299)
-
-[node name="StatusControl" parent="." instance=ExtResource("4_kx0l0")]
 
 [node name="SaveLoadScreen" type="Node2D" parent="."]
 process_mode = 3
@@ -619,6 +621,8 @@ text = "NÃO"
 [node name="SpaceShuttle" parent="." instance=ExtResource("22_0jwsq")]
 position = Vector2(1003, 275)
 scale = Vector2(1.51391, 1.51391)
+
+[node name="StatusControl" parent="." instance=ExtResource("4_kx0l0")]
 
 [connection signal="pressed" from="SaveLoadScreen/Save1" to="SaveLoadScreen" method="_on_save_1_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/Save2" to="SaveLoadScreen" method="_on_save_2_pressed"]

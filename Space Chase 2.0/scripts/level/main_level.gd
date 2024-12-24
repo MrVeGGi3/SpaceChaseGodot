@@ -27,6 +27,9 @@ extends Node2D
 @export var loss_crazyness_per_min : float
 @export var loss_sleepy_per_min : float
 
+@export_category("Loss of Resources per Minute")
+@export var loss_energy_per_min : float
+
 @export_category("Counters")
 var hungry_limit_counter : float
 var thirsty_limit_counter : float
@@ -46,8 +49,10 @@ func _ready() -> void:
 	elif save_load_screen.get_acess_type():
 		_set_new_game_time_value(1, 1, 6, 0, 1)
 	_set_resources_value(2800, 50, 300, 20, 500, 200)
-
-
+	_set_maximum_time_status_limit(8040,4320,10080,480,10)
+	_set_oxygen_loss_per_minute(0.27, 0.1)
+	_set_loss_status_per_minute(0.2, 0.4, 0.01, 0.06)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	GameManager.minutes += delta 
@@ -67,48 +72,12 @@ func _process(delta: float) -> void:
 	player.crazyness -= delta * loss_crazyness_per_min
 	player.sleepy -= delta * loss_sleepy_per_min
 	
-	if GameManager.get_player_outside():
-		player.oxigen_tank -= loss_oxigen_external
-	else:
-		if player.oxigen_tank <= 0:
-			player.oxigen_tank += delta * loss_oxigen_internal
-		GameManager.oxigen -= loss_oxigen_internal * delta * 2
-		
+	_see_player_place_to_oxygen_status(delta)
+	_hungry_countdown_to_game_over(delta)
+	_thirsty_countdown_to_game_over(delta)
+	_sleepy_countdown_to_game_over(delta)
+	_oxigen_countdown_to_game_over(delta)
 	
-	if player._get_hungry_limit():
-		hungry_limit_counter += delta
-		if hungry_limit_counter >= hungry_maximum_time_:
-			GameOver()
-	else:
-		hungry_limit_counter = 0.0
-	
-	if player._get_thirsty_limit():
-		thirsty_limit_counter += delta
-		if thirsty_limit_counter >= thirsty_maximum_time:
-			GameOver()
-	else:
-		thirsty_limit_counter = 0.0
-	
-	if player._get_crazyness_limit():
-		crazyness_limit_counter += delta
-		if crazyness_limit_counter >= crazyness_maximum_time:
-			GameOver()
-	else:
-		crazyness_limit_counter = 0.0
-	
-	if player._get_sleepy_limit():
-		sleepy_limit_counter += delta
-		if sleepy_limit_counter >= sleepy_maximum_time:
-			GameOver()
-	else:
-		sleepy_limit_counter = 0.0
-	
-	if player._get_oxigen_limit():
-		oxigen_limit_counter += delta
-		if oxigen_limit_counter >= oxigen_maximum_time:
-			GameOver()
-	else:
-		oxigen_limit_counter = 0.0
 	
 	
 func _get_save_manager_index():
@@ -121,20 +90,20 @@ func _get_save_manager_index():
 	else:
 		print("Ocorreu um erro aqui")
 
-func _set_resources_value(w : int, o : int, h : int, e : int, m : int, org : int):
-	GameManager.water = w
-	GameManager.oxigen = o
-	GameManager.energy = e
-	GameManager.hidrogen = h
-	GameManager.metal = m
-	GameManager.organics = org
+func _set_resources_value(water : float, oxigen : float, hidrogen : float, energy : float, metal : float, organics : float):
+	GameManager.water = water
+	GameManager.oxigen = oxigen
+	GameManager.energy = energy
+	GameManager.hidrogen = hidrogen
+	GameManager.metal = metal
+	GameManager.organics = organics
 	
-func _set_status_value(ot : int, d : int, f : int, c : int, h : int):
-	player.oxigen_tank = ot
-	player.thirsty = d
-	player.sleepy = f
-	player.crazyness = c
-	player.hungry = h
+func _set_status_value(oxigen_tank : float, thirsty : float, sleepy : float, crazyness : float, hungry : float):
+	player.oxigen_tank = oxigen_tank
+	player.thirsty = thirsty
+	player.sleepy = sleepy
+	player.crazyness = crazyness
+	player.hungry = hungry
 
 func _set_new_game_time_value(month : int, day : int, hour : int, minutes : int, minute_per_second : int):
 	GameManager.month = month
@@ -143,5 +112,62 @@ func _set_new_game_time_value(month : int, day : int, hour : int, minutes : int,
 	GameManager.minutes = minutes
 	GameManager.minute_per_second = minute_per_second
 
+func _see_player_place_to_oxygen_status(delta : float):
+	if GameManager.get_player_outside():
+		player.oxigen_tank -= loss_oxigen_external * delta
+	else:
+		if player.oxigen_tank <= 0:
+			player.oxigen_tank += delta * loss_oxigen_internal
+		GameManager.oxigen -= loss_oxigen_internal * delta * 2
+
+func _hungry_countdown_to_game_over(delta : float):
+	if player._get_hungry_limit():
+		hungry_limit_counter += delta
+		if hungry_limit_counter >= hungry_maximum_time_:
+			GameOver()
+	else:
+		hungry_limit_counter = 0.0
+
+func _thirsty_countdown_to_game_over(delta : float):
+	if player._get_thirsty_limit():
+		thirsty_limit_counter += delta
+		if thirsty_limit_counter >= thirsty_maximum_time:
+			GameOver()
+	else:
+		thirsty_limit_counter = 0.0
+		
+func _sleepy_countdown_to_game_over(delta : float):
+	if player._get_sleepy_limit():
+		sleepy_limit_counter += delta
+		if sleepy_limit_counter >= sleepy_maximum_time:
+			GameOver()
+	else:
+		sleepy_limit_counter = 0.0
+	
+func _oxigen_countdown_to_game_over(delta : float):
+	if player._get_oxigen_limit():
+		oxigen_limit_counter += delta
+		if oxigen_limit_counter >= oxigen_maximum_time:
+			GameOver()
+	else:
+		oxigen_limit_counter = 0.0
+
+func _set_maximum_time_status_limit(hungry_limit : float, thirsty_limit : float, crazyness_limit : float, sleepy_limit : float, oxigen_limit : float):
+	hungry_maximum_time_ = hungry_limit
+	thirsty_maximum_time = thirsty_limit
+	crazyness_maximum_time = crazyness_limit
+	sleepy_maximum_time = sleepy_limit
+	oxigen_maximum_time = oxigen_limit
+
+func _set_oxygen_loss_per_minute(external : float, internal : float):
+	loss_oxigen_external = external
+	loss_oxigen_internal = internal
+
+func _set_loss_status_per_minute(hungry_loss : float, thirsty_loss : float, crazyness_loss : float, sleepy_loss : float):
+	loss_hungry_per_min = hungry_loss
+	loss_thirsty_per_min = thirsty_loss
+	loss_crazyness_per_min = crazyness_loss
+	loss_sleepy_per_min = sleepy_loss
+	
 func GameOver():
 	pass

@@ -40,10 +40,10 @@ debug_color = Color(0.931341, 0.164308, 0.513493, 0.42)
 [node name="CanInteractUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 81.0
-offset_top = 27.0
-offset_right = 121.0
-offset_bottom = 67.0
+offset_left = 1.0
+offset_top = 24.0
+offset_right = 41.0
+offset_bottom = 64.0
 
 [node name="UISprite" type="Sprite2D" parent="CanInteractUI"]
 texture = ExtResource("3_nf8sv")
