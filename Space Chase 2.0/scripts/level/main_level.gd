@@ -179,10 +179,12 @@ func _get_hungry_loss_per_minute():
 	return loss_hungry_per_min
 func _get_sleepy_loss_per_minute():
 	return loss_sleepy_per_min
-func get_crazyness_loss_per_minute():
+func _get_crazyness_loss_per_minute():
 	return loss_crazyness_per_min
-func get_loss_energy_per_minute():
+func _get_loss_energy_per_minute():
 	return loss_energy_per_min
+func _get_thirsty_loss_per_minute():
+	return loss_thirsty_per_min
 
 func _hide_UI_and_levels():
 	inside_space_shuttle.hide()

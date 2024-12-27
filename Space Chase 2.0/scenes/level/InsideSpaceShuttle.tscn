@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://htmt4jmpujlc"]
+[gd_scene load_steps=28 format=3 uid="uid://htmt4jmpujlc"]
 
 [ext_resource type="Script" path="res://scripts/level/inside_space_shuttle.gd" id="1_afms6"]
 [ext_resource type="Texture2D" uid="uid://d0lmktf0c2e4u" path="res://Assets/images/backgrounds/Space Shuttle.png" id="1_nx75k"]
@@ -26,6 +26,9 @@ texture = ExtResource("4_rapy5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4o26l"]
 texture = ExtResource("6_lpea7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5r4d3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wd8y3"]
 texture = ExtResource("7_alp4c")
@@ -195,6 +198,7 @@ offset_right = 909.0
 offset_bottom = 342.0
 scale = Vector2(39.3097, 39.3097)
 theme_override_styles/hover = SubResource("StyleBoxTexture_4o26l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5r4d3")
 theme_override_styles/normal = SubResource("StyleBoxTexture_wd8y3")
 
 [node name="FunButton" type="Button" parent="."]

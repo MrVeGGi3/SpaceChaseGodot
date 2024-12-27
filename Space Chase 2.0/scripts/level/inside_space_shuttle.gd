@@ -43,6 +43,7 @@ func _on_go_cabin_button_pressed() -> void:
 
 func _on_go_out_button_pressed() -> void:
 	visible = false
+	GameManager.is_player_outside = true
 
 func _add_sleepy_status(sleepy : float):
 	add_time_when_sleeping = (100 - sleepy) * 16.00
@@ -51,7 +52,7 @@ func _add_sleepy_status(sleepy : float):
 	GameManager.minutes += add_time_when_sleeping
 	player.sleepy = 100.00
 	player.hungry -= add_time_when_sleeping* main_level._get_hungry_loss_per_minute()
-	player.thirsty -= add_time_when_sleeping * main_level._get_thirsy_loss_per_minute()
+	player.thirsty -= add_time_when_sleeping * main_level._get_thirsty_loss_per_minute()
 	player.crazyness += add_time_when_sleeping * main_level._get_crazyness_loss_per_minute()
 		
 

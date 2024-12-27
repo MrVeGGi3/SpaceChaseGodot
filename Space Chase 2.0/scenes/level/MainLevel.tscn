@@ -57,8 +57,18 @@ loss_crazyness_per_min = 0.01
 loss_sleepy_per_min = 0.06
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_lyp37")]
-z_index = 2
+z_index = 1
 position = Vector2(454, 299)
+
+[node name="SpaceShuttle" parent="." instance=ExtResource("22_0jwsq")]
+position = Vector2(1003, 275)
+scale = Vector2(1.51391, 1.51391)
+
+[node name="InsideSpaceShuttle" parent="." instance=ExtResource("22_y21cn")]
+z_index = 2
+
+[node name="StatusControl" parent="." instance=ExtResource("4_kx0l0")]
+z_index = 3
 
 [node name="SaveLoadScreen" type="Node2D" parent="."]
 process_mode = 3
@@ -618,14 +628,6 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("21_l44ek")
 text = "NÃO"
-
-[node name="SpaceShuttle" parent="." instance=ExtResource("22_0jwsq")]
-position = Vector2(1003, 275)
-scale = Vector2(1.51391, 1.51391)
-
-[node name="InsideSpaceShuttle" parent="." instance=ExtResource("22_y21cn")]
-
-[node name="StatusControl" parent="." instance=ExtResource("4_kx0l0")]
 
 [connection signal="pressed" from="SaveLoadScreen/Save1" to="SaveLoadScreen" method="_on_save_1_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/Save2" to="SaveLoadScreen" method="_on_save_2_pressed"]

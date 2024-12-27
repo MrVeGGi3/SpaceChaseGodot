@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://db2gi84m138so"]
+
+[ext_resource type="Texture2D" uid="uid://cs3oddtnv7hfs" path="res://Assets/images/cockpit/Cockpit.png" id="1_yqgw5"]
+[ext_resource type="Texture2D" uid="uid://bc2xg7tq65o1p" path="res://Assets/images/buttons/Cockpit/Cockpit Check.png" id="2_5j1b6"]
+[ext_resource type="Texture2D" uid="uid://bcmey65au8v4d" path="res://Assets/images/buttons/Cockpit/ToTakeOverButton.png" id="2_pmufa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dy0f"]
+texture = ExtResource("2_5j1b6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hemo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ipoki"]
+texture = ExtResource("2_pmufa")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcd6i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rub7k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Cockpit" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(582, 308)
+scale = Vector2(1.22261, 1.22261)
+texture = ExtResource("1_yqgw5")
+
+[node name="Cockpit" type="Button" parent="."]
+offset_left = 478.0
+offset_top = 476.0
+offset_right = 486.0
+offset_bottom = 484.0
+scale = Vector2(26.6017, 26.6017)
+theme_override_styles/hover = SubResource("StyleBoxTexture_3dy0f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1hemo")
+
+[node name="ToTakeOver" type="Button" parent="."]
+offset_left = 490.0
+offset_top = 378.0
+offset_right = 498.0
+offset_bottom = 386.0
+scale = Vector2(23.1096, 12.0017)
+theme_override_styles/hover = SubResource("StyleBoxTexture_ipoki")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dcd6i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rub7k")

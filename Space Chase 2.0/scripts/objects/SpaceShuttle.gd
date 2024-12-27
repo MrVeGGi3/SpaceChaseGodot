@@ -3,6 +3,8 @@ extends Node2D
 @onready var rocket_area = $Sprite2D/Area2D
 @onready var can_interact_ui: Control = $CanInteractUI
 @onready var status_control: Control = $"../StatusControl"
+@onready var inside_space_shuttle: Node2D = $"../InsideSpaceShuttle"
+
 var can_action = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +15,8 @@ func _ready():
 func _process(delta):
 	if can_action and Input.is_action_just_pressed("ação"):
 		print("Botão para acionar o StatusControl acionado")
-		status_control.show()
+		inside_space_shuttle.show()
+		GameManager.is_player_outside = false
 		
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("player"):

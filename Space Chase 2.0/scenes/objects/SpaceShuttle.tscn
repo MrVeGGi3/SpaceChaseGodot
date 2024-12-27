@@ -49,13 +49,13 @@ offset_bottom = 64.0
 texture = ExtResource("3_nf8sv")
 
 [node name="Label" type="Label" parent="CanInteractUI/UISprite"]
-offset_left = -18.0
-offset_top = -42.0
-offset_right = 25.0
-offset_bottom = 51.0
+offset_left = -19.0
+offset_top = -44.0
+offset_right = 24.0
+offset_bottom = 49.0
 theme_override_fonts/font = ExtResource("4_eh7fy")
 theme_override_font_sizes/font_size = 90
-text = "A"
+text = "X"
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_exited"]
