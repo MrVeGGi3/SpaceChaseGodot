@@ -28,6 +28,7 @@ func _input(event):
 			is_moving = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	_keep_status_limit()
 	if is_moving:
 		var direction = (target_position - position).normalized()
 		var angle_rad = direction.angle()
@@ -75,7 +76,12 @@ func _get_sleepy_limit():
 	return is_sleepy_limit
 func _get_oxigen_limit():
 	return is_oxygen_limit
-	
+
+
+func _keep_status_limit():
+	for value in [thirsty, hungry, crazyness, sleepy, oxigen_tank]:
+		if value >= 100:
+			value = 100
 
 	
 #Oito tipos de movimento possiveis.

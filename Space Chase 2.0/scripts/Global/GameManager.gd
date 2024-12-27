@@ -29,5 +29,5 @@ var is_new_game : bool
 
 func get_player_outside():
 	return is_player_outside
-	
+
 		

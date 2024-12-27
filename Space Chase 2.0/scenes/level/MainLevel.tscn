@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://fq3h44myryer"]
+[gd_scene load_steps=28 format=3 uid="uid://fq3h44myryer"]
 
 [ext_resource type="Script" path="res://scripts/level/main_level.gd" id="1_0ohvt"]
 [ext_resource type="PackedScene" uid="uid://dx4ckn55atgno" path="res://scenes/Player/Player.tscn" id="3_lyp37"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://egtw8jclboos" path="res://scenes/SaveLoad/SaveManager.tscn" id="20_52mor"]
 [ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="21_l44ek"]
 [ext_resource type="PackedScene" uid="uid://wsgrpqkfr77x" path="res://scenes/objects/SpaceShuttle.tscn" id="22_0jwsq"]
+[ext_resource type="PackedScene" uid="uid://htmt4jmpujlc" path="res://scenes/level/InsideSpaceShuttle.tscn" id="22_y21cn"]
 
 [sub_resource type="Theme" id="Theme_6yx32"]
 Label/colors/font_color = Color(0.933333, 1, 0, 1)
@@ -621,6 +622,8 @@ text = "NÃO"
 [node name="SpaceShuttle" parent="." instance=ExtResource("22_0jwsq")]
 position = Vector2(1003, 275)
 scale = Vector2(1.51391, 1.51391)
+
+[node name="InsideSpaceShuttle" parent="." instance=ExtResource("22_y21cn")]
 
 [node name="StatusControl" parent="." instance=ExtResource("4_kx0l0")]
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://htmt4jmpujlc"]
+[gd_scene load_steps=27 format=3 uid="uid://htmt4jmpujlc"]
 
+[ext_resource type="Script" path="res://scripts/level/inside_space_shuttle.gd" id="1_afms6"]
 [ext_resource type="Texture2D" uid="uid://d0lmktf0c2e4u" path="res://Assets/images/backgrounds/Space Shuttle.png" id="1_nx75k"]
 [ext_resource type="Texture2D" uid="uid://eck4p6bxx7jq" path="res://Assets/images/objects/normal/ToEatNormal.png" id="2_u67ih"]
 [ext_resource type="Texture2D" uid="uid://de4pidbsyexkn" path="res://Assets/images/objects/hovered/ToEatHovered.png" id="3_u4cne"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ghw3n5wtgqnv" path="res://Assets/images/objects/normal/ToSleepNormal.png" id="7_alp4c"]
 [ext_resource type="Texture2D" uid="uid://bqrdwg01yirae" path="res://Assets/images/objects/hovered/ToFunHovered.png" id="8_dir4p"]
 [ext_resource type="Texture2D" uid="uid://be14gcws0sq0m" path="res://Assets/images/objects/normal/ToFunNormal.png" id="9_f6x5r"]
+[ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="10_4vyve"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biof4"]
 texture = ExtResource("3_u4cne")
@@ -34,8 +36,112 @@ texture = ExtResource("8_dir4p")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1fhi8"]
 texture = ExtResource("9_f6x5r")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmgab"]
+bg_color = Color(0.512853, 0.763512, 0.959121, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu30b"]
+bg_color = Color(0.24516, 0.380604, 0.839151, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xjut"]
+bg_color = Color(0.513726, 0.764706, 0.960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uj6mb"]
+bg_color = Color(0.247059, 0.380392, 0.839216, 1)
+
+[sub_resource type="Animation" id="Animation_huen1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoCabinButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GoOutButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_iq6rh"]
+resource_name = "sleep"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1, 4),
+"transitions": PackedFloat32Array(0.5, 6.9644, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoCabinButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GoOutButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlgfp"]
+_data = {
+"RESET": SubResource("Animation_huen1"),
+"sleep": SubResource("Animation_iq6rh")
+}
+
 [node name="InsideSpaceShuttle" type="Node2D"]
 position = Vector2(-2, 0)
+script = ExtResource("1_afms6")
+subtract_organics_when_eating = 0.5
+subtract_water_when_drinking = 1.0
+sleepy_increase_status = 50.0
+hungry_increase_status = 50.0
+crazyness_increase_status = 20.0
+thirsty_increase_status = 50.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -102,15 +208,35 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_1v5aq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1fhi8")
 
 [node name="GoCabinButton" type="Button" parent="."]
-offset_left = 72.0
-offset_top = 544.0
-offset_right = 247.0
-offset_bottom = 575.0
+offset_left = 431.0
+offset_top = 248.0
+offset_right = 722.87
+offset_bottom = 302.87
+theme_override_fonts/font = ExtResource("10_4vyve")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_qmgab")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cu30b")
 text = "Cabine de Decolagem"
 
-[node name="Button" type="Button" parent="."]
-offset_left = 506.0
-offset_top = 99.0
-offset_right = 622.0
-offset_bottom = 130.0
+[node name="GoOutButton" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 198.0
+offset_right = 665.79
+offset_bottom = 231.885
+theme_override_fonts/font = ExtResource("10_4vyve")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_7xjut")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uj6mb")
 text = "Sair para Fora"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qlgfp")
+}
+
+[connection signal="pressed" from="EatButton" to="." method="_on_eat_button_pressed"]
+[connection signal="pressed" from="DrinkButton" to="." method="_on_drink_button_pressed"]
+[connection signal="pressed" from="SleepButton" to="." method="_on_sleep_button_pressed"]
+[connection signal="pressed" from="FunButton" to="." method="_on_fun_button_pressed"]
+[connection signal="pressed" from="GoCabinButton" to="." method="_on_go_cabin_button_pressed"]
+[connection signal="pressed" from="GoOutButton" to="." method="_on_go_out_button_pressed"]

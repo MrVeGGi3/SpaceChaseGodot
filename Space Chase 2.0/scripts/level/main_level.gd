@@ -3,6 +3,8 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var save_load_screen: Node2D = $SaveLoadScreen
 @onready var slot_index = GameManager.slot_index
+@onready var inside_space_shuttle: Node2D = $InsideSpaceShuttle
+
 
 @export_category("Manutence Ratio Adjustment")
 @export var manutence_ratio_chance : float
@@ -52,6 +54,7 @@ func _ready() -> void:
 	_set_maximum_time_status_limit(8040,4320,10080,480,10)
 	_set_oxygen_loss_per_minute(0.27, 0.1)
 	_set_loss_status_per_minute(0.2, 0.4, 0.01, 0.06)
+	_hide_UI_and_levels()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -171,3 +174,16 @@ func _set_loss_status_per_minute(hungry_loss : float, thirsty_loss : float, craz
 	
 func GameOver():
 	pass
+
+func _get_hungry_loss_per_minute():
+	return loss_hungry_per_min
+func _get_sleepy_loss_per_minute():
+	return loss_sleepy_per_min
+func get_crazyness_loss_per_minute():
+	return loss_crazyness_per_min
+func get_loss_energy_per_minute():
+	return loss_energy_per_min
+
+func _hide_UI_and_levels():
+	inside_space_shuttle.hide()
+	save_load_screen.hide()
