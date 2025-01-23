@@ -1,9 +1,13 @@
 extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
+
+@export_category("Level Scenes")
 @onready var save_load_screen: Node2D = $SaveLoadScreen
 @onready var slot_index = GameManager.slot_index
 @onready var inside_space_shuttle: Node2D = $InsideSpaceShuttle
+@onready var cockpit: Node2D = $Cockpit
+@onready var radar_conditions_list: Node2D = $RadarConditionsList
 
 
 @export_category("Manutence Ratio Adjustment")
@@ -46,10 +50,10 @@ var oxigen_limit_counter : float
 func _ready() -> void:
 	Engine.time_scale = 1.0
 	GameManager.is_player_outside = true
-	if !save_load_screen.get_acess_type():
-		_get_save_manager_index()._load(slot_index)
-	elif save_load_screen.get_acess_type():
+	if save_load_screen.get_acess_type():
 		_set_new_game_time_value(1, 1, 6, 0, 1)
+	else:
+		_get_save_manager_index()._load(slot_index)
 	_set_resources_value(2800, 50, 300, 20, 500, 200)
 	_set_maximum_time_status_limit(8040,4320,10080,480,10)
 	_set_oxygen_loss_per_minute(0.27, 0.1)
@@ -189,3 +193,5 @@ func _get_thirsty_loss_per_minute():
 func _hide_UI_and_levels():
 	inside_space_shuttle.hide()
 	save_load_screen.hide()
+	cockpit.hide()
+	radar_conditions_list.hide()

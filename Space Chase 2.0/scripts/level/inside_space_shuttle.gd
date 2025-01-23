@@ -3,6 +3,8 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var main_level: Node2D = $".."
+@onready var space_shuttle: Node2D = $"../SpaceShuttle"
+@onready var cockpit: Node2D = $"../Cockpit"
 
 
 @export_category("Action in Buttons")
@@ -38,12 +40,14 @@ func _on_fun_button_pressed() -> void:
 
 
 func _on_go_cabin_button_pressed() -> void:
-	pass # Replace with function body.
+	visible = false
+	cockpit.show()
 
 
 func _on_go_out_button_pressed() -> void:
 	visible = false
 	GameManager.is_player_outside = true
+
 
 func _add_sleepy_status(sleepy : float):
 	add_time_when_sleeping = (100 - sleepy) * 16.00
@@ -78,3 +82,7 @@ func _on_eat_button_pressed() -> void:
 func _add_crazyness_status():
 	if player.crazyness < 100:
 		player.crazyness += crazyness_increase_status
+
+func _show_player_and_shuttle():
+	player.show()
+	space_shuttle.show()

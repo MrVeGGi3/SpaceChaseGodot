@@ -25,7 +25,6 @@ var slot_2 = "res://Data/slot_2.json"
 var slot_3 = "res://Data/slot_3.json"
 var slots = [slot_1, slot_2, slot_3]
 
-
 func _save(index):
 	var current_time = Time.get_datetime_dict_from_system()
 	var data = {

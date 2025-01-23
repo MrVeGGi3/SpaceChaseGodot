@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://db2gi84m138so"]
+[gd_scene load_steps=16 format=3 uid="uid://db2gi84m138so"]
 
+[ext_resource type="Script" path="res://scenes/level/cockpit.gd" id="1_t41jj"]
 [ext_resource type="Texture2D" uid="uid://cs3oddtnv7hfs" path="res://Assets/images/cockpit/Cockpit.png" id="1_yqgw5"]
 [ext_resource type="Texture2D" uid="uid://bc2xg7tq65o1p" path="res://Assets/images/buttons/Cockpit/Cockpit Check.png" id="2_5j1b6"]
 [ext_resource type="Texture2D" uid="uid://bcmey65au8v4d" path="res://Assets/images/buttons/Cockpit/ToTakeOverButton.png" id="2_pmufa"]
+[ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="4_uxtjb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dy0f"]
 texture = ExtResource("2_5j1b6")
@@ -19,7 +21,122 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rub7k"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4gwy"]
+bg_color = Color(0.0466008, 0.305585, 0.512015, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brld4"]
+bg_color = Color(0.45896, 0.565638, 0.988202, 1)
+
+[sub_resource type="Animation" id="Animation_1l5wo"]
+resource_name = "can't travel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CantTravel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(493, 336), Vector2(410, 275)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CantTravel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CantTravel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CantTravel:theme_override_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.566667, 0.766667, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.783111, 0, 0.147424, 1), Color(1, 1, 1, 1), Color(0.783111, 0, 0.147424, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o4yes"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CantTravel:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CantTravel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CantTravel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CantTravel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(499, 336)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pupa2"]
+_data = {
+"RESET": SubResource("Animation_o4yes"),
+"can't travel": SubResource("Animation_1l5wo")
+}
+
 [node name="Cockpit" type="Node2D"]
+script = ExtResource("1_t41jj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(582, 308)
@@ -44,3 +161,34 @@ scale = Vector2(23.1096, 12.0017)
 theme_override_styles/hover = SubResource("StyleBoxTexture_ipoki")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dcd6i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rub7k")
+
+[node name="GoToShuttle" type="Button" parent="."]
+offset_left = 426.0
+offset_top = 131.0
+offset_right = 762.0
+offset_bottom = 186.0
+theme_override_fonts/font = ExtResource("4_uxtjb")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b4gwy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brld4")
+text = "Voltar"
+
+[node name="CockpitAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pupa2")
+}
+
+[node name="CantTravel" type="Label" parent="."]
+offset_left = 410.0
+offset_top = 275.0
+offset_right = 610.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_uxtjb")
+theme_override_font_sizes/font_size = 20
+text = "Não Pode Decolar
+Itens pendentes"
+
+[connection signal="pressed" from="Cockpit" to="." method="_on_cockpit_pressed"]
+[connection signal="pressed" from="ToTakeOver" to="." method="_on_to_take_over_pressed"]
+[connection signal="pressed" from="GoToShuttle" to="." method="_on_go_to_shuttle_pressed"]

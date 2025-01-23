@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://fq3h44myryer"]
+[gd_scene load_steps=30 format=3 uid="uid://fq3h44myryer"]
 
 [ext_resource type="Script" path="res://scripts/level/main_level.gd" id="1_0ohvt"]
 [ext_resource type="PackedScene" uid="uid://dx4ckn55atgno" path="res://scenes/Player/Player.tscn" id="3_lyp37"]
@@ -22,6 +22,8 @@
 [ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="21_l44ek"]
 [ext_resource type="PackedScene" uid="uid://wsgrpqkfr77x" path="res://scenes/objects/SpaceShuttle.tscn" id="22_0jwsq"]
 [ext_resource type="PackedScene" uid="uid://htmt4jmpujlc" path="res://scenes/level/InsideSpaceShuttle.tscn" id="22_y21cn"]
+[ext_resource type="PackedScene" uid="uid://db2gi84m138so" path="res://scenes/level/Cockpit.tscn" id="23_tudxn"]
+[ext_resource type="PackedScene" uid="uid://d3c8gi62hlnlh" path="res://scenes/level/RadarConditionsList.tscn" id="24_ket2d"]
 
 [sub_resource type="Theme" id="Theme_6yx32"]
 Label/colors/font_color = Color(0.933333, 1, 0, 1)
@@ -68,7 +70,7 @@ scale = Vector2(1.51391, 1.51391)
 z_index = 2
 
 [node name="StatusControl" parent="." instance=ExtResource("4_kx0l0")]
-z_index = 3
+z_index = 5
 
 [node name="SaveLoadScreen" type="Node2D" parent="."]
 process_mode = 3
@@ -628,6 +630,13 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("21_l44ek")
 text = "NÃO"
+
+[node name="Cockpit" parent="." instance=ExtResource("23_tudxn")]
+visible = false
+z_index = 3
+
+[node name="RadarConditionsList" parent="." instance=ExtResource("24_ket2d")]
+z_index = 4
 
 [connection signal="pressed" from="SaveLoadScreen/Save1" to="SaveLoadScreen" method="_on_save_1_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/Save2" to="SaveLoadScreen" method="_on_save_2_pressed"]
