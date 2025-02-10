@@ -1,3 +1,451 @@
-[gd_scene format=3 uid="uid://4h42ngd7gsgq"]
+[gd_scene load_steps=16 format=3 uid="uid://4h42ngd7gsgq"]
+
+[ext_resource type="Theme" uid="uid://cmymbciinwmw0" path="res://themes/UITitleLabel.tres" id="1_ddu35"]
+[ext_resource type="Script" path="res://scripts/ui/constructionsUI.gd" id="1_rlfvj"]
+[ext_resource type="Texture2D" uid="uid://qr456pd6cybs" path="res://Assets/images/UI/constructions/ConstructionIconIdle.png" id="2_xdeho"]
+[ext_resource type="Texture2D" uid="uid://o5wrq2k1u5rf" path="res://Assets/images/constructions/Robô de Conserto.png" id="3_ke4aa"]
+[ext_resource type="Texture2D" uid="uid://c4ye828xakky8" path="res://Assets/images/UI/constructions/ConstructionDescription.png" id="3_tp6tt"]
+[ext_resource type="Texture2D" uid="uid://dn5uoynx8urf0" path="res://Assets/images/constructions/Robô de Mineração.png" id="5_bw4vl"]
+[ext_resource type="Theme" uid="uid://cc2a2tuhpo033" path="res://themes/ConstructionTitle.tres" id="5_tukpp"]
+[ext_resource type="Theme" uid="uid://cny1ebumne4j5" path="res://themes/QuantityLabelConstruct.tres" id="6_d1s2a"]
+[ext_resource type="Texture2D" uid="uid://bu160wjoed6e5" path="res://Assets/images/constructions/Condensador de Água.png" id="6_toqps"]
+[ext_resource type="Texture2D" uid="uid://dp4efbb57gtt7" path="res://Assets/images/constructions/Hidropônica.png" id="7_feids"]
+[ext_resource type="Texture2D" uid="uid://cq32wcmejxgh6" path="res://Assets/images/constructions/Sintetizador.png" id="8_wjnxh"]
+[ext_resource type="Texture2D" uid="uid://x3pmo6q4jxow" path="res://Assets/images/constructions/Painel Solar.png" id="9_tjown"]
+[ext_resource type="FontFile" uid="uid://c288sv5f7n1i1" path="res://Assets/fonts/OpenSans-ExtraBold.ttf" id="11_afqgd"]
+
+[sub_resource type="Theme" id="Theme_m8q1k"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("11_afqgd")
+
+[sub_resource type="Theme" id="Theme_rmfre"]
+Label/font_sizes/font_size = 40
 
 [node name="Constructions" type="Node2D"]
+script = ExtResource("1_rlfvj")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.0980392, 0.52549, 1, 1)
+offset_right = 1147.0
+offset_bottom = 644.0
+
+[node name="Title" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 807.0
+offset_bottom = 83.0
+theme = ExtResource("1_ddu35")
+text = "Construções"
+
+[node name="ConsertRobotContainer" type="HBoxContainer" parent="."]
+offset_left = 2.0
+offset_top = 80.0
+offset_right = 1190.0
+offset_bottom = 558.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="ConsertRobot" type="TextureRect" parent="ConsertRobotContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="ConsertRobot" type="TextureRect" parent="ConsertRobotContainer/ConsertRobot"]
+layout_mode = 0
+offset_left = 45.4324
+offset_top = -5.345
+offset_right = 519.432
+offset_bottom = 455.655
+texture = ExtResource("3_ke4aa")
+
+[node name="ConsertRobotDesc" type="TextureRect" parent="ConsertRobotContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="Description" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc"]
+layout_mode = 0
+offset_left = 61.9494
+offset_top = 141.642
+offset_right = 592.949
+offset_bottom = 254.642
+theme_override_font_sizes/font_size = 40
+text = "Aceleração de Construções
+ e Manutenção Automática."
+
+[node name="ConstructQuantityLabel" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc"]
+layout_mode = 0
+offset_left = -202.628
+offset_top = 384.839
+offset_right = 143.372
+offset_bottom = 467.839
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="Status" type="HBoxContainer" parent="ConsertRobotContainer/ConsertRobotDesc"]
+layout_mode = 0
+offset_left = 56.6042
+offset_top = 299.32
+offset_right = 656.604
+offset_bottom = 354.32
+
+[node name="StatusTitle" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_m8q1k")
+text = "STATUS:"
+
+[node name="ConsertStatus" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_rmfre")
+text = "Em Construção"
+
+[node name="ConstructRobotTitleLabel" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc"]
+layout_mode = 0
+offset_left = 59.2767
+offset_top = 42.7599
+offset_right = 628.277
+offset_bottom = 118.76
+theme = ExtResource("5_tukpp")
+text = "Robô de Construção"
+
+[node name="MinerRobotContainer" type="HBoxContainer" parent="."]
+offset_left = 456.0
+offset_top = 86.0
+offset_right = 1644.0
+offset_bottom = 564.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="MinerRobotContainer" type="TextureRect" parent="MinerRobotContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="Miner" type="TextureRect" parent="MinerRobotContainer/MinerRobotContainer"]
+layout_mode = 0
+offset_left = -146.987
+offset_top = 58.7949
+offset_right = 263.013
+offset_bottom = 257.795
+scale = Vector2(1.90931, 1.90931)
+texture = ExtResource("5_bw4vl")
+
+[node name="MinerQuantityLabel" type="Label" parent="MinerRobotContainer/MinerRobotContainer"]
+layout_mode = 0
+offset_left = 355.442
+offset_top = 371.477
+offset_right = 701.442
+offset_bottom = 462.477
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="MinerRobotDesc" type="TextureRect" parent="MinerRobotContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="MinerRobotTitleLabel" type="Label" parent="MinerRobotContainer/MinerRobotDesc"]
+layout_mode = 0
+offset_left = 72.6392
+offset_top = 40.0874
+offset_right = 592.639
+offset_bottom = 116.087
+theme = ExtResource("5_tukpp")
+text = "Robô de Mineração"
+
+[node name="MinerDescription" type="Label" parent="MinerRobotContainer/MinerRobotDesc"]
+layout_mode = 0
+offset_left = 56.6043
+offset_top = 155.005
+offset_right = 609.604
+offset_bottom = 210.005
+theme_override_font_sizes/font_size = 40
+text = "Encontra Metal no Ambiente"
+
+[node name="Status" type="HBoxContainer" parent="MinerRobotContainer/MinerRobotDesc"]
+layout_mode = 0
+offset_left = 43.2417
+offset_top = 291.302
+offset_right = 643.242
+offset_bottom = 346.302
+
+[node name="StatusTitle" type="Label" parent="MinerRobotContainer/MinerRobotDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_m8q1k")
+text = "STATUS:"
+
+[node name="MinerStatus" type="Label" parent="MinerRobotContainer/MinerRobotDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_rmfre")
+text = "Em Construção"
+
+[node name="WaterCondenserContainer" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_top = 264.0
+offset_right = 1189.0
+offset_bottom = 742.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="WaterCondenser" type="TextureRect" parent="WaterCondenserContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="Condenser" type="TextureRect" parent="WaterCondenserContainer/WaterCondenser"]
+layout_mode = 0
+offset_left = -77.5025
+offset_top = 24.0525
+offset_right = 543.497
+offset_bottom = 426.052
+texture = ExtResource("6_toqps")
+
+[node name="WaterQuantityLabel" type="Label" parent="WaterCondenserContainer/WaterCondenser/Condenser"]
+layout_mode = 0
+offset_left = 414.237
+offset_top = 360.787
+offset_right = 760.237
+offset_bottom = 451.787
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="WaterCondenserDesc" type="TextureRect" parent="WaterCondenserContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="WaterCondenserTitleLabel" type="Label" parent="WaterCondenserContainer/WaterCondenserDesc"]
+layout_mode = 0
+offset_left = 40.5692
+offset_top = 34.7425
+offset_right = 632.569
+offset_bottom = 110.742
+theme = ExtResource("5_tukpp")
+text = "Condensador de Água"
+
+[node name="WaterDescription" type="Label" parent="WaterCondenserContainer/WaterCondenserDesc"]
+layout_mode = 0
+offset_left = 37.8968
+offset_top = 157.677
+offset_right = 630.897
+offset_bottom = 212.677
+theme_override_font_sizes/font_size = 40
+text = "Gerador de Água através do Ar"
+
+[node name="Status" type="HBoxContainer" parent="WaterCondenserContainer/WaterCondenserDesc"]
+layout_mode = 0
+offset_left = 45.9143
+offset_top = 277.94
+offset_right = 645.914
+offset_bottom = 332.94
+
+[node name="StatusTitle" type="Label" parent="WaterCondenserContainer/WaterCondenserDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_m8q1k")
+text = "STATUS:"
+
+[node name="WaterStatus" type="Label" parent="WaterCondenserContainer/WaterCondenserDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_rmfre")
+text = "Em Construção"
+
+[node name="HidroponicContainer" type="HBoxContainer" parent="."]
+offset_left = 454.0
+offset_top = 269.0
+offset_right = 1642.0
+offset_bottom = 747.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="Hidroponic" type="TextureRect" parent="HidroponicContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="HidroponicImage" type="TextureRect" parent="HidroponicContainer/Hidroponic"]
+layout_mode = 0
+offset_left = 45.4325
+offset_top = 32.07
+offset_right = 545.432
+offset_bottom = 532.07
+scale = Vector2(0.848408, 0.848408)
+texture = ExtResource("7_feids")
+
+[node name="HidroQuantityLabel" type="Label" parent="HidroponicContainer/Hidroponic"]
+layout_mode = 0
+offset_left = 360.787
+offset_top = 374.149
+offset_right = 706.787
+offset_bottom = 465.149
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="HidroDesc" type="TextureRect" parent="HidroponicContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="Status" type="HBoxContainer" parent="HidroponicContainer/HidroDesc"]
+layout_mode = 0
+offset_left = 51.2592
+offset_top = 264.577
+offset_right = 651.259
+offset_bottom = 319.577
+
+[node name="StatusTitle" type="Label" parent="HidroponicContainer/HidroDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_m8q1k")
+text = "STATUS:"
+
+[node name="HidroStatus" type="Label" parent="HidroponicContainer/HidroDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_rmfre")
+text = "Em Construção"
+
+[node name="HidroTitleLabel" type="Label" parent="HidroponicContainer/HidroDesc"]
+layout_mode = 0
+offset_left = 163.504
+offset_top = 32.07
+offset_right = 755.504
+offset_bottom = 108.07
+theme = ExtResource("5_tukpp")
+text = "Hidropônica"
+
+[node name="HidroDescription" type="Label" parent="HidroponicContainer/HidroDesc"]
+layout_mode = 0
+offset_left = 59.2767
+offset_top = 146.987
+offset_right = 652.277
+offset_bottom = 201.987
+theme_override_font_sizes/font_size = 40
+text = "Gera Orgânicos e Alimentos"
+
+[node name="Sintetizator" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_top = 449.0
+offset_right = 1189.0
+offset_bottom = 927.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="Sintetizator" type="TextureRect" parent="Sintetizator"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="Sintetizer" type="TextureRect" parent="Sintetizator/Sintetizator"]
+layout_mode = 0
+offset_left = 2.67242
+offset_top = -21.38
+offset_right = 502.672
+offset_bottom = 478.62
+texture = ExtResource("8_wjnxh")
+
+[node name="SintQuantityLabel" type="Label" parent="Sintetizator/Sintetizator"]
+layout_mode = 0
+offset_left = 350.097
+offset_top = 374.15
+offset_right = 696.097
+offset_bottom = 465.15
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="SintDesc" type="TextureRect" parent="Sintetizator"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="SintTitleLabel" type="Label" parent="Sintetizator/SintDesc"]
+layout_mode = 0
+offset_left = 150.142
+offset_top = 26.725
+offset_right = 742.142
+offset_bottom = 102.725
+theme = ExtResource("5_tukpp")
+text = "Sintetizador"
+
+[node name="SintDescription" type="Label" parent="Sintetizator/SintDesc"]
+layout_mode = 0
+offset_left = 40.5693
+offset_top = 141.642
+offset_right = 633.569
+offset_bottom = 196.642
+theme_override_font_sizes/font_size = 40
+text = "Converte Recursos em outros"
+
+[node name="Status" type="HBoxContainer" parent="Sintetizator/SintDesc"]
+layout_mode = 0
+offset_left = 40.5693
+offset_top = 261.905
+offset_right = 640.569
+offset_bottom = 316.905
+
+[node name="StatusTitle" type="Label" parent="Sintetizator/SintDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_m8q1k")
+text = "STATUS:"
+
+[node name="SintStatus" type="Label" parent="Sintetizator/SintDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_rmfre")
+text = "Em Construção"
+
+[node name="SolarPanelContainer" type="HBoxContainer" parent="."]
+offset_left = 455.0
+offset_top = 451.0
+offset_right = 1643.0
+offset_bottom = 929.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="SolarPanel" type="TextureRect" parent="SolarPanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="TextureRect" type="TextureRect" parent="SolarPanelContainer/SolarPanel"]
+layout_mode = 0
+offset_left = 45.4324
+offset_top = 93.5374
+offset_right = 340.432
+offset_bottom = 311.537
+scale = Vector2(1.4141, 1.4141)
+texture = ExtResource("9_tjown")
+
+[node name="SolarQuantityLabel" type="Label" parent="SolarPanelContainer/SolarPanel"]
+layout_mode = 0
+offset_left = 350.097
+offset_top = 374.15
+offset_right = 696.097
+offset_bottom = 465.15
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="SolarPanelDesc" type="TextureRect" parent="SolarPanelContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="SolarTitleLabel" type="Label" parent="SolarPanelContainer/SolarPanelDesc"]
+layout_mode = 0
+offset_left = 144.797
+offset_top = 29.3975
+offset_right = 736.797
+offset_bottom = 105.397
+theme = ExtResource("5_tukpp")
+text = "Painel Solar"
+
+[node name="Status" type="HBoxContainer" parent="SolarPanelContainer/SolarPanelDesc"]
+layout_mode = 0
+offset_left = 48.5868
+offset_top = 267.25
+offset_right = 648.587
+offset_bottom = 322.25
+
+[node name="StatusTitle" type="Label" parent="SolarPanelContainer/SolarPanelDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_m8q1k")
+text = "STATUS:"
+
+[node name="SolarStatus" type="Label" parent="SolarPanelContainer/SolarPanelDesc/Status"]
+layout_mode = 2
+theme = SubResource("Theme_rmfre")
+text = "Em Construção"
+
+[node name="SolarDescription" type="Label" parent="SolarPanelContainer/SolarPanelDesc"]
+layout_mode = 0
+offset_left = 206.264
+offset_top = 136.297
+offset_right = 799.264
+offset_bottom = 191.297
+theme_override_font_sizes/font_size = 40
+text = "Gera Energia "

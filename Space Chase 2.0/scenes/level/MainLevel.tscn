@@ -74,7 +74,6 @@ z_index = 5
 
 [node name="SaveLoadScreen" type="Node2D" parent="."]
 process_mode = 3
-visible = false
 position = Vector2(49, -3)
 script = ExtResource("5_ew62o")
 
@@ -632,7 +631,6 @@ theme = ExtResource("21_l44ek")
 text = "NÃO"
 
 [node name="Cockpit" parent="." instance=ExtResource("23_tudxn")]
-visible = false
 z_index = 3
 
 [node name="RadarConditionsList" parent="." instance=ExtResource("24_ket2d")]
