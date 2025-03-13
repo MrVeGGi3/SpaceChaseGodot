@@ -1,9 +1,9 @@
 [gd_scene load_steps=30 format=3 uid="uid://fq3h44myryer"]
 
-[ext_resource type="Script" path="res://scripts/level/main_level.gd" id="1_0ohvt"]
+[ext_resource type="Script" uid="uid://dcpwvi02ossnq" path="res://scripts/level/main_level.gd" id="1_0ohvt"]
 [ext_resource type="PackedScene" uid="uid://dx4ckn55atgno" path="res://scenes/Player/Player.tscn" id="3_lyp37"]
 [ext_resource type="PackedScene" uid="uid://w8if7rx07dgx" path="res://scenes/UI/StatusControl.tscn" id="4_kx0l0"]
-[ext_resource type="Script" path="res://Data/save_screen.gd" id="5_ew62o"]
+[ext_resource type="Script" uid="uid://cy55rivqtb3a1" path="res://Data/save_screen.gd" id="5_ew62o"]
 [ext_resource type="Theme" uid="uid://2i0nh2wxufd" path="res://themes/saveloadbuttons.tres" id="6_jqri7"]
 [ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="7_urreh"]
 [ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="8_rig81"]

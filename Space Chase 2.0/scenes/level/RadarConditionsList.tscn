@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d3c8gi62hlnlh"]
 
 [ext_resource type="Texture2D" uid="uid://cjpbo3qb8nvfq" path="res://Assets/images/radar/Radar.png" id="1_0ni3r"]
-[ext_resource type="Script" path="res://scripts/level/radar_conditions_list.gd" id="1_6q7p4"]
+[ext_resource type="Script" uid="uid://bu5fk4fgjukof" path="res://scripts/level/radar_conditions_list.gd" id="1_6q7p4"]
 [ext_resource type="Theme" uid="uid://dp0bjqpdecqt8" path="res://themes/radar_list_label.tres" id="2_tssv7"]
 [ext_resource type="Theme" uid="uid://2ayqmvtsoal2" path="res://themes/item__list_label.tres" id="3_12bdm"]
 [ext_resource type="FontFile" uid="uid://dr1ok3ju4bfb3" path="res://Assets/fonts/digital-7.ttf" id="5_o5n57"]
@@ -162,9 +162,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_24k21"]
 _data = {
-"RESET": SubResource("Animation_64nmr"),
-"close_radar": SubResource("Animation_krrse"),
-"open_radar": SubResource("Animation_lqb04")
+&"RESET": SubResource("Animation_64nmr"),
+&"close_radar": SubResource("Animation_krrse"),
+&"open_radar": SubResource("Animation_lqb04")
 }
 
 [node name="RadarConditionsList" type="Node2D"]
@@ -303,7 +303,7 @@ position = Vector2(618, 317)
 
 [node name="RadarConditionsAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_24k21")
+&"": SubResource("AnimationLibrary_24k21")
 }
 
 [node name="CloseRadar" type="Button" parent="."]

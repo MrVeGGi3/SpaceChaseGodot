@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://w8if7rx07dgx"]
 
-[ext_resource type="Script" path="res://scripts/ui/StatusControl.gd" id="1_3lw74"]
+[ext_resource type="Script" uid="uid://scnpgcpgdf2b" path="res://scripts/ui/StatusControl.gd" id="1_3lw74"]
 [ext_resource type="Texture2D" uid="uid://4mglc54cb7de" path="res://Assets/images/buttons/StatusControl/Normal/Play.png" id="2_axoxj"]
 [ext_resource type="Texture2D" uid="uid://c4m2bdn4fuyeg" path="res://Assets/images/UI/PlayerStatusBackground.png" id="3_a48nf"]
 [ext_resource type="Texture2D" uid="uid://bhw30uc2mywdu" path="res://Assets/images/buttons/StatusControl/Hovered/Play_hoverd.png" id="3_mbhrl"]

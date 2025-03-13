@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://4h42ngd7gsgq"]
 
 [ext_resource type="Theme" uid="uid://cmymbciinwmw0" path="res://themes/UITitleLabel.tres" id="1_ddu35"]
-[ext_resource type="Script" path="res://scripts/ui/constructionsUI.gd" id="1_rlfvj"]
+[ext_resource type="Script" uid="uid://db0uqfobvtebf" path="res://scripts/ui/constructionsUI.gd" id="1_rlfvj"]
 [ext_resource type="Texture2D" uid="uid://qr456pd6cybs" path="res://Assets/images/UI/constructions/ConstructionIconIdle.png" id="2_xdeho"]
 [ext_resource type="Texture2D" uid="uid://o5wrq2k1u5rf" path="res://Assets/images/constructions/Robô de Conserto.png" id="3_ke4aa"]
 [ext_resource type="Texture2D" uid="uid://c4ye828xakky8" path="res://Assets/images/UI/constructions/ConstructionDescription.png" id="3_tp6tt"]

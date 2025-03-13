@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://clweohchcjbsa"]
+[gd_scene load_steps=7 format=3 uid="uid://cnsog74qo3hge"]
 
-[ext_resource type="Script" path="res://scripts/ui/Mouse.gd" id="1_tmswx"]
+[ext_resource type="Script" uid="uid://b0770locppmyf" path="res://scripts/ui/Mouse.gd" id="1_tmswx"]
 [ext_resource type="Texture2D" uid="uid://b7kee0x432dba" path="res://Assets/icons/mouse/Mouse-removebg-preview.png" id="2_r8xi8"]
 [ext_resource type="Texture2D" uid="uid://bcxdnnysnyfoh" path="res://Assets/icons/mouse/Mouse_Left_Click-removebg-preview.png" id="3_gyi4i"]
 [ext_resource type="Texture2D" uid="uid://dhjp8iejijw5k" path="res://Assets/icons/mouse/Mouse_Right_Click-removebg-preview.png" id="4_78nsy"]

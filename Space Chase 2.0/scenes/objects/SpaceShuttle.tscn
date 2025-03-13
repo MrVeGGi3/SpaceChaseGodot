@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://wsgrpqkfr77x"]
 
-[ext_resource type="Script" path="res://scripts/objects/SpaceShuttle.gd" id="1_6wih4"]
+[ext_resource type="Script" uid="uid://g2uwcvcbjg4i" path="res://scripts/objects/SpaceShuttle.gd" id="1_6wih4"]
 [ext_resource type="Texture2D" uid="uid://btwaa5urtlkyb" path="res://sprites/SpaceShuttleSprite.png" id="2_6ge88"]
 [ext_resource type="Texture2D" uid="uid://b1p7utyrlh7j8" path="res://Assets/images/buttons/Interact/BaseBotÃ£o.png" id="3_nf8sv"]
 [ext_resource type="FontFile" uid="uid://dr1ok3ju4bfb3" path="res://Assets/fonts/digital-7.ttf" id="4_eh7fy"]

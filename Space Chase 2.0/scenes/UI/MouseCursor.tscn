@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://clmch1ui6g6te"]
+[gd_scene load_steps=2 format=3 uid="uid://18d3sjaavaoc"]
 
-[ext_resource type="Script" path="res://scripts/ui/MouseCursor.gd" id="1_8cpfc"]
+[ext_resource type="Script" uid="uid://dj33io5jjn2fm" path="res://scripts/ui/MouseCursor.gd" id="1_8cpfc"]
 
 [node name="MouseCursor" type="Control"]
 layout_mode = 3

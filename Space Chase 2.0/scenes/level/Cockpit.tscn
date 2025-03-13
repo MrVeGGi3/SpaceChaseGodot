@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://db2gi84m138so"]
 
-[ext_resource type="Script" path="res://scenes/level/cockpit.gd" id="1_t41jj"]
+[ext_resource type="Script" uid="uid://xu4uyfcd738h" path="res://scenes/level/cockpit.gd" id="1_t41jj"]
 [ext_resource type="Texture2D" uid="uid://cs3oddtnv7hfs" path="res://Assets/images/cockpit/Cockpit.png" id="1_yqgw5"]
 [ext_resource type="Texture2D" uid="uid://bc2xg7tq65o1p" path="res://Assets/images/buttons/Cockpit/Cockpit Check.png" id="2_5j1b6"]
 [ext_resource type="Texture2D" uid="uid://bcmey65au8v4d" path="res://Assets/images/buttons/Cockpit/ToTakeOverButton.png" id="2_pmufa"]
@@ -131,8 +131,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pupa2"]
 _data = {
-"RESET": SubResource("Animation_o4yes"),
-"can't travel": SubResource("Animation_1l5wo")
+&"RESET": SubResource("Animation_o4yes"),
+&"can\'t travel": SubResource("Animation_1l5wo")
 }
 
 [node name="Cockpit" type="Node2D"]
@@ -175,7 +175,7 @@ text = "Voltar"
 
 [node name="CockpitAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pupa2")
+&"": SubResource("AnimationLibrary_pupa2")
 }
 
 [node name="CantTravel" type="Label" parent="."]

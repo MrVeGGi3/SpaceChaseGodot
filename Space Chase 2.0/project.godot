@@ -13,7 +13,7 @@ config_version=5
 config/name="Space Chase 2.0"
 config/description="Space Chase is a Management Survivor Game where an Astronaut needs to survive in Mars until he loses all of his basic resources to live. This game is an adaptation of my first game in Construct. "
 run/main_scene="res://scenes/introduction/Introduction.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/bg_color=Color(0.125613, 0.0997069, 0.307094, 1)
 config/icon="res://icon.svg"
 

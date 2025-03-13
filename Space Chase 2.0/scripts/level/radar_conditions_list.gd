@@ -8,8 +8,7 @@ extends Node2D
 @onready var max_fix_robots : int = 10
 @onready var radar_conditions_animation_player: AnimationPlayer = $RadarConditionsAnimationPlayer
 
-func _ready() -> void:
-	pass
+
 func _process(delta: float) -> void:
 	fix_robots_total_label.text = str("%02:%02" % [GameManager.fix_robots, max_fix_robots])
 func _play_radar_animation():

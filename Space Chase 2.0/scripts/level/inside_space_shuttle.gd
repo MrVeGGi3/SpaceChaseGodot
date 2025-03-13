@@ -7,6 +7,7 @@ extends Node2D
 @onready var cockpit: Node2D = $"../Cockpit"
 
 
+
 @export_category("Action in Buttons")
 @export var add_time_when_sleeping : float
 @export var subtract_organics_when_eating : float
@@ -17,6 +18,8 @@ extends Node2D
 @export var hungry_increase_status : float
 @export var crazyness_increase_status : float
 @export var thirsty_increase_status : float
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -47,6 +50,7 @@ func _on_go_cabin_button_pressed() -> void:
 func _on_go_out_button_pressed() -> void:
 	visible = false
 	GameManager.is_player_outside = true
+	space_shuttle.show()
 
 
 func _add_sleepy_status(sleepy : float):

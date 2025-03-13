@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://cx2hi1q0p7tct"]
 
-[ext_resource type="Script" path="res://scripts/loading/loading_screen.gd" id="1_h5nex"]
+[ext_resource type="Script" uid="uid://bdt68tgd0amjc" path="res://scripts/loading/loading_screen.gd" id="1_h5nex"]
 [ext_resource type="Texture2D" uid="uid://cji6tf5au637k" path="res://Assets/images/backgrounds/Mars II.jpeg" id="1_hygxv"]
 [ext_resource type="Texture2D" uid="uid://s2lidrkisik8" path="res://Assets/images/backgrounds/Mars I.jpeg" id="2_euyam"]
 [ext_resource type="PackedScene" uid="uid://brlk4iyc2stho" path="res://Assets/models/loading/25042_Perseverance.glb" id="2_ww5ux"]
-[ext_resource type="Script" path="res://Assets/models/loading/rover_rotation.gd" id="3_5x6k4"]
+[ext_resource type="Script" uid="uid://bqwa8b0svaw0h" path="res://Assets/models/loading/rover_rotation.gd" id="3_5x6k4"]
 [ext_resource type="FontFile" uid="uid://dr1ok3ju4bfb3" path="res://Assets/fonts/digital-7.ttf" id="5_mtelc"]
 [ext_resource type="FontFile" uid="uid://c288sv5f7n1i1" path="res://Assets/fonts/OpenSans-ExtraBold.ttf" id="6_x6lgq"]
 [ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="7_baggh"]

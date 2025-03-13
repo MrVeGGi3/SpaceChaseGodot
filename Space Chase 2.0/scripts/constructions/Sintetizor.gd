@@ -61,5 +61,6 @@ func _on_hidrogen_input_2_text_changed(new_text: String) -> void:
 
 func _on_oxygen_input_text_changed(new_text: String) -> void:
 	oxygen_value = float(new_text)
+	hidrogen_input_2.text = str(oxygen_value/hidro_to_oxy_proportion)
 	hidrogen_value_2 = oxygen_value / hidro_to_oxy_proportion
 	water_value_2 = oxygen_value / 2
