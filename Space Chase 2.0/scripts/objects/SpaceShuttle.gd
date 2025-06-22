@@ -10,16 +10,7 @@ var can_action = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	can_interact_ui.hide()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if can_action and Input.is_action_just_pressed("ação"):
-		print("Botão para acionar o StatusControl acionado")
-		inside_space_shuttle.show()
-		_hide_player_and_shuttle()
-		GameManager.is_player_outside = false
-		
+	
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
 		can_interact_ui.show()
@@ -33,3 +24,10 @@ func _on_area_2d_body_exited(body: CharacterBody2D) -> void:
 func _hide_player_and_shuttle():
 	hide()
 	player.hide()
+
+func _on_enter_ship_button_pressed() -> void:
+	if can_action:
+		print("Botão para acionar o StatusControl acionado")
+		inside_space_shuttle.show()
+		_hide_player_and_shuttle()
+		GameManager.is_player_outside = false

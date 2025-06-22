@@ -29,7 +29,7 @@ bg_color = Color(0.965714, 0, 0.137143, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n75mq"]
 bg_color = Color(0.62427, 0, 0.0555577, 1)
 
-[node name="Sintetyzer" type="Node2D"]
+[node name="SintetyzerInterface" type="Node2D"]
 script = ExtResource("1_0pyv0")
 
 [node name="Panel" type="Panel" parent="."]
@@ -310,6 +310,7 @@ offset_right = 825.063
 offset_bottom = 517.0
 
 [node name="Litros4" type="Label" parent="HidroOxiToWater"]
+layout_mode = 0
 offset_left = 839.0
 offset_top = 470.0
 offset_right = 907.0
@@ -342,11 +343,38 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ijd0y")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n75mq")
 text = "Apagar"
 
-[node name="Window" type="Window" parent="."]
+[node name="ConfirmEraseWindow" type="Window" parent="."]
 title = "Apagar"
 position = Vector2i(400, 300)
 size = Vector2i(400, 200)
+visible = false
 content_scale_size = Vector2i(20, 20)
+
+[node name="Yes" type="Button" parent="ConfirmEraseWindow"]
+offset_left = 3.0
+offset_top = 150.0
+offset_right = 94.0
+offset_bottom = 197.0
+theme_override_fonts/font = ExtResource("10_kfh1p")
+theme_override_font_sizes/font_size = 25
+text = "Sim"
+
+[node name="Description" type="Label" parent="ConfirmEraseWindow"]
+offset_left = 14.0
+offset_top = 69.0
+offset_right = 400.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 25
+text = "Tem certeza que deseja apagar?"
+
+[node name="No" type="Button" parent="ConfirmEraseWindow"]
+offset_left = 308.0
+offset_top = 152.0
+offset_right = 399.0
+offset_bottom = 199.0
+theme_override_fonts/font = ExtResource("10_kfh1p")
+theme_override_font_sizes/font_size = 25
+text = "Não"
 
 [node name="Voltar" type="Button" parent="."]
 offset_left = 193.0
@@ -361,3 +389,8 @@ text = "Voltar"
 [connection signal="text_changed" from="WaterToHidroAndOxi/WaterInput" to="." method="_on_water_input_text_changed"]
 [connection signal="text_changed" from="HidroOxiToWater/HidrogenInput2" to="." method="_on_hidrogen_input_2_text_changed"]
 [connection signal="text_changed" from="HidroOxiToWater/OxygenInput" to="." method="_on_oxygen_input_text_changed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Apagar" to="." method="_on_apagar_pressed"]
+[connection signal="pressed" from="ConfirmEraseWindow/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="ConfirmEraseWindow/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

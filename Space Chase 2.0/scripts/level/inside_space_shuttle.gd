@@ -5,6 +5,7 @@ extends Node2D
 @onready var main_level: Node2D = $".."
 @onready var space_shuttle: Node2D = $"../SpaceShuttle"
 @onready var cockpit: Node2D = $"../Cockpit"
+@onready var sleep_button: Button = $SleepButton
 
 
 
@@ -49,6 +50,7 @@ func _on_go_cabin_button_pressed() -> void:
 
 func _on_go_out_button_pressed() -> void:
 	visible = false
+	player.show()
 	GameManager.is_player_outside = true
 	space_shuttle.show()
 

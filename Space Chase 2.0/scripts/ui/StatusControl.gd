@@ -5,6 +5,7 @@ extends Control
 @onready var hora_minutos = $HourLabel
 @onready var dia_month = $DateLabel
 
+
 #labels
 @onready var water_label = $ResourcesBackground/WaterVBoxContainer/Water
 @onready var o2_label = $ResourcesBackground/O2VBoxContainer/O2
@@ -25,6 +26,8 @@ extends Control
 @onready var pause_time_button: Button = $GameTimeDisplayBackground/TimeDisplay/PauseTime
 @onready var accelerate_time_button: Button = $GameTimeDisplayBackground/TimeDisplay/AccelerateTime
 
+@export var constructions : Control
+@export var studies : Control
 #booleanas de controle de status
 @onready var is_time_slowed : bool = false
 # Called when the node enters the scene tree for the first time.
@@ -76,3 +79,8 @@ func _on_accelerate_time_pressed() -> void:
 	print("Botão Acelerar Apertado")
 	Engine.time_scale += 0.5
 		
+func _on_construction_button_pressed() -> void:
+	constructions.show()
+
+func _on_studies_button_pressed() -> void:
+	studies.show()

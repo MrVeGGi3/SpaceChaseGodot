@@ -18,6 +18,9 @@ extends CharacterBody2D
 @export var is_sleepy_limit : bool = false
 @export var is_oxygen_limit : bool = false
 
+@onready var working_sound: AudioStreamPlayer = $WorkingSound
+
+
 func _ready():
 	target_position = position
 
@@ -83,23 +86,11 @@ func _keep_status_limit():
 		if value >= 100:
 			value = 100
 
+func play_working_sound():
+	working_sound.play()
+
+func stop_working_sound():
+	working_sound.stop()
 	
-#Oito tipos de movimento possiveis.
-#Frente, Trás, Esquerda, Direita, 
-#Diagonal Esquerda Inferior, Diagonal Direita Inferior, Diagonal Esquerda Superior, Diagonal Direita Inferior
-#if angle_degress <= -110 and angle_degrees <= -70:
-#      animation_player.play("atrás")
-#if angle_degress <= 69 and angle_degrees <= -20:
-#      animation_player.play("diagonal superior direita")
-#if angle_degress <= -155 and angle_degrees <= -115:
-#		animation_player.play("diagonal superior direita")
-#if angle_degress >= 160  and angle_degrees <= -160: 
-#		animation_player.play("esquerda")
-#if angle_degrees <= 155 and angle_degrees >= 115: 
-#		animation_player.play("diagonal inferior esquerda")
-#if angle_degrees <= 110 and angle_degrees >= 70:
-#		animation_player.play("frente")
-#if angle_degrees <= 65 and angle_degrees >= 25:
-#		animation_player.play("diagonal inferior direita")
-#if angle_degrees >= -20 and angle_degrees <= 20:
-#		animation_player.play("direita") 
+func _on_working_sound_finished() -> void:
+	working_sound.play()

@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=3 uid="uid://vkx4oxq5kyts"]
+
+[ext_resource type="Texture2D" uid="uid://dgrhlbo6gk11g" path="res://Assets/icons/studies/UI/BaseButtonIcon.png" id="1_2qvpv"]
+[ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="2_8pe7x"]
+[ext_resource type="Texture2D" uid="uid://c4ye828xakky8" path="res://Assets/images/UI/constructions/ConstructionDescription.png" id="3_u3258"]
+[ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="4_v66gi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3258"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pe7x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uqyj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v66gi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kltau"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cgdq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="StudiesBaseNode" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.271887, 0.779283, 0.937201, 1)
+layout_mode = 0
+offset_left = 326.0
+offset_top = 142.0
+offset_right = 366.0
+offset_bottom = 182.0
+scale = Vector2(13.2939, 6.73392)
+
+[node name="FocusBoostBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 160.0
+offset_right = 790.0
+offset_bottom = 187.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 208.0
+offset_right = 594.0
+offset_bottom = 248.0
+scale = Vector2(2.21452, 2.21452)
+
+[node name="ExperienceBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 324.0
+offset_right = 717.0
+offset_bottom = 351.0
+step = 1.0
+show_percentage = false
+
+[node name="TitleName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 299.0
+offset_right = 614.0
+offset_bottom = 322.0
+
+[node name="LevelButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 306.0
+offset_right = 1058.0
+offset_bottom = 719.0
+scale = Vector2(0.136663, 0.147634)
+theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4uqyj")
+icon = ExtResource("1_2qvpv")
+
+[node name="LevelNumber" type="Label" parent="."]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 318.0
+offset_right = 511.0
+offset_bottom = 399.0
+theme_override_fonts/font = ExtResource("2_8pe7x")
+theme_override_font_sizes/font_size = 25
+text = "1
+"
+
+[node name="StudyButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 208.0
+offset_right = 650.0
+offset_bottom = 293.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5cgdq")
+
+[node name="ActualLevelEffects" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 194.0
+offset_right = 1378.0
+offset_bottom = 571.0
+scale = Vector2(0.291332, 0.291332)
+texture = ExtResource("3_u3258")
+
+[node name="Upgrades" type="Label" parent="ActualLevelEffects"]
+layout_mode = 0
+offset_left = 41.1901
+offset_top = 54.9202
+offset_right = 774.19
+offset_bottom = 124.92
+theme_override_fonts/font = ExtResource("4_v66gi")
+theme_override_font_sizes/font_size = 40
+text = "Melhorias Atuais:"
+
+[node name="ActualUpgrade" type="RichTextLabel" parent="ActualLevelEffects"]
+layout_mode = 0
+offset_left = 58.3527
+offset_top = 236.843
+offset_right = 98.3527
+offset_bottom = 276.843
+
+[node name="LevelEffects" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 718.0
+offset_top = 304.0
+offset_right = 1380.0
+offset_bottom = 681.0
+scale = Vector2(0.291332, 0.291332)
+texture = ExtResource("3_u3258")
+
+[node name="Label" type="Label" parent="LevelEffects"]
+layout_mode = 0
+offset_left = 72.0827
+offset_top = 37.7576
+offset_right = 632.083
+offset_bottom = 107.758
+theme_override_fonts/font = ExtResource("4_v66gi")
+theme_override_font_sizes/font_size = 45
+text = "Proximo Nível:"
+
+[node name="NextUpgrade" type="RichTextLabel" parent="LevelEffects"]
+layout_mode = 0
+offset_left = 61.7852
+offset_top = 219.681
+offset_right = 101.785
+offset_bottom = 259.681
+
+[node name="Voltar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 358.0
+offset_right = 661.0
+offset_bottom = 405.0
+theme_override_fonts/font = ExtResource("2_8pe7x")
+theme_override_font_sizes/font_size = 25
+text = "Voltar"

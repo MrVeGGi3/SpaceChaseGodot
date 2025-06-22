@@ -1,36 +1,32 @@
-[gd_scene load_steps=16 format=3 uid="uid://4h42ngd7gsgq"]
+[gd_scene load_steps=14 format=3 uid="uid://4h42ngd7gsgq"]
 
 [ext_resource type="Theme" uid="uid://cmymbciinwmw0" path="res://themes/UITitleLabel.tres" id="1_ddu35"]
 [ext_resource type="Script" uid="uid://db0uqfobvtebf" path="res://scripts/ui/constructionsUI.gd" id="1_rlfvj"]
 [ext_resource type="Texture2D" uid="uid://qr456pd6cybs" path="res://Assets/images/UI/constructions/ConstructionIconIdle.png" id="2_xdeho"]
 [ext_resource type="Texture2D" uid="uid://o5wrq2k1u5rf" path="res://Assets/images/constructions/Robô de Conserto.png" id="3_ke4aa"]
 [ext_resource type="Texture2D" uid="uid://c4ye828xakky8" path="res://Assets/images/UI/constructions/ConstructionDescription.png" id="3_tp6tt"]
-[ext_resource type="Texture2D" uid="uid://dn5uoynx8urf0" path="res://Assets/images/constructions/Robô de Mineração.png" id="5_bw4vl"]
 [ext_resource type="Theme" uid="uid://cc2a2tuhpo033" path="res://themes/ConstructionTitle.tres" id="5_tukpp"]
 [ext_resource type="Theme" uid="uid://cny1ebumne4j5" path="res://themes/QuantityLabelConstruct.tres" id="6_d1s2a"]
 [ext_resource type="Texture2D" uid="uid://bu160wjoed6e5" path="res://Assets/images/constructions/Condensador de Água.png" id="6_toqps"]
 [ext_resource type="Texture2D" uid="uid://dp4efbb57gtt7" path="res://Assets/images/constructions/Hidropônica.png" id="7_feids"]
+[ext_resource type="Texture2D" uid="uid://ce7aeo225fvdd" path="res://Assets/images/constructions/RASSOR.png" id="8_15e8u"]
 [ext_resource type="Texture2D" uid="uid://cq32wcmejxgh6" path="res://Assets/images/constructions/Sintetizador.png" id="8_wjnxh"]
 [ext_resource type="Texture2D" uid="uid://x3pmo6q4jxow" path="res://Assets/images/constructions/Painel Solar.png" id="9_tjown"]
-[ext_resource type="FontFile" uid="uid://c288sv5f7n1i1" path="res://Assets/fonts/OpenSans-ExtraBold.ttf" id="11_afqgd"]
+[ext_resource type="Script" uid="uid://cs1onqvucn3bq" path="res://scripts/constructions/SpawnButton.gd" id="13_15e8u"]
 
-[sub_resource type="Theme" id="Theme_m8q1k"]
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/font_sizes/font_size = 40
-Label/fonts/font = ExtResource("11_afqgd")
-
-[sub_resource type="Theme" id="Theme_rmfre"]
-Label/font_sizes/font_size = 40
-
-[node name="Constructions" type="Node2D"]
+[node name="Constructions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_rlfvj")
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(0.0980392, 0.52549, 1, 1)
+layout_mode = 0
 offset_right = 1147.0
 offset_bottom = 644.0
 
 [node name="Title" type="Label" parent="."]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 7.0
 offset_right = 807.0
@@ -39,6 +35,7 @@ theme = ExtResource("1_ddu35")
 text = "Construções"
 
 [node name="ConsertRobotContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 80.0
 offset_right = 1190.0
@@ -81,23 +78,6 @@ theme = ExtResource("6_d1s2a")
 theme_override_font_sizes/font_size = 60
 text = "10/10"
 
-[node name="Status" type="HBoxContainer" parent="ConsertRobotContainer/ConsertRobotDesc"]
-layout_mode = 0
-offset_left = 56.6042
-offset_top = 299.32
-offset_right = 656.604
-offset_bottom = 354.32
-
-[node name="StatusTitle" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_m8q1k")
-text = "STATUS:"
-
-[node name="ConsertStatus" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_rmfre")
-text = "Em Construção"
-
 [node name="ConstructRobotTitleLabel" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc"]
 layout_mode = 0
 offset_left = 59.2767
@@ -108,6 +88,7 @@ theme = ExtResource("5_tukpp")
 text = "Robô de Construção"
 
 [node name="MinerRobotContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 456.0
 offset_top = 86.0
 offset_right = 1644.0
@@ -120,12 +101,12 @@ texture = ExtResource("2_xdeho")
 
 [node name="Miner" type="TextureRect" parent="MinerRobotContainer/MinerRobotContainer"]
 layout_mode = 0
-offset_left = -146.987
-offset_top = 58.7949
-offset_right = 263.013
-offset_bottom = 257.795
-scale = Vector2(1.90931, 1.90931)
-texture = ExtResource("5_bw4vl")
+offset_left = 10.69
+offset_top = 13.3625
+offset_right = 420.69
+offset_bottom = 212.363
+scale = Vector2(1.20703, 2.16913)
+texture = ExtResource("8_15e8u")
 
 [node name="MinerQuantityLabel" type="Label" parent="MinerRobotContainer/MinerRobotContainer"]
 layout_mode = 0
@@ -159,24 +140,8 @@ offset_bottom = 210.005
 theme_override_font_sizes/font_size = 40
 text = "Encontra Metal no Ambiente"
 
-[node name="Status" type="HBoxContainer" parent="MinerRobotContainer/MinerRobotDesc"]
-layout_mode = 0
-offset_left = 43.2417
-offset_top = 291.302
-offset_right = 643.242
-offset_bottom = 346.302
-
-[node name="StatusTitle" type="Label" parent="MinerRobotContainer/MinerRobotDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_m8q1k")
-text = "STATUS:"
-
-[node name="MinerStatus" type="Label" parent="MinerRobotContainer/MinerRobotDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_rmfre")
-text = "Em Construção"
-
 [node name="WaterCondenserContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 264.0
 offset_right = 1189.0
@@ -227,24 +192,8 @@ offset_bottom = 212.677
 theme_override_font_sizes/font_size = 40
 text = "Gerador de Água através do Ar"
 
-[node name="Status" type="HBoxContainer" parent="WaterCondenserContainer/WaterCondenserDesc"]
-layout_mode = 0
-offset_left = 45.9143
-offset_top = 277.94
-offset_right = 645.914
-offset_bottom = 332.94
-
-[node name="StatusTitle" type="Label" parent="WaterCondenserContainer/WaterCondenserDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_m8q1k")
-text = "STATUS:"
-
-[node name="WaterStatus" type="Label" parent="WaterCondenserContainer/WaterCondenserDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_rmfre")
-text = "Em Construção"
-
 [node name="HidroponicContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 454.0
 offset_top = 269.0
 offset_right = 1642.0
@@ -278,23 +227,6 @@ text = "10/10"
 layout_mode = 2
 texture = ExtResource("3_tp6tt")
 
-[node name="Status" type="HBoxContainer" parent="HidroponicContainer/HidroDesc"]
-layout_mode = 0
-offset_left = 51.2592
-offset_top = 264.577
-offset_right = 651.259
-offset_bottom = 319.577
-
-[node name="StatusTitle" type="Label" parent="HidroponicContainer/HidroDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_m8q1k")
-text = "STATUS:"
-
-[node name="HidroStatus" type="Label" parent="HidroponicContainer/HidroDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_rmfre")
-text = "Em Construção"
-
 [node name="HidroTitleLabel" type="Label" parent="HidroponicContainer/HidroDesc"]
 layout_mode = 0
 offset_left = 163.504
@@ -314,6 +246,7 @@ theme_override_font_sizes/font_size = 40
 text = "Gera Orgânicos e Alimentos"
 
 [node name="Sintetizator" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 449.0
 offset_right = 1189.0
@@ -364,24 +297,8 @@ offset_bottom = 196.642
 theme_override_font_sizes/font_size = 40
 text = "Converte Recursos em outros"
 
-[node name="Status" type="HBoxContainer" parent="Sintetizator/SintDesc"]
-layout_mode = 0
-offset_left = 40.5693
-offset_top = 261.905
-offset_right = 640.569
-offset_bottom = 316.905
-
-[node name="StatusTitle" type="Label" parent="Sintetizator/SintDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_m8q1k")
-text = "STATUS:"
-
-[node name="SintStatus" type="Label" parent="Sintetizator/SintDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_rmfre")
-text = "Em Construção"
-
 [node name="SolarPanelContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 455.0
 offset_top = 451.0
 offset_right = 1643.0
@@ -424,23 +341,6 @@ offset_bottom = 105.397
 theme = ExtResource("5_tukpp")
 text = "Painel Solar"
 
-[node name="Status" type="HBoxContainer" parent="SolarPanelContainer/SolarPanelDesc"]
-layout_mode = 0
-offset_left = 48.5868
-offset_top = 267.25
-offset_right = 648.587
-offset_bottom = 322.25
-
-[node name="StatusTitle" type="Label" parent="SolarPanelContainer/SolarPanelDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_m8q1k")
-text = "STATUS:"
-
-[node name="SolarStatus" type="Label" parent="SolarPanelContainer/SolarPanelDesc/Status"]
-layout_mode = 2
-theme = SubResource("Theme_rmfre")
-text = "Em Construção"
-
 [node name="SolarDescription" type="Label" parent="SolarPanelContainer/SolarPanelDesc"]
 layout_mode = 0
 offset_left = 206.264
@@ -449,3 +349,66 @@ offset_right = 799.264
 offset_bottom = 191.297
 theme_override_font_sizes/font_size = 40
 text = "Gera Energia "
+
+[node name="ConstructButtons" type="Control" parent="."]
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_15e8u")
+
+[node name="ConsRobotBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 221.0
+offset_right = 396.0
+offset_bottom = 252.0
+text = "Build"
+
+[node name="MinerRobotBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 225.0
+offset_right = 855.0
+offset_bottom = 256.0
+text = "Build"
+
+[node name="WaterCondenserBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 401.0
+offset_right = 396.0
+offset_bottom = 432.0
+text = "Build"
+
+[node name="HidroponicsBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 405.0
+offset_right = 855.0
+offset_bottom = 436.0
+text = "Build"
+
+[node name="SintetizorBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 583.0
+offset_right = 397.0
+offset_bottom = 614.0
+text = "Build"
+
+[node name="SolarPanelBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 586.0
+offset_right = 853.0
+offset_bottom = 617.0
+text = "Build"
+
+[connection signal="pressed" from="ConstructButtons/ConsRobotBuild" to="ConstructButtons" method="_on_cons_robot_build_pressed"]
+[connection signal="pressed" from="ConstructButtons/MinerRobotBuild" to="ConstructButtons" method="_on_miner_robot_build_pressed"]
+[connection signal="pressed" from="ConstructButtons/WaterCondenserBuild" to="ConstructButtons" method="_on_water_condenser_build_pressed"]
+[connection signal="pressed" from="ConstructButtons/HidroponicsBuild" to="ConstructButtons" method="_on_hidroponics_buikd_pressed"]
+[connection signal="pressed" from="ConstructButtons/SintetizorBuild" to="ConstructButtons" method="_on_sintetizor_build_pressed"]
+[connection signal="pressed" from="ConstructButtons/SolarPanelBuild" to="ConstructButtons" method="_on_solar_panel_build_pressed"]

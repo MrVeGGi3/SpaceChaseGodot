@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=3 uid="uid://didp87krdgmkf"]
+
+[ext_resource type="Script" uid="uid://be56ih7xyq7p4" path="res://scripts/constructions/Hidroponics.gd" id="1_yreyy"]
+[ext_resource type="Texture2D" uid="uid://dp4efbb57gtt7" path="res://Assets/images/constructions/Hidropônica.png" id="2_b1881"]
+[ext_resource type="Script" uid="uid://cdkt04546tsie" path="res://scripts/constructions/ProgressBar/hidroponics_progress_bar.gd" id="2_jix5d"]
+[ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="4_cems8"]
+[ext_resource type="Texture2D" uid="uid://cm7ygp88d04ws" path="res://Assets/icons/resources/saladicon.png" id="5_lnq8y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lnq8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b1881")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cems8"]
+size = Vector2(141, 111)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4usr"]
+bg_color = Color(0.72549, 0.588235, 0.321569, 1)
+
+[sub_resource type="Animation" id="Animation_3yy18"]
+resource_name = "construction_progress_color"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HidroponicsProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_n4usr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HidroponicsProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0.964706, 0.6, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yreyy"]
+resource_name = "manutence_progress_color"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HidroponicsProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_n4usr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HidroponicsProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.72549, 0.588235, 0.321569, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jix5d"]
+_data = {
+&"construction_progress_color": SubResource("Animation_3yy18"),
+&"manutence_progress_color": SubResource("Animation_yreyy")
+}
+
+[node name="Hidroponics" type="Node2D"]
+script = ExtResource("1_yreyy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.340851, 0.340851)
+sprite_frames = SubResource("SpriteFrames_lnq8y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, -4.5)
+shape = SubResource("RectangleShape2D_cems8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -4.5)
+shape = SubResource("RectangleShape2D_cems8")
+
+[node name="HidroponicsAnimPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jix5d")
+}
+
+[node name="HidroponicsProgressBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_n4usr")
+script = ExtResource("2_jix5d")
+
+[node name="HidroponicsButton" type="Button" parent="."]
+offset_left = -78.0
+offset_top = -24.0
+offset_right = 78.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_cems8")
+theme_override_font_sizes/font_size = 25
+text = "Construct"
+
+[node name="OrganicsEarnt" type="Button" parent="."]
+offset_left = -17.0
+offset_top = -115.0
+offset_right = 503.0
+offset_bottom = 405.0
+scale = Vector2(0.0661369, 0.0684585)
+theme_override_icons/icon = ExtResource("5_lnq8y")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="HidroponicsButton" to="." method="_on_hidroponics_button_pressed"]
+[connection signal="pressed" from="OrganicsEarnt" to="." method="_on_organics_earnt_pressed"]

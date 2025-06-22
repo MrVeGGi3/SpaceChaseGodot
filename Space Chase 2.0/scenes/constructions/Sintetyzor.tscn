@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqov4p4eeo336"]
+
+[ext_resource type="Texture2D" uid="uid://cq32wcmejxgh6" path="res://Assets/images/constructions/Sintetizador.png" id="1_3p6tg"]
+[ext_resource type="Script" uid="uid://pyecs11pv177" path="res://scripts/constructions/SintetyzorCons.gd" id="1_glbrm"]
+[ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="2_dutfx"]
+[ext_resource type="Script" uid="uid://ncbqidvjixn2" path="res://scripts/constructions/ProgressBar/sintetyzor_progress_bar.gd" id="4_uiv02"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7ljy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3p6tg")
+}],
+"loop": true,
+"name": &"Constructed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dutfx"]
+size = Vector2(220, 217)
+
+[sub_resource type="Animation" id="Animation_a7ljy"]
+resource_name = "construction_progress_bar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SintetyzorProgressBar:theme_override_styles/background")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SintetyzorProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0.964706, 0.6, 1)]
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p6tg"]
+bg_color = Color(0.6, 0.964706, 0.6, 1)
+
+[sub_resource type="Animation" id="Animation_dutfx"]
+resource_name = "manutence_progress_bar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SintetyzorProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_3p6tg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SintetyzorProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.72549, 0.584314, 0.141176, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_glbrm"]
+_data = {
+&"construction_progress_bar": SubResource("Animation_a7ljy"),
+&"manutence_progress_bar": SubResource("Animation_dutfx")
+}
+
+[node name="Sintetyzor" type="Node2D" groups=["Sintetyzor"]]
+position = Vector2(1, 0)
+script = ExtResource("1_glbrm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.453263, 0.453263)
+sprite_frames = SubResource("SpriteFrames_a7ljy")
+animation = &"Constructed"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_dutfx")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_dutfx")
+
+[node name="ChangeSintetyzorStats" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_glbrm")
+}
+
+[node name="ConstructSintetyzor" type="Button" parent="."]
+offset_left = -73.0
+offset_top = -4.0
+offset_right = 83.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("2_dutfx")
+theme_override_font_sizes/font_size = 25
+text = "Construct"
+
+[node name="ShowSintetyzor" type="Button" parent="."]
+offset_left = -75.0
+offset_top = -61.0
+offset_right = 91.0
+offset_bottom = -14.0
+scale = Vector2(0.950428, 0.924587)
+theme_override_fonts/font = ExtResource("2_dutfx")
+theme_override_font_sizes/font_size = 25
+text = "Conversion"
+
+[node name="SintetyzorProgressBar" type="ProgressBar" parent="."]
+offset_left = -54.0
+offset_top = -129.0
+offset_right = 66.0
+offset_bottom = -102.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_3p6tg")
+step = 1.0
+script = ExtResource("4_uiv02")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="ConstructSintetyzor" to="." method="_on_construct_sintetyzor_pressed"]
+[connection signal="pressed" from="ShowSintetyzor" to="." method="_on_show_sintetyzor_pressed"]

@@ -1,41 +1,35 @@
 class_name ConstructRobot
 extends Construction
 
-var is_allocated : bool = false
-var time_decrease : float = 0.25
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	time_to_construct = 7200.00
-	metal_price = 100.00
-
+	set_initial_nodes($ConstructFixButton, $RobotProgressBar, $RobotArea2D)
+	set_initial_status(7200.00, 100.00, 8000.0, 100.00)
+	hide_construction_UI()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	set_button_mode()
+	
 	if is_in_construction:
-		GameManager.fix_robot_status = "Em Construção"
-		time_to_construct -= delta * boost_construction
+		check_time_to_construct()
+		time_constructed += delta * GameManager.boost_construction
 		
-	elif time_to_construct <= 0.0:
-			is_in_construction = false
-			is_constructed = true
-			GameManager.fix_robot_status = "Completo"
+	elif is_constructed:
+		check_time_to_manutence()
+		time_to_go_manutence += delta 
 	
 	elif is_broken:
-		GameManager.fix_robots_status = "Quebrado(s)"
-	
-	elif is_being_fixed:
-		GameManager.fix_robot_status = "Em Conserto"
-		manutence_time -= boost_construction * delta
-		if manutence_time <= 0.0:
-			is_being_fixed = false
-			GameManager.fix_robot_status = "Completo"
-
-func fix_decrease(decrease_rate : float):
-	manutence_time -= (1 - decrease_rate) * manutence_time
-
-func construct_decrease(decrease_rate : float):
-	time_to_construct -= (1 - decrease_rate) * manutence_time
-
-func _start_construction():
-	GameManager.metal -= metal_price
-	is_in_construction = true
+		if is_being_fixed:
+			check_time_to_fix()
+			time_to_fix += GameManager.boost_construction * delta
 		
+func _on_robot_area_2d_body_entered(body: Player) -> void:
+	player_entered_area()
+	
+func _on_robot_area_2d_body_exited(body: Player) -> void:
+	player_exited_area()
+
+func _on_construct_fix_button_pressed() -> void:
+	construction_button_pressed()

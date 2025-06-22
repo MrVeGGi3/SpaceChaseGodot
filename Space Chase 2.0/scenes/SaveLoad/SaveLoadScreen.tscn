@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bvvxr3j4ck2q3"]
+[gd_scene load_steps=24 format=3 uid="uid://bvvxr3j4ck2q3"]
 
 [ext_resource type="Script" uid="uid://cy55rivqtb3a1" path="res://Data/save_screen.gd" id="1_ef01h"]
 [ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="1_wugry"]
@@ -17,6 +17,7 @@
 [ext_resource type="Theme" uid="uid://bmy37obfh77ks" path="res://themes/gamehour_dt.tres" id="13_mqrxb"]
 [ext_resource type="PackedScene" uid="uid://egtw8jclboos" path="res://scenes/SaveLoad/SaveManager.tscn" id="15_gsdy1"]
 [ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="17_rcc8e"]
+[ext_resource type="AudioStream" uid="uid://dbobwgolq67k2" path="res://Assets/sounds/button_sound.wav" id="18_buxhw"]
 
 [sub_resource type="Theme" id="Theme_6yx32"]
 Label/colors/font_color = Color(0.933333, 1, 0, 1)
@@ -592,6 +593,9 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("17_rcc8e")
 text = "NÃO"
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_buxhw")
 
 [connection signal="pressed" from="Save1" to="." method="_on_save_1_pressed"]
 [connection signal="pressed" from="Save2" to="." method="_on_save_2_pressed"]

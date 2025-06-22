@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://w8if7rx07dgx"]
+[gd_scene load_steps=44 format=3 uid="uid://w8if7rx07dgx"]
 
 [ext_resource type="Script" uid="uid://scnpgcpgdf2b" path="res://scripts/ui/StatusControl.gd" id="1_3lw74"]
 [ext_resource type="Texture2D" uid="uid://4mglc54cb7de" path="res://Assets/images/buttons/StatusControl/Normal/Play.png" id="2_axoxj"]
@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://5wgsxsshlrd3" path="res://Assets/icons/resources/metalicon.png" id="10_4gc56"]
 [ext_resource type="Texture2D" uid="uid://cm7ygp88d04ws" path="res://Assets/icons/resources/saladicon.png" id="11_u6e36"]
 [ext_resource type="FontFile" uid="uid://dr1ok3ju4bfb3" path="res://Assets/fonts/digital-7.ttf" id="22_fdxt1"]
+[ext_resource type="Texture2D" uid="uid://b5cb4owq4aksq" path="res://Assets/icons/tools/Hammer.png" id="23_bnaua"]
+[ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="24_0se2m"]
+[ext_resource type="Texture2D" uid="uid://cxyict88un1iu" path="res://Assets/icons/studies/BookIcon.png" id="24_wbfcl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgupp"]
 
@@ -75,6 +78,12 @@ bg_color = Color(0.192766, 0.881255, 0, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_rad0f")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_es1hr")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0se2m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnaua"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="StatusControl" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -127,7 +136,7 @@ text = "O2"
 horizontal_alignment = 1
 
 [node name="O2Sprite" type="Sprite2D" parent="ResourcesBackground/O2VBoxContainer"]
-position = Vector2(28.951, -61.7621)
+position = Vector2(25.0913, -57.902)
 scale = Vector2(0.22749, 0.22749)
 texture = ExtResource("7_xoql2")
 
@@ -382,6 +391,90 @@ position = Vector2(9.61994, -52.9097)
 scale = Vector2(0.173595, 0.173595)
 texture = ExtResource("8_bhjbb")
 
+[node name="ToolsControl" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 62.0
+offset_right = 296.0
+offset_bottom = 102.0
+
+[node name="ToolsButtonsBackground" type="TextureRect" parent="ToolsControl"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -70.0
+offset_right = 953.0
+offset_bottom = 178.0
+scale = Vector2(0.152079, 0.499888)
+texture = ExtResource("4_mu47a")
+
+[node name="Hammer" type="TextureRect" parent="ToolsControl/ToolsButtonsBackground"]
+layout_mode = 0
+offset_left = 256.445
+offset_top = 16.0036
+offset_right = 768.445
+offset_bottom = 528.004
+scale = Vector2(0.944992, 0.340061)
+texture = ExtResource("23_bnaua")
+
+[node name="ToolsButtonsBackground2" type="TextureRect" parent="ToolsControl"]
+layout_mode = 0
+offset_left = 541.0
+offset_top = -71.0
+offset_right = 1547.0
+offset_bottom = 177.0
+scale = Vector2(0.152079, 0.499888)
+texture = ExtResource("4_mu47a")
+
+[node name="Book" type="TextureRect" parent="ToolsControl/ToolsButtonsBackground2"]
+layout_mode = 0
+offset_left = 164.388
+offset_top = 16.0036
+offset_right = 676.388
+offset_bottom = 528.004
+scale = Vector2(1.31935, 0.334561)
+texture = ExtResource("24_wbfcl")
+
+[node name="ConstructionsLabel" type="Label" parent="ToolsControl"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = 15.0
+offset_right = 98.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("24_0se2m")
+theme_override_font_sizes/font_size = 30
+text = "Build"
+horizontal_alignment = 1
+
+[node name="StudiesButton" type="Button" parent="ToolsControl"]
+layout_mode = 0
+offset_left = 542.0
+offset_top = -66.0
+offset_right = 1042.0
+offset_bottom = 364.0
+scale = Vector2(0.296119, 0.276295)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0se2m")
+
+[node name="ConstructionButton" type="Button" parent="ToolsControl"]
+layout_mode = 0
+offset_left = -49.0
+offset_top = -61.0
+offset_right = 101.0
+offset_bottom = 59.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bnaua")
+
+[node name="StudiesLabel" type="Label" parent="ToolsControl"]
+layout_mode = 0
+offset_left = 538.0
+offset_top = 16.0
+offset_right = 700.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("24_0se2m")
+theme_override_font_sizes/font_size = 25
+text = "Studies"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/PlayTime" to="." method="_on_play_time_pressed"]
 [connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/PauseTime" to="." method="_on_pause_time_pressed"]
 [connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/AccelerateTime" to="." method="_on_accelerate_time_pressed"]
+[connection signal="pressed" from="ToolsControl/StudiesButton" to="." method="_on_studies_button_pressed"]
+[connection signal="pressed" from="ToolsControl/ConstructionButton" to="." method="_on_construction_button_pressed"]

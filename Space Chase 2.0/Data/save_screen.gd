@@ -7,6 +7,8 @@ extends Node2D
 
 @onready var new_game_window: Window = $NewGameWindow
 @onready var continue_game_window: Window = $ContinueGameWindow
+@onready var button_sound: AudioStreamPlayer = $ButtonSound
+
 
 var LoadingScreen = "res://scenes/menu/LoadingScreen.tscn"
 
@@ -38,12 +40,15 @@ func _on_new_game_close_requested() -> void:
 
 
 func _on_save_1_pressed() -> void:
+	_play_button_sound()
 	GameManager.slot_index = 0
 	_window_management()
 func _on_save_2_pressed() -> void:
+	_play_button_sound()
 	GameManager.slot_index = 1
 	_window_management()
 func _on_save_3_pressed() -> void:
+	_play_button_sound()
 	GameManager.slot_index = 2
 	_window_management()
 
@@ -57,13 +62,20 @@ func _window_management():
 		continue_game_window.show()
 
 func _on_new_game_windoow_confirm_pressed() -> void:
+	button_sound.play()
 	get_tree().change_scene_to_file(LoadingScreen)
 	
 func _on_new_game_window_cancel_pressed() -> void:
+	_play_button_sound()
 	new_game_window.hide()
 
 func _on_continue_window_confirm_pressed() -> void:
+	_play_button_sound()
 	get_tree().change_scene_to_file(LoadingScreen)
 
 func _on_continue_window_cancel_pressed() -> void:
 	continue_game_window.hide()
+
+
+func _play_button_sound() -> void:
+	button_sound.play()

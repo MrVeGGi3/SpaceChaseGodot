@@ -4,6 +4,7 @@ extends Control
 @onready var exit_window: Window = $ExitWindow
 @onready var save_load_screen: Node2D = $SaveLoadScreen
 @onready var menu_buttons: Control = $Buttons
+@onready var button_sound: AudioStreamPlayer = $AudioManager/ButtonSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,28 +19,41 @@ func _options():
 	pass
 
 func _exit_game():
+	_play_button_sound()
 	get_tree().quit()
 
 
 
 
 func _on_exit_game_pressed() -> void:
+	_play_button_sound()
 	exit_window.show()
+	
 func _on_confirm_pressed() -> void:
+	_play_button_sound()
 	_exit_game()
+	
 func _on_cancel_pressed() -> void:
+	_play_button_sound()
 	exit_window.hide()
+	
 func _on_exit_window_close_requested() -> void:
+	_play_button_sound()
 	exit_window.hide()
 	
 func _on_start_new_game_pressed() -> void:
+	_play_button_sound()
 	save_load_screen.set_acess_type(true)
 	if save_load_screen.get_acess_type():
 		save_load_screen.show()
 		menu_buttons.hide()
 		
 func _on_continue_game_pressed() -> void:
+	_play_button_sound()
 	save_load_screen.set_acess_type(false)
 	if !save_load_screen.get_acess_type():
 		save_load_screen.show()
 		menu_buttons.hide()
+
+func _play_button_sound():
+	button_sound.play()

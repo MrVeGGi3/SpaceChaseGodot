@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hnkjtjexbsdd"]
+[gd_scene load_steps=11 format=3 uid="uid://hnkjtjexbsdd"]
 
 [ext_resource type="Theme" uid="uid://6ygqf7ni8mc4" path="res://themes/button.tres" id="1_0qpd4"]
 [ext_resource type="Script" uid="uid://ck8gpyfh3a5cd" path="res://scripts/menu/menu.gd" id="1_puhc7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cnco41boersfi" path="res://scripts/planets/planet_rotation.gd" id="5_7hr6p"]
 [ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="8_fpyja"]
 [ext_resource type="PackedScene" uid="uid://bvvxr3j4ck2q3" path="res://scenes/SaveLoad/SaveLoadScreen.tscn" id="9_bbiu0"]
+[ext_resource type="AudioStream" uid="uid://dbobwgolq67k2" path="res://Assets/sounds/button_sound.wav" id="10_k48pe"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -146,6 +147,11 @@ text = "NÃO"
 
 [node name="SaveLoadScreen" parent="." instance=ExtResource("9_bbiu0")]
 visible = false
+
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("10_k48pe")
 
 [connection signal="pressed" from="Buttons/StartNewGame" to="." method="_on_start_new_game_pressed"]
 [connection signal="pressed" from="Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]

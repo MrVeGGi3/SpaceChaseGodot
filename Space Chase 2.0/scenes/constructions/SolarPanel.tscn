@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjuilu88huipa"]
+
+[ext_resource type="Script" uid="uid://c0c2nar7hwinq" path="res://scripts/constructions/SolarPanel.gd" id="1_e0n33"]
+[ext_resource type="Texture2D" uid="uid://x3pmo6q4jxow" path="res://Assets/images/constructions/Painel Solar.png" id="1_kj31c"]
+[ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="2_gd6r8"]
+[ext_resource type="Script" uid="uid://ctmp1o3511ghk" path="res://scripts/constructions/ProgressBar/solar_panel_progress_bar.gd" id="3_ulbdq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gd6r8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kj31c")
+}],
+"loop": true,
+"name": &"Constructed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj31c"]
+size = Vector2(46, 24)
+
+[sub_resource type="Animation" id="Animation_ry3hj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SolarPanelProgressBar:theme_override_styles/fill:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0.964706, 0.6, 1)]
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gd6r8"]
+bg_color = Color(0.6, 0.964706, 0.6, 1)
+
+[sub_resource type="Animation" id="Animation_e0n33"]
+resource_name = "construction_progress_color"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SolarPanelProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_gd6r8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SolarPanelProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0.964706, 0.6, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ulbdq"]
+resource_name = "manutence_progress_color"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SolarPanelProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_gd6r8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SolarPanelProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.72549, 0.584314, 0.141176, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rok8g"]
+_data = {
+&"RESET": SubResource("Animation_ry3hj"),
+&"construction_progress_color": SubResource("Animation_e0n33"),
+&"manutence_progress_color": SubResource("Animation_ulbdq")
+}
+
+[node name="SolarPanel" type="Node2D"]
+script = ExtResource("1_e0n33")
+
+[node name="SolarPanelAnimSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.377422, 0.377422)
+sprite_frames = SubResource("SpriteFrames_gd6r8")
+animation = &"Constructed"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -7)
+scale = Vector2(2.31778, 2.14108)
+shape = SubResource("RectangleShape2D_kj31c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -6)
+scale = Vector2(2.33083, 2.17395)
+shape = SubResource("RectangleShape2D_kj31c")
+
+[node name="ChangeColorProgressBar" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rok8g")
+}
+
+[node name="SolarPanelProgressBar" type="ProgressBar" parent="."]
+offset_left = -40.0
+offset_top = -59.0
+offset_right = 40.0
+offset_bottom = -32.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_gd6r8")
+step = 1.0
+script = ExtResource("3_ulbdq")
+
+[node name="SolarPanelButton" type="Button" parent="."]
+offset_left = -74.0
+offset_top = 21.0
+offset_right = 82.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("2_gd6r8")
+theme_override_font_sizes/font_size = 25
+text = "Construct"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="SolarPanelButton" to="." method="_on_solar_panel_button_pressed"]

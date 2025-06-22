@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://fq3h44myryer"]
+[gd_scene load_steps=49 format=3 uid="uid://fq3h44myryer"]
 
 [ext_resource type="Script" uid="uid://dcpwvi02ossnq" path="res://scripts/level/main_level.gd" id="1_0ohvt"]
 [ext_resource type="PackedScene" uid="uid://dx4ckn55atgno" path="res://scenes/Player/Player.tscn" id="3_lyp37"]
@@ -24,6 +24,19 @@
 [ext_resource type="PackedScene" uid="uid://htmt4jmpujlc" path="res://scenes/level/InsideSpaceShuttle.tscn" id="22_y21cn"]
 [ext_resource type="PackedScene" uid="uid://db2gi84m138so" path="res://scenes/level/Cockpit.tscn" id="23_tudxn"]
 [ext_resource type="PackedScene" uid="uid://d3c8gi62hlnlh" path="res://scenes/level/RadarConditionsList.tscn" id="24_ket2d"]
+[ext_resource type="AudioStream" uid="uid://dbobwgolq67k2" path="res://Assets/sounds/button_sound.wav" id="24_q4n8g"]
+[ext_resource type="PackedScene" uid="uid://4h42ngd7gsgq" path="res://scenes/HUD/Constructions.tscn" id="25_olgf2"]
+[ext_resource type="PackedScene" uid="uid://ms6kfek6qqtt" path="res://scenes/HUD/SintetyzeInterfacer.tscn" id="28_0jp4e"]
+[ext_resource type="PackedScene" uid="uid://briv7ry08pp32" path="res://scenes/HUD/Studies.tscn" id="29_l5pqo"]
+[ext_resource type="Script" uid="uid://b55uxyci8lkk" path="res://scripts/studies/Botanics/botanics_interface.gd" id="30_4mgjs"]
+[ext_resource type="Texture2D" uid="uid://dgrhlbo6gk11g" path="res://Assets/icons/studies/UI/BaseButtonIcon.png" id="30_dvuug"]
+[ext_resource type="Script" uid="uid://b0vuypit8fmm6" path="res://scripts/studies/Mechanics/mechanics_studies_ui.gd" id="30_s25i6"]
+[ext_resource type="Texture2D" uid="uid://c74nxjdu7j7so" path="res://Assets/icons/studies/GearIcon.png" id="31_4mgjs"]
+[ext_resource type="Texture2D" uid="uid://ni2enu11sd3v" path="res://Assets/icons/studies/BotanicsIcon.png" id="31_aw8ai"]
+[ext_resource type="Texture2D" uid="uid://c4ye828xakky8" path="res://Assets/images/UI/constructions/ConstructionDescription.png" id="31_s25i6"]
+[ext_resource type="Script" uid="uid://xihjeiqx4yka" path="res://scripts/studies/Electronics/electronic_interface.gd" id="34_rhjn4"]
+[ext_resource type="Texture2D" uid="uid://cvdx08c6m3mem" path="res://Assets/icons/studies/ElectronicIcon.png" id="37_vafpg"]
+[ext_resource type="Script" uid="uid://7j7sl8c2l3kd" path="res://scripts/Storage/important_nodes_storage.gd" id="39_iwf5g"]
 
 [sub_resource type="Theme" id="Theme_6yx32"]
 Label/colors/font_color = Color(0.933333, 1, 0, 1)
@@ -44,6 +57,24 @@ Label/fonts/font = ExtResource("19_0x7jq")
 [sub_resource type="Theme" id="Theme_atach"]
 Panel/styles/panel = SubResource("StyleBoxFlat_q0v65")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3258"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pe7x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uqyj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v66gi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kltau"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cgdq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_0ohvt")
 hungry_maximum_time_ = 8040.0
@@ -63,18 +94,23 @@ z_index = 1
 position = Vector2(454, 299)
 
 [node name="SpaceShuttle" parent="." instance=ExtResource("22_0jwsq")]
-position = Vector2(1003, 275)
+position = Vector2(948, 280)
 scale = Vector2(1.51391, 1.51391)
 
 [node name="InsideSpaceShuttle" parent="." instance=ExtResource("22_y21cn")]
 z_index = 2
 
-[node name="StatusControl" parent="." instance=ExtResource("4_kx0l0")]
+[node name="StatusControl" parent="." node_paths=PackedStringArray("constructions", "studies") instance=ExtResource("4_kx0l0")]
 z_index = 5
+constructions = NodePath("../Constructions")
+studies = NodePath("../Studies")
+
+[node name="Cockpit" parent="." instance=ExtResource("23_tudxn")]
+visible = false
+z_index = 3
 
 [node name="SaveLoadScreen" type="Node2D" parent="."]
-process_mode = 3
-position = Vector2(49, -3)
+visible = false
 script = ExtResource("5_ew62o")
 
 [node name="Save1" type="Button" parent="SaveLoadScreen"]
@@ -630,11 +666,471 @@ grow_vertical = 0
 theme = ExtResource("21_l44ek")
 text = "NÃO"
 
-[node name="Cockpit" parent="." instance=ExtResource("23_tudxn")]
-z_index = 3
+[node name="ButtonSound" type="AudioStreamPlayer" parent="SaveLoadScreen"]
+stream = ExtResource("24_q4n8g")
 
 [node name="RadarConditionsList" parent="." instance=ExtResource("24_ket2d")]
 z_index = 4
+
+[node name="Constructions" parent="." instance=ExtResource("25_olgf2")]
+visible = false
+z_index = 6
+
+[node name="ImportantNodesStorage" type="Node" parent="." node_paths=PackedStringArray("status_ui", "main_level", "constructions")]
+script = ExtResource("39_iwf5g")
+status_ui = NodePath("../StatusControl")
+main_level = NodePath("..")
+constructions = NodePath("../Constructions")
+
+[node name="SintetyzerInterface" parent="." instance=ExtResource("28_0jp4e")]
+z_index = 7
+
+[node name="Studies" parent="." node_paths=PackedStringArray("botanics_interface", "mechanics_interface", "electronics_interface") instance=ExtResource("29_l5pqo")]
+visible = false
+z_index = 6
+botanics_interface = NodePath("../BotanicsInterface")
+mechanics_interface = NodePath("../MechanicsInterface")
+electronics_interface = NodePath("../ElectronicInterface")
+
+[node name="BotanicsInterface" type="Control" parent="." node_paths=PackedStringArray("studies_ui")]
+z_index = 7
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("30_4mgjs")
+studies_ui = NodePath("../Studies")
+
+[node name="Panel" type="Panel" parent="BotanicsInterface"]
+modulate = Color(0.271887, 0.779283, 0.937201, 1)
+layout_mode = 0
+offset_left = 326.0
+offset_top = 142.0
+offset_right = 366.0
+offset_bottom = 182.0
+scale = Vector2(13.2939, 6.73392)
+
+[node name="FocusBoostBar" type="ProgressBar" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 160.0
+offset_right = 790.0
+offset_bottom = 187.0
+
+[node name="TextureRect" type="TextureRect" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 208.0
+offset_right = 594.0
+offset_bottom = 248.0
+scale = Vector2(0.306095, 0.306095)
+texture = ExtResource("31_aw8ai")
+
+[node name="ExperienceBar" type="ProgressBar" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 324.0
+offset_right = 717.0
+offset_bottom = 351.0
+step = 1.0
+
+[node name="TitleName" type="Label" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 299.0
+offset_right = 614.0
+offset_bottom = 322.0
+
+[node name="LevelButton" type="Button" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 306.0
+offset_right = 1058.0
+offset_bottom = 719.0
+scale = Vector2(0.136663, 0.147634)
+theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4uqyj")
+icon = ExtResource("30_dvuug")
+
+[node name="LevelNumber" type="Label" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 318.0
+offset_right = 511.0
+offset_bottom = 399.0
+theme_override_fonts/font = ExtResource("7_urreh")
+theme_override_font_sizes/font_size = 25
+text = "1
+"
+
+[node name="StudyButton" type="Button" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 208.0
+offset_right = 650.0
+offset_bottom = 293.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5cgdq")
+
+[node name="ActualLevelEffects" type="TextureRect" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 194.0
+offset_right = 1378.0
+offset_bottom = 571.0
+scale = Vector2(0.291332, 0.291332)
+texture = ExtResource("31_s25i6")
+
+[node name="Upgrades" type="Label" parent="BotanicsInterface/ActualLevelEffects"]
+layout_mode = 0
+offset_left = 41.1901
+offset_top = 54.9202
+offset_right = 774.19
+offset_bottom = 124.92
+theme_override_fonts/font = ExtResource("19_0x7jq")
+theme_override_font_sizes/font_size = 40
+text = "Melhorias Atuais:"
+
+[node name="ActualUpgrade" type="RichTextLabel" parent="BotanicsInterface/ActualLevelEffects"]
+layout_mode = 0
+offset_left = 58.3527
+offset_top = 236.843
+offset_right = 98.3527
+offset_bottom = 276.843
+
+[node name="LevelEffects" type="TextureRect" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 718.0
+offset_top = 304.0
+offset_right = 1380.0
+offset_bottom = 681.0
+scale = Vector2(0.291332, 0.291332)
+texture = ExtResource("31_s25i6")
+
+[node name="Label" type="Label" parent="BotanicsInterface/LevelEffects"]
+layout_mode = 0
+offset_left = 72.0827
+offset_top = 37.7576
+offset_right = 632.083
+offset_bottom = 107.758
+theme_override_fonts/font = ExtResource("19_0x7jq")
+theme_override_font_sizes/font_size = 45
+text = "Proximo Nível:"
+
+[node name="NextUpgrade" type="RichTextLabel" parent="BotanicsInterface/LevelEffects"]
+layout_mode = 0
+offset_left = 61.7852
+offset_top = 219.681
+offset_right = 101.785
+offset_bottom = 259.681
+
+[node name="Voltar" type="Button" parent="BotanicsInterface"]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 358.0
+offset_right = 661.0
+offset_bottom = 405.0
+theme_override_fonts/font = ExtResource("7_urreh")
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
+
+[node name="MechanicsInterface" type="Control" parent="." node_paths=PackedStringArray("studies_ui")]
+visible = false
+z_index = 7
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("30_s25i6")
+studies_ui = NodePath("../Studies")
+
+[node name="Panel" type="Panel" parent="MechanicsInterface"]
+modulate = Color(0.271887, 0.779283, 0.937201, 1)
+layout_mode = 0
+offset_left = 326.0
+offset_top = 142.0
+offset_right = 366.0
+offset_bottom = 182.0
+scale = Vector2(13.2939, 6.73392)
+
+[node name="FocusBoostBar" type="ProgressBar" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 160.0
+offset_right = 790.0
+offset_bottom = 187.0
+
+[node name="TextureRect" type="TextureRect" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 208.0
+offset_right = 594.0
+offset_bottom = 248.0
+scale = Vector2(0.253993, 0.253993)
+texture = ExtResource("31_4mgjs")
+
+[node name="ExperienceBar" type="ProgressBar" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 324.0
+offset_right = 717.0
+offset_bottom = 351.0
+step = 1.0
+
+[node name="TitleName" type="Label" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 299.0
+offset_right = 614.0
+offset_bottom = 322.0
+
+[node name="LevelButton" type="Button" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 306.0
+offset_right = 1058.0
+offset_bottom = 719.0
+scale = Vector2(0.136663, 0.147634)
+theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4uqyj")
+icon = ExtResource("30_dvuug")
+
+[node name="LevelNumber" type="Label" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 318.0
+offset_right = 511.0
+offset_bottom = 399.0
+theme_override_fonts/font = ExtResource("7_urreh")
+theme_override_font_sizes/font_size = 25
+text = "1
+"
+
+[node name="StudyButton" type="Button" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 208.0
+offset_right = 650.0
+offset_bottom = 293.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5cgdq")
+
+[node name="ActualLevelEffects" type="TextureRect" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 194.0
+offset_right = 1378.0
+offset_bottom = 571.0
+scale = Vector2(0.291332, 0.291332)
+texture = ExtResource("31_s25i6")
+
+[node name="Upgrades" type="Label" parent="MechanicsInterface/ActualLevelEffects"]
+layout_mode = 0
+offset_left = 41.1901
+offset_top = 54.9202
+offset_right = 774.19
+offset_bottom = 124.92
+theme_override_fonts/font = ExtResource("19_0x7jq")
+theme_override_font_sizes/font_size = 40
+text = "Melhorias Atuais:"
+
+[node name="ActualUpgrade" type="RichTextLabel" parent="MechanicsInterface/ActualLevelEffects"]
+layout_mode = 0
+offset_left = 58.3527
+offset_top = 236.843
+offset_right = 98.3527
+offset_bottom = 276.843
+
+[node name="LevelEffects" type="TextureRect" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 718.0
+offset_top = 304.0
+offset_right = 1380.0
+offset_bottom = 681.0
+scale = Vector2(0.291332, 0.291332)
+texture = ExtResource("31_s25i6")
+
+[node name="Label" type="Label" parent="MechanicsInterface/LevelEffects"]
+layout_mode = 0
+offset_left = 72.0827
+offset_top = 37.7576
+offset_right = 632.083
+offset_bottom = 107.758
+theme_override_fonts/font = ExtResource("19_0x7jq")
+theme_override_font_sizes/font_size = 45
+text = "Proximo Nível:"
+
+[node name="NextUpgrade" type="RichTextLabel" parent="MechanicsInterface/LevelEffects"]
+layout_mode = 0
+offset_left = 61.7852
+offset_top = 219.681
+offset_right = 101.785
+offset_bottom = 259.681
+
+[node name="Voltar" type="Button" parent="MechanicsInterface"]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 358.0
+offset_right = 661.0
+offset_bottom = 405.0
+theme_override_fonts/font = ExtResource("7_urreh")
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
+
+[node name="ElectronicInterface" type="Control" parent="." node_paths=PackedStringArray("studies_ui")]
+visible = false
+z_index = 7
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("34_rhjn4")
+studies_ui = NodePath("../Studies")
+
+[node name="Panel" type="Panel" parent="ElectronicInterface"]
+modulate = Color(0.271887, 0.779283, 0.937201, 1)
+layout_mode = 0
+offset_left = 326.0
+offset_top = 142.0
+offset_right = 366.0
+offset_bottom = 182.0
+scale = Vector2(13.2939, 6.73392)
+
+[node name="FocusBoostBar" type="ProgressBar" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 160.0
+offset_right = 790.0
+offset_bottom = 187.0
+
+[node name="TextureRect" type="TextureRect" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 208.0
+offset_right = 594.0
+offset_bottom = 248.0
+scale = Vector2(0.233151, 0.233151)
+texture = ExtResource("37_vafpg")
+
+[node name="ExperienceBar" type="ProgressBar" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 324.0
+offset_right = 717.0
+offset_bottom = 351.0
+step = 1.0
+
+[node name="TitleName" type="Label" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 299.0
+offset_right = 614.0
+offset_bottom = 322.0
+
+[node name="LevelButton" type="Button" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 306.0
+offset_right = 1058.0
+offset_bottom = 719.0
+scale = Vector2(0.136663, 0.147634)
+theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4uqyj")
+icon = ExtResource("30_dvuug")
+
+[node name="LevelNumber" type="Label" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 318.0
+offset_right = 511.0
+offset_bottom = 399.0
+theme_override_fonts/font = ExtResource("7_urreh")
+theme_override_font_sizes/font_size = 25
+text = "1
+"
+
+[node name="StudyButton" type="Button" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 208.0
+offset_right = 650.0
+offset_bottom = 293.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5cgdq")
+
+[node name="ActualLevelEffects" type="TextureRect" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 194.0
+offset_right = 1378.0
+offset_bottom = 571.0
+scale = Vector2(0.291332, 0.291332)
+texture = ExtResource("31_s25i6")
+
+[node name="Upgrades" type="Label" parent="ElectronicInterface/ActualLevelEffects"]
+layout_mode = 0
+offset_left = 41.1901
+offset_top = 54.9202
+offset_right = 774.19
+offset_bottom = 124.92
+theme_override_fonts/font = ExtResource("19_0x7jq")
+theme_override_font_sizes/font_size = 40
+text = "Melhorias Atuais:"
+
+[node name="ActualUpgrade" type="RichTextLabel" parent="ElectronicInterface/ActualLevelEffects"]
+layout_mode = 0
+offset_left = 58.3527
+offset_top = 236.843
+offset_right = 98.3527
+offset_bottom = 276.843
+
+[node name="LevelEffects" type="TextureRect" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 718.0
+offset_top = 304.0
+offset_right = 1380.0
+offset_bottom = 681.0
+scale = Vector2(0.291332, 0.291332)
+texture = ExtResource("31_s25i6")
+
+[node name="Label" type="Label" parent="ElectronicInterface/LevelEffects"]
+layout_mode = 0
+offset_left = 72.0827
+offset_top = 37.7576
+offset_right = 632.083
+offset_bottom = 107.758
+theme_override_fonts/font = ExtResource("19_0x7jq")
+theme_override_font_sizes/font_size = 45
+text = "Proximo Nível:"
+
+[node name="NextUpgrade" type="RichTextLabel" parent="ElectronicInterface/LevelEffects"]
+layout_mode = 0
+offset_left = 61.7852
+offset_top = 219.681
+offset_right = 101.785
+offset_bottom = 259.681
+
+[node name="Voltar" type="Button" parent="ElectronicInterface"]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 358.0
+offset_right = 661.0
+offset_bottom = 405.0
+theme_override_fonts/font = ExtResource("7_urreh")
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
 
 [connection signal="pressed" from="SaveLoadScreen/Save1" to="SaveLoadScreen" method="_on_save_1_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/Save2" to="SaveLoadScreen" method="_on_save_2_pressed"]
@@ -645,3 +1141,6 @@ z_index = 4
 [connection signal="close_requested" from="SaveLoadScreen/ContinueGameWindow" to="SaveLoadScreen" method="_on_continue_game_close_requested"]
 [connection signal="pressed" from="SaveLoadScreen/ContinueGameWindow/Confirm" to="SaveLoadScreen" method="_on_continue_window_confirm_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/ContinueGameWindow/Cancel" to="SaveLoadScreen" method="_on_continue_window_cancel_pressed"]
+[connection signal="pressed" from="BotanicsInterface/Voltar" to="BotanicsInterface" method="_on_voltar_pressed"]
+[connection signal="pressed" from="MechanicsInterface/Voltar" to="MechanicsInterface" method="_on_voltar_pressed"]
+[connection signal="pressed" from="ElectronicInterface/Voltar" to="ElectronicInterface" method="_on_voltar_pressed"]

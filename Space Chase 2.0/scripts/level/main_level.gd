@@ -8,6 +8,12 @@ extends Node2D
 @onready var inside_space_shuttle: Node2D = $InsideSpaceShuttle
 @onready var cockpit: Node2D = $Cockpit
 @onready var radar_conditions_list: Node2D = $RadarConditionsList
+@onready var constructions: Control = $Constructions
+@onready var sintetyzer_interface: Sintetizor = $SintetyzerInterface
+@onready var studies_ui: Control = $Studies
+@onready var botanics_interface: BotanicsStudiesUI = $BotanicsInterface
+@onready var mechanics_interface: MechanicsStudiesUI = $MechanicsInterface
+@onready var electronic_interface: ElectronicStudiesUI = $ElectronicInterface
 
 
 @export_category("Manutence Ratio Adjustment")
@@ -26,6 +32,7 @@ extends Node2D
 @export_category("Oxygen inside/outside control")
 @export var loss_oxigen_external : float
 @export var loss_oxigen_internal : float
+@export var gain_oxigen_internal : float
 
 @export_category("Loss of Status per Minute")
 @export var loss_hungry_per_min : float
@@ -56,14 +63,13 @@ func _ready() -> void:
 		_get_save_manager_index()._load(slot_index)
 	_set_resources_value(2800, 50, 300, 20, 500, 200)
 	_set_maximum_time_status_limit(8040,4320,10080,480,10)
-	_set_oxygen_loss_per_minute(0.27, 0.1)
+	_set_oxygen_loss_per_minute(0.27, 0.1, 5.0)
 	_set_loss_status_per_minute(0.2, 0.4, 0.01, 0.06)
 	_hide_UI_and_levels()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	GameManager.minutes += delta 
-	print(GameManager.minutes)
 	if GameManager.minutes >= 60.0:
 		GameManager.hour += 1
 		GameManager.minutes = 0.0
@@ -123,9 +129,12 @@ func _see_player_place_to_oxygen_status(delta : float):
 	if GameManager.get_player_outside():
 		player.oxigen_tank -= loss_oxigen_external * delta
 	else:
-		if player.oxigen_tank <= 0:
-			player.oxigen_tank += delta * loss_oxigen_internal
-		GameManager.oxigen -= loss_oxigen_internal * delta * 2
+		if player.oxigen_tank < 100:
+			player.oxigen_tank += delta * gain_oxigen_internal
+			GameManager.oxigen -= (loss_oxigen_internal + gain_oxigen_internal) * delta 
+		else:
+			player.oxigen_tank = 100.0
+			GameManager.oxigen -= loss_oxigen_internal * delta 
 
 func _hungry_countdown_to_game_over(delta : float):
 	if player._get_hungry_limit():
@@ -166,9 +175,10 @@ func _set_maximum_time_status_limit(hungry_limit : float, thirsty_limit : float,
 	sleepy_maximum_time = sleepy_limit
 	oxigen_maximum_time = oxigen_limit
 
-func _set_oxygen_loss_per_minute(external : float, internal : float):
+func _set_oxygen_loss_per_minute(external : float, internal : float, g_internal : float):
 	loss_oxigen_external = external
 	loss_oxigen_internal = internal
+	gain_oxigen_internal = g_internal
 
 func _set_loss_status_per_minute(hungry_loss : float, thirsty_loss : float, crazyness_loss : float, sleepy_loss : float):
 	loss_hungry_per_min = hungry_loss
@@ -195,3 +205,9 @@ func _hide_UI_and_levels():
 	save_load_screen.hide()
 	cockpit.hide()
 	radar_conditions_list.hide()
+	constructions.hide()
+	studies_ui.hide()
+	sintetyzer_interface.hide()
+	botanics_interface.hide()
+	mechanics_interface.hide()
+	electronic_interface.hide()

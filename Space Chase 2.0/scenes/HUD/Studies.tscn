@@ -1,3 +1,93 @@
-[gd_scene format=3 uid="uid://briv7ry08pp32"]
+[gd_scene load_steps=8 format=3 uid="uid://briv7ry08pp32"]
 
-[node name="Studies" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://c74nxjdu7j7so" path="res://Assets/icons/studies/GearIcon.png" id="1_aeqq3"]
+[ext_resource type="Script" uid="uid://l2crkv8xrq63" path="res://scripts/StudiesInterface.gd" id="1_xn1u8"]
+[ext_resource type="Texture2D" uid="uid://ni2enu11sd3v" path="res://Assets/icons/studies/BotanicsIcon.png" id="2_r51bo"]
+[ext_resource type="Texture2D" uid="uid://cvdx08c6m3mem" path="res://Assets/icons/studies/ElectronicIcon.png" id="3_r51bo"]
+[ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="4_da2i7"]
+[ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="5_c1yfe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yngs"]
+bg_color = Color(0.293965, 0.155743, 0.109027, 1)
+
+[node name="Studies" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xn1u8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 121.0
+offset_right = 878.0
+offset_bottom = 471.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2yngs")
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 215.0
+offset_right = 877.0
+offset_bottom = 365.0
+
+[node name="MetalurgicButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GearIcon" type="TextureRect" parent="Buttons/MetalurgicButton"]
+layout_mode = 0
+offset_left = 17.0
+offset_right = 465.0
+offset_bottom = 405.0
+scale = Vector2(0.356826, 0.356826)
+texture = ExtResource("1_aeqq3")
+
+[node name="BotanicsButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BotanicsIcon" type="TextureRect" parent="Buttons/BotanicsButton"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -4.0
+offset_right = 390.0
+offset_bottom = 338.0
+scale = Vector2(0.446539, 0.446539)
+texture = ExtResource("2_r51bo")
+
+[node name="ElectronicButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ElectronicIcon" type="TextureRect" parent="Buttons/ElectronicButton"]
+layout_mode = 0
+offset_left = 19.0
+offset_right = 487.0
+offset_bottom = 452.0
+scale = Vector2(0.332404, 0.332404)
+texture = ExtResource("3_r51bo")
+
+[node name="StudiesLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 140.0
+offset_right = 710.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("4_da2i7")
+theme_override_font_sizes/font_size = 40
+text = "Studies"
+
+[node name="Voltar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 419.0
+offset_right = 634.0
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("5_c1yfe")
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
+
+[connection signal="pressed" from="Buttons/MetalurgicButton" to="." method="_on_metalurgic_button_pressed"]
+[connection signal="pressed" from="Buttons/BotanicsButton" to="." method="_on_botanics_button_pressed"]
+[connection signal="pressed" from="Buttons/ElectronicButton" to="." method="_on_electronic_button_pressed"]
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]
