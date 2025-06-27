@@ -4,7 +4,7 @@ extends Control
 @onready var cons_robot_build: Button = $ConsRobotBuild
 @onready var miner_robot_build: Button = $MinerRobotBuild
 @onready var water_condenser_build: Button = $WaterCondenserBuild
-@onready var hidroponics_build: Button = $HidroponicsBuikd
+@onready var hidroponics_build: Button = $HidroponicsBuild
 @onready var sintetizor_build: Button = $SintetizorBuild
 @onready var solar_panel_build: Button = $SolarPanelBuild
 

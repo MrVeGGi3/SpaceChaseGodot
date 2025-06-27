@@ -4,7 +4,6 @@ extends Node2D
 
 @export_category("Level Scenes")
 @onready var save_load_screen: Node2D = $SaveLoadScreen
-@onready var slot_index = GameManager.slot_index
 @onready var inside_space_shuttle: Node2D = $InsideSpaceShuttle
 @onready var cockpit: Node2D = $Cockpit
 @onready var radar_conditions_list: Node2D = $RadarConditionsList
@@ -50,8 +49,7 @@ var crazyness_limit_counter : float
 var sleepy_limit_counter : float
 var oxigen_limit_counter : float
 
-
-
+@onready var slot_index = GameManager.slot_index
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -59,9 +57,9 @@ func _ready() -> void:
 	GameManager.is_player_outside = true
 	if save_load_screen.get_acess_type():
 		_set_new_game_time_value(1, 1, 6, 0, 1)
+		_set_resources_value(2800, 50, 300, 20, 500, 200)
 	else:
 		_get_save_manager_index()._load(slot_index)
-	_set_resources_value(2800, 50, 300, 20, 500, 200)
 	_set_maximum_time_status_limit(8040,4320,10080,480,10)
 	_set_oxygen_loss_per_minute(0.27, 0.1, 5.0)
 	_set_loss_status_per_minute(0.2, 0.4, 0.01, 0.06)

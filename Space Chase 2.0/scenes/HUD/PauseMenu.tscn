@@ -1,0 +1,272 @@
+[gd_scene load_steps=15 format=3 uid="uid://cjfvruhxlnppn"]
+
+[ext_resource type="Texture2D" uid="uid://c4m2bdn4fuyeg" path="res://Assets/images/UI/PlayerStatusBackground.png" id="1_0ssw5"]
+[ext_resource type="Script" uid="uid://ccfy2i0wkxbus" path="res://scripts/ui/pause_menu.gd" id="1_g1alh"]
+[ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="2_othrb"]
+[ext_resource type="FontFile" uid="uid://c288sv5f7n1i1" path="res://Assets/fonts/OpenSans-ExtraBold.ttf" id="3_hqi60"]
+[ext_resource type="Script" uid="uid://40bkhiqi5mvv" path="res://scripts/ui/SoundControl/audio_control.gd" id="4_ama3m"]
+[ext_resource type="Texture2D" uid="uid://cu57l2rrnhhh0" path="res://Assets/icons/resolutions/stretch.png" id="4_othrb"]
+[ext_resource type="Texture2D" uid="uid://cq1ivnp0u6qao" path="res://Assets/icons/resolutions/minimize.png" id="5_hqi60"]
+[ext_resource type="Script" uid="uid://dgx0vb2x5tbx2" path="res://scripts/ui/resolution_control.gd" id="6_kidtl"]
+[ext_resource type="Texture2D" uid="uid://o2mn3m8wgcui" path="res://Assets/icons/resolutions/black-square.png" id="6_l40yw"]
+[ext_resource type="Texture2D" uid="uid://g05wfq08vv7k" path="res://Assets/icons/resolutions/square.png" id="7_wd4va"]
+[ext_resource type="Texture2D" uid="uid://bfod4f2lw5hcb" path="res://Assets/icons/languages/brasil.png" id="8_chup0"]
+[ext_resource type="Texture2D" uid="uid://bmc5auaul0fop" path="res://Assets/icons/languages/estados-unidos.png" id="9_o0trb"]
+[ext_resource type="Texture2D" uid="uid://c30xnwj34xlli" path="res://Assets/icons/languages/china.png" id="10_g1alh"]
+[ext_resource type="Texture2D" uid="uid://cgsyca0oue1gh" path="res://Assets/icons/languages/espanha (1).png" id="11_o0trb"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = 13.0
+offset_right = -71.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.06115, 1.06115)
+script = ExtResource("1_g1alh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 179.0
+offset_right = 1376.0
+offset_bottom = 338.0
+scale = Vector2(0.63144, 1.7121)
+texture = ExtResource("1_0ssw5")
+
+[node name="PauseTitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 200.0
+offset_right = 650.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("2_othrb")
+theme_override_font_sizes/font_size = 40
+text = "Pausa"
+
+[node name="AudioControl" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_ama3m")
+
+[node name="SoundContainer" type="VBoxContainer" parent="AudioControl"]
+layout_mode = 2
+offset_left = 350.0
+offset_top = 250.0
+offset_right = 480.0
+offset_bottom = 326.0
+
+[node name="AudioLabel" type="Label" parent="AudioControl/SoundContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hqi60")
+text = "Ajuste de Áudio"
+horizontal_alignment = 1
+
+[node name="BGMBar" type="HScrollBar" parent="AudioControl/SoundContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 1.0
+
+[node name="SFXBar" type="HScrollBar" parent="AudioControl/SoundContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 1.0
+
+[node name="NamesBusContainer" type="VBoxContainer" parent="AudioControl"]
+layout_mode = 2
+offset_left = 303.0
+offset_top = 277.0
+offset_right = 340.0
+offset_bottom = 353.0
+
+[node name="SFXLabel" type="Label" parent="AudioControl/NamesBusContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BGMLabel" type="Label" parent="AudioControl/NamesBusContainer"]
+layout_mode = 2
+text = "BGM
+"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="WindowControl" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 29.0
+offset_top = -2.0
+offset_right = 69.0
+offset_bottom = 38.0
+script = ExtResource("6_kidtl")
+
+[node name="ScreenResolution" type="Label" parent="WindowControl"]
+layout_mode = 0
+offset_left = 681.0
+offset_top = 241.0
+offset_right = 910.0
+offset_bottom = 276.0
+theme_override_fonts/font = ExtResource("3_hqi60")
+theme_override_font_sizes/font_size = 20
+text = "Resolução de Tela"
+
+[node name="ScreenTypeContainer" type="HBoxContainer" parent="WindowControl"]
+layout_mode = 2
+offset_left = 677.0
+offset_top = 270.0
+offset_right = 1705.0
+offset_bottom = 782.0
+scale = Vector2(0.0911211, 0.0911211)
+
+[node name="Fullscreen" type="Button" parent="WindowControl/ScreenTypeContainer"]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("4_othrb")
+action_mode = 0
+
+[node name="Windowed" type="Button" parent="WindowControl/ScreenTypeContainer"]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("5_hqi60")
+action_mode = 0
+
+[node name="BorderTypeContaine" type="HBoxContainer" parent="WindowControl"]
+layout_mode = 2
+offset_left = 778.0
+offset_top = 266.0
+offset_right = 2846.0
+offset_bottom = 778.0
+scale = Vector2(0.102644, 0.102644)
+
+[node name="Borderless" type="Button" parent="WindowControl/BorderTypeContaine"]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("6_l40yw")
+action_mode = 0
+
+[node name="WithBorder" type="Button" parent="WindowControl/BorderTypeContaine"]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("7_wd4va")
+action_mode = 0
+
+[node name="LanguagesControl" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 39.0
+offset_top = -8.0
+offset_right = 79.0
+offset_bottom = 32.0
+
+[node name="LanguagesLabel" type="Label" parent="LanguagesControl"]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 353.0
+offset_right = 530.0
+offset_bottom = 402.0
+theme_override_fonts/font = ExtResource("3_hqi60")
+text = "Linguagens
+"
+horizontal_alignment = 1
+
+[node name="LanguagesContainer" type="HBoxContainer" parent="LanguagesControl"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 349.0
+offset_right = 2600.0
+offset_bottom = 861.0
+scale = Vector2(0.0678369, 0.0678369)
+
+[node name="PTBR" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_chup0")
+
+[node name="EN" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_o0trb")
+
+[node name="CH" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_g1alh")
+
+[node name="ES" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_o0trb")
+
+[node name="SaveGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 260.0
+offset_right = 650.0
+offset_bottom = 291.0
+text = "Salvar Jogo"
+
+[node name="LoadGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 293.0
+offset_right = 662.0
+offset_bottom = 324.0
+text = "Carregar Jogo"
+
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 392.0
+offset_right = 508.0
+offset_bottom = 435.0
+theme_override_fonts/font = ExtResource("3_hqi60")
+theme_override_font_sizes/font_size = 25
+text = "Menu Principal"
+
+[node name="BackGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 734.0
+offset_top = 389.0
+offset_right = 922.0
+offset_bottom = 432.0
+theme_override_fonts/font = ExtResource("3_hqi60")
+theme_override_font_sizes/font_size = 25
+text = "Voltar ao Jogo"
+
+[node name="GoMainMenuWindow" type="Window" parent="."]
+title = "Sair para o Menu Principal"
+initial_position = 1
+size = Vector2i(300, 100)
+visible = false
+
+[node name="CloseWindow" type="Label" parent="GoMainMenuWindow"]
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 251.0
+offset_bottom = 55.0
+text = "Tem certeza que seja sair?"
+
+[node name="Yes" type="Button" parent="GoMainMenuWindow"]
+offset_left = 1.0
+offset_top = 67.0
+offset_right = 38.0
+offset_bottom = 98.0
+text = "Sim
+"
+
+[node name="No" type="Button" parent="GoMainMenuWindow"]
+offset_left = 257.0
+offset_top = 68.0
+offset_right = 297.0
+offset_bottom = 99.0
+text = "Não"
+
+[connection signal="value_changed" from="AudioControl/SoundContainer/BGMBar" to="AudioControl" method="_on_bgm_bar_value_changed"]
+[connection signal="value_changed" from="AudioControl/SoundContainer/SFXBar" to="AudioControl" method="_on_sfx_bar_value_changed"]
+[connection signal="pressed" from="WindowControl/ScreenTypeContainer/Fullscreen" to="WindowControl" method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="WindowControl/ScreenTypeContainer/Windowed" to="WindowControl" method="_on_windowed_pressed"]
+[connection signal="pressed" from="WindowControl/BorderTypeContaine/Borderless" to="WindowControl" method="_on_borderless_pressed"]
+[connection signal="pressed" from="WindowControl/BorderTypeContaine/WithBorder" to="WindowControl" method="_on_with_border_pressed"]
+[connection signal="pressed" from="SaveGame" to="." method="_on_save_game_pressed"]
+[connection signal="pressed" from="LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="BackGame" to="." method="_on_back_game_pressed"]
+[connection signal="pressed" from="GoMainMenuWindow/No" to="." method="_on_no_pressed"]

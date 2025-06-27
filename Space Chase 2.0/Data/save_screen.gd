@@ -8,7 +8,7 @@ extends Node2D
 @onready var new_game_window: Window = $NewGameWindow
 @onready var continue_game_window: Window = $ContinueGameWindow
 @onready var button_sound: AudioStreamPlayer = $ButtonSound
-
+@export var buttons : Control
 
 var LoadingScreen = "res://scenes/menu/LoadingScreen.tscn"
 
@@ -20,6 +20,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_ESCAPE and event.is_pressed:
+			buttons.show()
+			hide()
 
 func _show_data():
 	save_manager_1._showSlot(0)

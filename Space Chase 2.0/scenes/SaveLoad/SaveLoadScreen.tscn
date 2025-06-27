@@ -509,7 +509,7 @@ theme = SubResource("Theme_atach")
 
 [node name="NewGameWindow" type="Window" parent="."]
 title = "Começar Novo Jogo"
-position = Vector2i(365, 300)
+position = Vector2i(320, 285)
 size = Vector2i(395, 150)
 visible = false
 
@@ -553,7 +553,7 @@ text = "NÃO"
 [node name="ContinueGameWindow" type="Window" parent="."]
 auto_translate_mode = 1
 title = "Carregar"
-position = Vector2i(365, 300)
+position = Vector2i(340, 275)
 size = Vector2i(395, 150)
 visible = false
 

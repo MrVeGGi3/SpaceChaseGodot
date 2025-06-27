@@ -110,7 +110,6 @@ text = "Exit"
 title = "Sair do Jogo"
 position = Vector2i(430, 286)
 size = Vector2i(300, 100)
-visible = false
 
 [node name="Label" type="Label" parent="ExitWindow"]
 anchors_preset = 5
@@ -145,8 +144,9 @@ grow_vertical = 0
 theme = ExtResource("8_fpyja")
 text = "NÃO"
 
-[node name="SaveLoadScreen" parent="." instance=ExtResource("9_bbiu0")]
+[node name="SaveLoadScreen" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("9_bbiu0")]
 visible = false
+buttons = NodePath("../Buttons")
 
 [node name="AudioManager" type="Node" parent="."]
 

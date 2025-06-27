@@ -8,6 +8,11 @@ extends Node2D
 @onready var max_fix_robots : int = 10
 @onready var radar_conditions_animation_player: AnimationPlayer = $RadarConditionsAnimationPlayer
 
+func _unhandled_input(event: InputEvent) -> void:
+	if visible:
+		if event is InputEventKey:
+			if event.keycode == KEY_ESCAPE and event.pressed:
+				hide()
 
 func _process(delta: float) -> void:
 	fix_robots_total_label.text = str(GameManager.fix_robots) + "/" + str(max_fix_robots)

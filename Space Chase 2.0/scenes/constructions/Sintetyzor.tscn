@@ -82,7 +82,7 @@ _data = {
 &"manutence_progress_bar": SubResource("Animation_dutfx")
 }
 
-[node name="Sintetyzor" type="Node2D" groups=["Sintetyzor"]]
+[node name="Sintetyzor" type="Node2D" groups=["Construction", "Sintetyzor", "Syntetizor"]]
 position = Vector2(1, 0)
 script = ExtResource("1_glbrm")
 

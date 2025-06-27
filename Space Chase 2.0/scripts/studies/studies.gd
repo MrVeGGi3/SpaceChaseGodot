@@ -19,11 +19,20 @@ var time_to_focus_boost : float = 50.0
 var current_time_focus : float = 0.0
 
 var exp_multiplier : float = 1.0
+var interface_type : String 
 
 var study_button 
 var level_button
 
 @export var studies_ui : Control
+
+var metal_increase_value_per_level = [0.0, randf_range(2.0, 4.0), randf_range(5.0, 7.0),
+									randf_range(8.0, 10.0), randf_range(11.0, 14.0)]
+
+var organic_increase_value_per_level = [0.0, randf_range(1.0, 2.0), randf_range(3.0, 5.0), 
+										randf_range(8.0, 10.0),	randf_range(11.0, 13.0)]
+										
+var time_cons_decrease_value_per_level = [0.0, 400.00, 800.00, 1000.00, 1200.00]
 
 func _upgrade_level():
 	actual_level += 1
@@ -41,43 +50,13 @@ func _upgrade_level():
 			return
 
 func _set_bonus_metal_gain_per_level():
-	match actual_level:
-		"0":
-			GameManager.bonus_metal_increase = 0.0
-		"1": 
-			GameManager.bonus_metal_increase = randf_range(2.0, 4.0)
-		"2":
-			GameManager.bonus_metal_increase = randf_range(5.0, 7.0)
-		"3":
-			GameManager.bonus_metal_increase = randf_range(8.0, 10.0)
-		"4":
-			GameManager.bonus_metal_increase = randf_range(11.0, 14.0)
+	GameManager.bonus_metal_increase = metal_increase_value_per_level[actual_level]
 			
 func _set_bonus_organic_gain_per_level():
-	match actual_level:
-		"0":
-			GameManager.bonus_organic_increase = 0.0
-		"1":
-			GameManager.bonus_organic_increase = randf_range(1.0, 2.0)
-		"2":
-			GameManager.bonus_organic_increase = randf_range(3.0, 5.0)
-		"3":
-			GameManager.bonus_organic_increase = randf_range(8.0, 10.0)
-		"4":
-			GameManager.bonus_organic_increase = randf_range(11.0, 13.0)
-
+	GameManager.bonus_organic_increase = organic_increase_value_per_level[actual_level]
+	
 func _set_bonus_electronic_gain_per_level():
-	match actual_level:
-		"0":
-			GameManager.bouns_electronic_increase = 0.0
-		"1":
-			GameManager.bouns_electronic_increase = 400.0
-		"2":
-			GameManager.bonus_electronic_increase = 800.0
-		"3":
-			GameManager.bonus_electronic_increase = 1000.0
-		"4":
-			GameManager.bonus_electronic_increase = 1200.0
+	GameManager.bonus_electronic_increase = time_cons_decrease_value_per_level[actual_level]
 
 func adjust_exp_bar(delta : float):
 	level_label.text = str(actual_level)
@@ -100,7 +79,7 @@ func set_text_nodes(al_effects : RichTextLabel, nl_effects : RichTextLabel, labe
 	level_label = label_l
 
 func set_effects_nodes(nl_effects : Control, al_effects : Control):
-	next_level_effects = next_level_effects
+	next_level_effects = nl_effects
 	actual_level_effects = al_effects
 	
 func set_initial_status():
@@ -132,13 +111,67 @@ func adjust_bars(delta : float):
 func see_buttons_hovered():
 	if visible and next_level_effects and actual_level_effects:
 		if study_button.is_hovered():
+			actual_level_effects.show()
+		elif level_button.is_hovered():
 			next_level_effects.show()
 		else:
-			next_level_effects.hide()
-		
-		if level_button.is_hovered():
-			actual_level_effects.show()
-		else:
-			actual_level_effects.hide()
+			hide_effects()
 	else:
 		return
+
+func hide_effects():
+	next_level_effects.hide()
+	actual_level_effects.hide()
+
+
+
+func get_upgrade_level(type : String, level : int) -> float:
+	var amount
+	match type:
+		"Metal":
+			amount = metal_increase_value_per_level[level]
+		"Eletronic":
+			amount = time_cons_decrease_value_per_level[level]
+		"Botanic":
+			amount = organic_increase_value_per_level[level]
+			
+	return amount
+func show_upgrades_level():
+	var level_upgrade
+	var type_upgrade
+	var message : String
+	match interface_type:
+		"Mechnics":
+			level_upgrade = get_upgrade_level("Metal", actual_level + 1)
+			type_upgrade = "Metal"
+			message = "+ {0} kg de {1}".format([level_upgrade, type_upgrade])
+		"Electronics":
+			level_upgrade = get_upgrade_level("Eletronic", actual_level + 1)
+			type_upgrade = "Construção"
+			message = " - {0} horas de {1}".format([level_upgrade, type_upgrade])
+		"Botanics":
+			level_upgrade = get_upgrade_level("Botanic", actual_level + 1)
+			type_upgrade = "Orgânicos"
+			message = " + {0} kg de {1}".format([level_upgrade, type_upgrade])
+	next_level_effects_text.text = message
+func show_actual_stats():
+	var level_upgrade
+	var type_upgrade
+	var message
+	match interface_type:
+		"Mechnics":
+			level_upgrade = get_upgrade_level("Metal", actual_level)
+			type_upgrade = "Metal"
+			message = "+ {0} kg de {1}".format([level_upgrade, type_upgrade])
+		"Electronics":
+			level_upgrade = get_upgrade_level("Eletronic", actual_level)
+			type_upgrade = "Construção"
+			message = " - {0} horas de {1}".format(([level_upgrade, type_upgrade]))
+		"Botanics":
+			level_upgrade = get_upgrade_level("Botanic", actual_level)
+			type_upgrade = "Orgânicos"
+			message = " + {0} kg de {1}".format(([level_upgrade, type_upgrade]))
+	actual_level_effects_text.text = message
+func show_upgrades_bars():
+	show_actual_stats()
+	show_upgrades_level()

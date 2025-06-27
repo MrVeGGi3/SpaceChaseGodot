@@ -60,6 +60,7 @@ var color_status = [Color.WHITE, Color.YELLOW, Color.RED, Color.GRAY, Color.GREE
 var slot_index : int
 var type_game 
 var is_new_game : bool
+var is_paused : bool = false
 
 func get_player_outside():
 	return is_player_outside

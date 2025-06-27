@@ -149,7 +149,7 @@ _data = {
 &"manutence_progress_color": SubResource("Animation_ig0we")
 }
 
-[node name="ConstructionRobot" type="Node2D" groups=["FixRobot"]]
+[node name="ConstructionRobot" type="Node2D" groups=["Construction", "FixRobot"]]
 script = ExtResource("1_pn8mt")
 
 [node name="RobotAnimSprite2D" type="AnimatedSprite2D" parent="."]

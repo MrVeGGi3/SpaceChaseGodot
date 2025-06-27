@@ -98,7 +98,7 @@ _data = {
 &"manutence_progress_color": SubResource("Animation_ulbdq")
 }
 
-[node name="SolarPanel" type="Node2D"]
+[node name="SolarPanel" type="Node2D" groups=["Construction", "SolarPanel"]]
 script = ExtResource("1_e0n33")
 
 [node name="SolarPanelAnimSprite2D" type="AnimatedSprite2D" parent="."]

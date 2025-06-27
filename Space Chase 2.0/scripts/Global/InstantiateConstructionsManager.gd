@@ -19,6 +19,8 @@ var index
 @onready var status_ui : Control
 @onready var main_level : Node2D
 @onready var constructions: Control 
+		
+
 
 func instantiate_construction(cons_num : int):
 	var instance = constructions_preloads[cons_num].instantiate()
@@ -31,6 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if can_place and actual_item and can_put_here:
 				actual_item.modulate = Color.WHITE
+				actual_item.is_instancied = true
 				actual_item._start_construction()
 				can_place = false
 				actual_item = null
@@ -38,10 +41,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event is InputEventKey:
 		if event.keycode == KEY_ESCAPE and event.pressed:
-			actual_item.queue_free()
-			can_place = false
-			status_ui.show()
-			return
+			if can_place and actual_item and can_put_here:
+				actual_item.queue_free()
+				can_place = false
+				status_ui.show()
+				return
 
 
 func build_item(construction_number : int):

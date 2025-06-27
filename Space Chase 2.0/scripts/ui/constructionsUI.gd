@@ -8,11 +8,16 @@ extends Control
 @onready var sint_quantity_label: Label = $Sintetizator/Sintetizator/SintQuantityLabel
 @onready var solar_quantity_label: Label = $SolarPanelContainer/SolarPanel/SolarQuantityLabel
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
+func _unhandled_input(event: InputEvent) -> void:
+	if visible:
+		if event is InputEventKey:
+			if event.keycode == KEY_ESCAPE and event.pressed:
+				GameManager.is_paused = false
+				hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

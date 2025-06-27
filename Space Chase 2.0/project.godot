@@ -29,6 +29,12 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 FixRobot=""
+Hidroponics=""
+MinerRobot=""
+Syntetizor=""
+SolarPanel=""
+WaterCondenser=""
+Construction=""
 
 [input]
 

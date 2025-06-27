@@ -99,7 +99,7 @@ _data = {
 &"manutence_progress_color": SubResource("Animation_4jxc4")
 }
 
-[node name="MinerRobot" type="Node2D"]
+[node name="MinerRobot" type="Node2D" groups=["Construction", "MinerRobot"]]
 script = ExtResource("1_oiexs")
 
 [node name="Area2D" type="Area2D" parent="."]

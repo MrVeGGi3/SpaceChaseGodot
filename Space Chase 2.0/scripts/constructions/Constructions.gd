@@ -20,6 +20,7 @@ var is_in_construction : bool
 var is_constructed : bool
 var is_being_fixed : bool
 var is_broken : bool
+var is_instancied : bool = false
 
 var button_mode = ["Construct", "Fix"]
 var actual_button_mode 
@@ -94,8 +95,9 @@ func player_exited_area():
 	player.stop_working_sound()
 
 func player_entered_area():
-	if not is_constructed or is_broken:
-		construction_fix_button.show()
+	if is_instancied:
+		if not is_constructed or is_broken:
+			construction_fix_button.show()
 	
 func construction_button_pressed():
 	if not is_constructed:
