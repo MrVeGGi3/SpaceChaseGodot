@@ -1,5 +1,8 @@
 extends Control
+@onready var screen_resolution: Label = $ScreenResolution
 
+func _process(delta: float) -> void:
+	screen_resolution.text = tr("SCREEN_MODE")
 
 func _on_fullscreen_pressed() -> void:
 	print("Estou pressionando a tecla de Fullscreen")

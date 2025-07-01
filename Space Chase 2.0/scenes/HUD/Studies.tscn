@@ -69,13 +69,14 @@ texture = ExtResource("3_r51bo")
 
 [node name="StudiesLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 450.0
+offset_left = 443.0
 offset_top = 140.0
-offset_right = 710.0
+offset_right = 725.0
 offset_bottom = 196.0
 theme_override_fonts/font = ExtResource("4_da2i7")
 theme_override_font_sizes/font_size = 40
 text = "Estudos"
+horizontal_alignment = 1
 
 [node name="Voltar" type="Button" parent="."]
 layout_mode = 0

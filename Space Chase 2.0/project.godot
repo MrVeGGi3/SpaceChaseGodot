@@ -59,6 +59,10 @@ start={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Data/SpaceChase - Localization.cmn.translation", "res://Data/SpaceChase - Localization.en.translation", "res://Data/SpaceChase - Localization.es.translation", "res://Data/SpaceChase - Localization.pt_BR.translation", "res://Data/SpaceChase - Localization.ru.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Player"

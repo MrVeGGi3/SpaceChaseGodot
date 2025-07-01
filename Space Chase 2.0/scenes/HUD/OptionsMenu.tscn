@@ -1,0 +1,224 @@
+[gd_scene load_steps=17 format=3 uid="uid://83moq0y8c0do"]
+
+[ext_resource type="Script" uid="uid://b8xpwkx4qn376" path="res://scripts/ui/options_menu.gd" id="1_8nydv"]
+[ext_resource type="Texture2D" uid="uid://c4ye828xakky8" path="res://Assets/images/UI/constructions/ConstructionDescription.png" id="1_yx82x"]
+[ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="2_ptyri"]
+[ext_resource type="Script" uid="uid://40bkhiqi5mvv" path="res://scripts/ui/SoundControl/audio_control.gd" id="3_rwjwy"]
+[ext_resource type="FontFile" uid="uid://c288sv5f7n1i1" path="res://Assets/fonts/OpenSans-ExtraBold.ttf" id="4_y3aat"]
+[ext_resource type="Script" uid="uid://dgx0vb2x5tbx2" path="res://scripts/ui/resolution_control.gd" id="5_2hwjt"]
+[ext_resource type="Texture2D" uid="uid://cu57l2rrnhhh0" path="res://Assets/icons/resolutions/stretch.png" id="6_n4qqp"]
+[ext_resource type="Texture2D" uid="uid://cq1ivnp0u6qao" path="res://Assets/icons/resolutions/minimize.png" id="7_hmjts"]
+[ext_resource type="Texture2D" uid="uid://o2mn3m8wgcui" path="res://Assets/icons/resolutions/black-square.png" id="8_c3b6j"]
+[ext_resource type="Texture2D" uid="uid://g05wfq08vv7k" path="res://Assets/icons/resolutions/square.png" id="9_v7ntp"]
+[ext_resource type="Script" uid="uid://ccwbj1bybp8vd" path="res://scripts/languages_control.gd" id="10_fbgva"]
+[ext_resource type="Texture2D" uid="uid://bfod4f2lw5hcb" path="res://Assets/icons/languages/brasil.png" id="11_8nydv"]
+[ext_resource type="Texture2D" uid="uid://bmc5auaul0fop" path="res://Assets/icons/languages/estados-unidos.png" id="12_di2hr"]
+[ext_resource type="Texture2D" uid="uid://c30xnwj34xlli" path="res://Assets/icons/languages/china.png" id="13_0ayen"]
+[ext_resource type="Texture2D" uid="uid://cgsyca0oue1gh" path="res://Assets/icons/languages/espanha (1).png" id="14_bv0wf"]
+[ext_resource type="Texture2D" uid="uid://wamaybmg7wy6" path="res://Assets/icons/languages/russia.png" id="16_di2hr"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8nydv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(565, 304)
+texture = ExtResource("1_yx82x")
+
+[node name="OptionsTitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 145.0
+offset_right = 642.0
+offset_bottom = 206.0
+theme_override_fonts/font = ExtResource("2_ptyri")
+theme_override_font_sizes/font_size = 40
+text = "Opções"
+horizontal_alignment = 1
+
+[node name="AudioControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -163.0
+offset_top = -111.0
+offset_right = -123.0
+offset_bottom = -71.0
+scale = Vector2(1.32863, 1.32863)
+script = ExtResource("3_rwjwy")
+
+[node name="SoundContainer" type="VBoxContainer" parent="AudioControl"]
+layout_mode = 2
+offset_left = 350.0
+offset_top = 250.0
+offset_right = 480.0
+offset_bottom = 326.0
+
+[node name="AudioLabel" type="Label" parent="AudioControl/SoundContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y3aat")
+text = "Ajuste de Áudio"
+horizontal_alignment = 1
+
+[node name="SFXContainer" type="VBoxContainer" parent="AudioControl/SoundContainer"]
+layout_mode = 2
+
+[node name="SFXBar" type="HScrollBar" parent="AudioControl/SoundContainer/SFXContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 1.0
+
+[node name="SFXLabel" type="Label" parent="AudioControl/SoundContainer/SFXContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BGMContainer" type="VBoxContainer" parent="AudioControl/SoundContainer"]
+layout_mode = 2
+
+[node name="BGMBar" type="HScrollBar" parent="AudioControl/SoundContainer/BGMContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 1.0
+
+[node name="BGMLabel" type="Label" parent="AudioControl/SoundContainer/BGMContainer"]
+layout_mode = 2
+text = "BGM
+"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="WindowControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -268.0
+offset_top = -88.0
+offset_right = -228.0
+offset_bottom = -48.0
+scale = Vector2(1.26452, 1.26452)
+script = ExtResource("5_2hwjt")
+
+[node name="ScreenResolution" type="Label" parent="WindowControl"]
+layout_mode = 0
+offset_left = 660.33
+offset_top = 238.826
+offset_right = 889.33
+offset_bottom = 273.826
+theme_override_fonts/font = ExtResource("4_y3aat")
+theme_override_font_sizes/font_size = 20
+text = "Resolução de Tela"
+horizontal_alignment = 1
+
+[node name="ScreenTypeContainer" type="HBoxContainer" parent="WindowControl"]
+layout_mode = 2
+offset_left = 665.074
+offset_top = 265.713
+offset_right = 1709.07
+offset_bottom = 785.713
+scale = Vector2(0.103906, 0.103906)
+
+[node name="Fullscreen" type="Button" parent="WindowControl/ScreenTypeContainer"]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("6_n4qqp")
+action_mode = 0
+
+[node name="Windowed" type="Button" parent="WindowControl/ScreenTypeContainer"]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("7_hmjts")
+action_mode = 0
+
+[node name="BorderTypeContaine" type="HBoxContainer" parent="WindowControl"]
+layout_mode = 2
+offset_left = 778.0
+offset_top = 266.0
+offset_right = 2846.0
+offset_bottom = 778.0
+scale = Vector2(0.102644, 0.102644)
+
+[node name="Borderless" type="Button" parent="WindowControl/BorderTypeContaine"]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("8_c3b6j")
+action_mode = 0
+
+[node name="WithBorder" type="Button" parent="WindowControl/BorderTypeContaine"]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("9_v7ntp")
+action_mode = 0
+
+[node name="LanguagesControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -193.0
+offset_top = -131.0
+offset_right = -153.0
+offset_bottom = -91.0
+scale = Vector2(1.35851, 1.35851)
+script = ExtResource("10_fbgva")
+
+[node name="LanguagesLabel" type="Label" parent="LanguagesControl"]
+layout_mode = 0
+offset_left = 391.605
+offset_top = 365.106
+offset_right = 486.605
+offset_bottom = 414.106
+theme_override_fonts/font = ExtResource("4_y3aat")
+text = "Linguagens
+"
+horizontal_alignment = 1
+
+[node name="LanguagesContainer" type="HBoxContainer" parent="LanguagesControl"]
+layout_mode = 0
+offset_left = 504.965
+offset_top = 357.009
+offset_right = 3080.97
+offset_bottom = 869.009
+scale = Vector2(0.0678369, 0.0678369)
+
+[node name="PTBR" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_8nydv")
+
+[node name="EN" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_di2hr")
+
+[node name="CH" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_0ayen")
+
+[node name="ES" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_bv0wf")
+
+[node name="RU" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_di2hr")
+
+[node name="BackGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 418.0
+offset_right = 662.0
+offset_bottom = 461.0
+theme_override_fonts/font = ExtResource("4_y3aat")
+theme_override_font_sizes/font_size = 25
+text = "Voltar ao Jogo"
+
+[connection signal="value_changed" from="AudioControl/SoundContainer/SFXContainer/SFXBar" to="AudioControl" method="_on_sfx_bar_value_changed"]
+[connection signal="value_changed" from="AudioControl/SoundContainer/BGMContainer/BGMBar" to="AudioControl" method="_on_bgm_bar_value_changed"]
+[connection signal="pressed" from="WindowControl/ScreenTypeContainer/Fullscreen" to="WindowControl" method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="WindowControl/ScreenTypeContainer/Windowed" to="WindowControl" method="_on_windowed_pressed"]
+[connection signal="pressed" from="WindowControl/BorderTypeContaine/Borderless" to="WindowControl" method="_on_borderless_pressed"]
+[connection signal="pressed" from="WindowControl/BorderTypeContaine/WithBorder" to="WindowControl" method="_on_with_border_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/PTBR" to="LanguagesControl" method="_on_ptbr_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/EN" to="LanguagesControl" method="_on_en_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/CH" to="LanguagesControl" method="_on_ch_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/ES" to="LanguagesControl" method="_on_es_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/RU" to="LanguagesControl" method="_on_ru_pressed"]
+[connection signal="pressed" from="BackGame" to="." method="_on_back_game_pressed"]

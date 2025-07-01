@@ -21,6 +21,7 @@ func _ready() -> void:
 	curiosities.append("O Pai da Astronáutica Moderna: Konstantin Tsiolkovsky")
 	curiosities.append("O primeiro animal á ser lançado no espaço: Cadela Laika em 1957")
 	curiosities.append("O primeiro homem á pisar na Lua: Yuri Gargarin em 1961")
+	curiosities.append("RASSOR é o nome do Robô de Mineração e Extração da NASA")
 	_show_curiosity()
 	change_scene_timer.start()
 	

@@ -8,7 +8,11 @@ extends Control
 @onready var sintetizor_build: Button = $SintetizorBuild
 @onready var solar_panel_build: Button = $SolarPanelBuild
 
+@onready var buttons = [cons_robot_build, miner_robot_build, water_condenser_build,
+						hidroponics_build, sintetizor_build, solar_panel_build]
 
+func _process(delta: float) -> void:
+	set_buttons_text()
 
 func _on_cons_robot_build_pressed() -> void:
 	if GameManager.fix_robots < GameManager.max_fix_robots:
@@ -48,3 +52,7 @@ func _on_solar_panel_build_pressed() -> void:
 func disable_button(button : Button):
 	button.disabled = true
 	button.text = "Construído"
+
+func set_buttons_text():
+	for button in buttons:
+		button.text = tr("BUILD_BUTTON")

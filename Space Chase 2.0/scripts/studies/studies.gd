@@ -26,8 +26,8 @@ var level_button
 
 @export var studies_ui : Control
 
-var metal_increase_value_per_level = [0.0, randf_range(2.0, 4.0), randf_range(5.0, 7.0),
-									randf_range(8.0, 10.0), randf_range(11.0, 14.0)]
+var metal_increase_value_per_level = [0.0, randi_range(2, 4), randi_range(5, 7),
+									randi_range(8, 10), randi_range(11, 14)]
 
 var organic_increase_value_per_level = [0.0, randf_range(1.0, 2.0), randf_range(3.0, 5.0), 
 										randf_range(8.0, 10.0),	randf_range(11.0, 13.0)]
@@ -143,34 +143,44 @@ func show_upgrades_level():
 	match interface_type:
 		"Mechnics":
 			level_upgrade = get_upgrade_level("Metal", actual_level + 1)
-			type_upgrade = "Metal"
+			type_upgrade = tr("METAL")
 			message = "+ {0} kg de {1}".format([level_upgrade, type_upgrade])
 		"Electronics":
 			level_upgrade = get_upgrade_level("Eletronic", actual_level + 1)
-			type_upgrade = "Construção"
+			type_upgrade = tr("CONS_TITLE")
 			message = " - {0} horas de {1}".format([level_upgrade, type_upgrade])
 		"Botanics":
 			level_upgrade = get_upgrade_level("Botanic", actual_level + 1)
-			type_upgrade = "Orgânicos"
+			type_upgrade = tr("ORGANICS")
 			message = " + {0} kg de {1}".format([level_upgrade, type_upgrade])
 	next_level_effects_text.text = message
 func show_actual_stats():
 	var level_upgrade
 	var type_upgrade
+	var actual_translation = TranslationServer.get_locale()
 	var message
 	match interface_type:
 		"Mechnics":
 			level_upgrade = get_upgrade_level("Metal", actual_level)
-			type_upgrade = "Metal"
-			message = "+ {0} kg de {1}".format([level_upgrade, type_upgrade])
+			type_upgrade = tr("METAL")
+			if actual_translation == "cmn":
+				message = "+ {0}个" + "{1}" + tr("KG_OF") .format([level_upgrade, type_upgrade]) 
+			else:
+				message = "+ {0}  " + tr("KG_OF") + "{1}" .format([level_upgrade, type_upgrade])
 		"Electronics":
 			level_upgrade = get_upgrade_level("Eletronic", actual_level)
-			type_upgrade = "Construção"
-			message = " - {0} horas de {1}".format(([level_upgrade, type_upgrade]))
+			type_upgrade = tr("CONS_TITLE")
+			if actual_translation == "cmn":
+				message = "-{0}个" + "{1}" + tr("HOUR_OF") .format([level_upgrade, type_upgrade])
+			else:
+				message = " -{0}" + tr("HOUR_OF") + "{1}" .format(([level_upgrade, type_upgrade]))
 		"Botanics":
 			level_upgrade = get_upgrade_level("Botanic", actual_level)
-			type_upgrade = "Orgânicos"
-			message = " + {0} kg de {1}".format(([level_upgrade, type_upgrade]))
+			type_upgrade = tr("ORGANICS")
+			if actual_translation == "cmn":
+				message = "- {0}个" + "{1}" + tr("HOUR_OF") .format(([level_upgrade, type_upgrade]))
+			else:	
+				message = " + {0} kg de {1}".format(([level_upgrade, type_upgrade]))
 	actual_level_effects_text.text = message
 func show_upgrades_bars():
 	show_actual_stats()

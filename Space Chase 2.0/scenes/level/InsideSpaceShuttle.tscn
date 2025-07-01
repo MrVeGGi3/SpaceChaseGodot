@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://htmt4jmpujlc"]
+[gd_scene load_steps=28 format=3 uid="uid://htmt4jmpujlc"]
 
 [ext_resource type="Script" uid="uid://c0o6c2r7d1ew8" path="res://scripts/level/inside_space_shuttle.gd" id="1_afms6"]
 [ext_resource type="Texture2D" uid="uid://d0lmktf0c2e4u" path="res://Assets/images/backgrounds/Space Shuttle.png" id="1_nx75k"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bqrdwg01yirae" path="res://Assets/images/objects/hovered/ToFunHovered.png" id="8_dir4p"]
 [ext_resource type="Texture2D" uid="uid://be14gcws0sq0m" path="res://Assets/images/objects/normal/ToFunNormal.png" id="9_f6x5r"]
 [ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="10_4vyve"]
+[ext_resource type="Script" uid="uid://dy83y478jd114" path="res://scripts/localization/inside_ss_loc.gd" id="12_gu5fr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biof4"]
 texture = ExtResource("3_u4cne")
@@ -257,6 +258,13 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/hover = SubResource("StyleBoxFlat_qmgab")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cu30b")
 text = "Cabine de Decolagem"
+
+[node name="Localization" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_gu5fr")
 
 [connection signal="pressed" from="EatButton" to="." method="_on_eat_button_pressed"]
 [connection signal="pressed" from="DrinkButton" to="." method="_on_drink_button_pressed"]

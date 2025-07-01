@@ -1,9 +1,19 @@
 extends Control
-@onready var bgm_bar: HScrollBar = $SoundContainer/BGMBar
-@onready var sfx_bar: HScrollBar = $SoundContainer/SFXBar
+@onready var bgm_bar: HScrollBar = $SoundContainer/BGMContainer/BGMBar
+@onready var sfx_bar: HScrollBar = $SoundContainer/SFXContainer/SFXBar
+@onready var audio_label: Label = $SoundContainer/AudioLabel
+@onready var sfx_label: Label = $SoundContainer/SFXContainer/SFXLabel
+@onready var bgm_label: Label = $SoundContainer/BGMContainer/BGMLabel 
 
 var sfx_index
 var bgm_index
+
+
+func _process(delta: float) -> void:
+	audio_label.text = tr("AUDIO_ADJUST_TITLE")
+	sfx_label.text = tr("SFX_NAME")
+	bgm_label.text = tr("BGM_NAME")
+
 
 func _ready() -> void:
 	get_and_set_audiobus_value()

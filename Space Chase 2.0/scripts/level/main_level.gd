@@ -57,7 +57,7 @@ func _ready() -> void:
 	GameManager.is_player_outside = true
 	if save_load_screen.get_acess_type():
 		_set_new_game_time_value(1, 1, 6, 0, 1)
-		_set_resources_value(2800, 50, 300, 20, 500, 200)
+		_set_resources_value(2800, 5000 , 300, 20, 500, 200)
 	else:
 		_get_save_manager_index()._load(slot_index)
 	_set_maximum_time_status_limit(8040,4320,10080,480,10)
@@ -88,7 +88,7 @@ func _process(delta: float) -> void:
 	_thirsty_countdown_to_game_over(delta)
 	_sleepy_countdown_to_game_over(delta)
 	_oxigen_countdown_to_game_over(delta)
-	
+	GameManager._set_resources_to_zero()
 	
 	
 func _get_save_manager_index():

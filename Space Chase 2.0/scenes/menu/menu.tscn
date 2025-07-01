@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hnkjtjexbsdd"]
+[gd_scene load_steps=14 format=3 uid="uid://hnkjtjexbsdd"]
 
 [ext_resource type="Theme" uid="uid://6ygqf7ni8mc4" path="res://themes/button.tres" id="1_0qpd4"]
 [ext_resource type="Script" uid="uid://ck8gpyfh3a5cd" path="res://scripts/menu/menu.gd" id="1_puhc7"]
@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://ckweb0fnjli80" path="res://scenes/labels/godot_edition.tscn" id="4_isqql"]
 [ext_resource type="PackedScene" uid="uid://e46mj1ks1x3q" path="res://Assets/models/Mars.fbx" id="4_r6610"]
 [ext_resource type="Script" uid="uid://cnco41boersfi" path="res://scripts/planets/planet_rotation.gd" id="5_7hr6p"]
+[ext_resource type="Script" uid="uid://ki35qqx2icp3" path="res://scripts/buttons_manager.gd" id="7_kaijy"]
 [ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="8_fpyja"]
 [ext_resource type="PackedScene" uid="uid://bvvxr3j4ck2q3" path="res://scenes/SaveLoad/SaveLoadScreen.tscn" id="9_bbiu0"]
+[ext_resource type="Script" uid="uid://dsgcnrwugntql" path="res://scripts/localization/exit_window_loc.gd" id="9_y4i35"]
 [ext_resource type="AudioStream" uid="uid://dbobwgolq67k2" path="res://Assets/sounds/button_sound.wav" id="10_k48pe"]
+[ext_resource type="PackedScene" uid="uid://83moq0y8c0do" path="res://scenes/HUD/OptionsMenu.tscn" id="11_f2fum"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" node_paths=PackedStringArray("buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_puhc7")
+buttons = NodePath("Buttons")
 
 [node name="SpaceBackground" type="Sprite2D" parent="."]
 position = Vector2(563, 343)
@@ -69,6 +73,7 @@ theme_override_font_sizes/font_size = 40
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("7_kaijy")
 
 [node name="StartNewGame" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -110,6 +115,7 @@ text = "Exit"
 title = "Sair do Jogo"
 position = Vector2i(430, 286)
 size = Vector2i(300, 100)
+script = ExtResource("9_y4i35")
 
 [node name="Label" type="Label" parent="ExitWindow"]
 anchors_preset = 5
@@ -153,8 +159,13 @@ buttons = NodePath("../Buttons")
 [node name="ButtonSound" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("10_k48pe")
 
+[node name="OptionsMenu" parent="." node_paths=PackedStringArray("buttons") instance=ExtResource("11_f2fum")]
+layout_mode = 1
+buttons = NodePath("../Buttons")
+
 [connection signal="pressed" from="Buttons/StartNewGame" to="." method="_on_start_new_game_pressed"]
 [connection signal="pressed" from="Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Buttons/ExitGame" to="." method="_on_exit_game_pressed"]
 [connection signal="close_requested" from="ExitWindow" to="." method="_on_exit_window_close_requested"]
 [connection signal="pressed" from="ExitWindow/Confirm" to="." method="_on_confirm_pressed"]

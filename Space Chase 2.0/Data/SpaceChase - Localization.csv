@@ -1,0 +1,67 @@
+key,en,pt_BR,cmn,es,ru
+NEW_GAME_BUTTON,New Game,Novo Jogo, 	新游戏,	Nuevo Juego,Новая игра
+OPTIONS_BUTTON,Options,Opções,	选项,	Opciones,	Настройки
+CONTINUE_BUTTON,Continue,Continuar,继续,Continuar,Продолжить
+EXIT_BUTTON,Exit,Sair,	退出,	Salir,Выйти
+EXIT_WINDOW_TITLE,Exit Game,Sair do Jogo,	退出游戏,	Salir del Juego,	Выйти из игры
+EXIT_WINDOW_TEXT,Exit?,Sair?,确定退出？,¿Salir?,Выйти?
+YES_WINDOW_CONFIRM,Yes,Sim,是,	Sí,Да
+NO_WINDOW_CONFIRM,No,Não,否,	No,Нет
+AUDIO_ADJUST_TITLE,Audio Setttings,Ajuste de Áudio,	音频设置,Configuración de Audio,Настройки звука
+SCREEN_MODE,Screen Type,TIpo de Tela,屏幕模式,Tipo de Pantalla,Тип экрана
+LANGUAGES_TITLE,Languages,Linguagens,	语言,Idiomas,	Языки
+SFX_NAME,SFX,Efeitos,	音效,	Efectos (SFX),	Звуковые эффекты
+BGM_NAME,BGM,Música,背景音乐,Música (BGM),	Фоновая музыка
+SAVE_GAME,Save,Salvar Jogo,	保存游戏,	Guardar Partida,	Сохранить игру
+LOAD_GAME,Load,Carregar Jogo,加载游戏,Cargar Partida,Загрузить игру
+MAIN_MENU,Main Menu,Menu Principal,主菜单,	Menú Principal,Главное меню
+BACK_GAME,Back,Voltar ao Jogo,返回游戏,	Volver al Juego,Вернуться в игру
+BUILD_BUTTON,Build,Const,建造,        Const,Назад
+STUDIES_BUTTON,Studies,Estudos,研究,	Estudios,	Строить
+STUDIES_TITLE,Studies,Estudos,研究,	Estudios,	Исследования
+BACK_HIDE,Back,Voltar,返回,	Volver,	Назад
+ACTUAL_UPGRADE,Actual Upgrade:,Melhorias Atuais:,	当前升级,	Mejora Actual:,Текущее улучшение
+NEXT_LVL_UPGRADE,Next Level,Próximo Nível,下一级,Siguiente Nivel,	Следующий уровень
+TIME_SCALE,Time Scale,Escala de Tempo,	时间倍率,Escala de Tiempo,Масштаб времени
+ENTER_ROCKET,Enter,Entrar,	进入,	Entrar,Войти
+GO_OUT_BUTTON,Go out,Sair para Fora,	出舱,Salir al Exterior,Выйти наружу
+COCKPIT_GO,Cockpit,Cabine de Decolagem,发射舱,	Cabina de Despegue,Кабина пилота
+NO_ITENS_TO FLIGHT,Insuficcient Itens,Itens pendentes!,有待处理的物品!,	¡Faltan Ítems!,Недостаточно предметов!
+TO_TAKE_OFF,To Take Off,Para Decolar,准备起飞,	Listo para Despegar,Подготовка к взлёту
+HYPERDRIVE,Hyperdrive,Hiperdrive,	超空间引擎,	Hiperimpulsor,Гипердвигатель
+FUEL,Fuel,Combustível,燃料,	Combustible,	Топливо
+FIX_ROBOTS_NECESSARY,Fix Robots,Robôs de Conserto,修理机器人,	Robots de Reparación,Ремонтные роботы
+CONS_FIX_ROBOT,Fix Robot,Robô de Construção,	建造机器人,	Robot Constructor,Строительный робот
+FIX_ROBOT_DESCRIPTION,Building Construction and Automatic Manutence,Aceleração de Construções e Manutenção Automática,加速建造与自动维护,	Construcción y Mantenimiento Automático,Авто Строительство и обслуживание
+CONS_MINER_ROBOT,Miner Robot,Robô de Mineração,	采矿机器人,	Robot Minero,Шахтёрский робот
+CONS_WATER_CONDENSER,Water Condenser,Condensador de Água,水凝器,Condensador de Agua,Водо-конденсатор
+CONS_HIDROPONIC,HIdroponics,Hidropônica,	水培系统,Hidropónicos,Гидропоника
+CONS_SOLAR_PANEL,Solar Panel,Painel Solar,	太阳能板,	Panel Solar,Солнечная панель
+CONS_SYNTETIZOR,Syntetizor,Sintetizador,合成器,	Sintetizador,Синтезатор
+CONS_MINER_DES,Collect Metal,Encontra Metal no Ambiente,	在环境中探测金属,Recolectar Metal del Entorno,Сбор металла из окружающей среды
+CONS_HIDROPONIC_DES,Generate Food,Gera Orgânicos e Alimentos,	生成有机物和食物,Generar Alimentos y Orgánicos,Извлечение воды из воздуха
+CONS_SYNTETITOR_DES,Convert Resources,Converte Recursos em outros,	转换资源,	Convertir Recursos,Преобразовать ресурсы
+CONS_WATER_COND_DES,Generate Water from Air,Gera Água a partir do Ar,从空气中提取水,	Generar Agua del Aire,Извлечение воды из воздуха
+CONS_SOLAR_PANEL,Generate Energy,Gera Energia,	产生能量,	Generar Energía,Генерация энергии
+LAST_TIME_PLAY,Last Time Played,Partida Anterior,上一局,	Última Partida,Последняя игра
+OXIGEN,Oxigen,Oxigênio,	氧气,Oxígeno,	Кислород
+HIDROGEN,Hidrogen,Hidrogênio,	氢气,	Hidrógeno,	Водород
+ORGANICS,Organics,Orgânicos,有机物,	Orgánicos,Органика
+METAL,Metal,Metal ,金属,	Metal,Металл
+WATER,Water,Água,	水,Agua,Вода
+CONS_TITLE,Constructions,Construções,建筑物,Construcciones,Постройки
+KG_OF,Kg of,Kg de,千克,Kg de,кг
+HOUR_OF,hours of,horas de,小时,hora de,час
+PAUSE,Pause,Pausa,暂停菜单,Menú de pausa ,Меню паузы
+SELECT_SLOT,Select Slot,Selecione o arquivo,选择槽位,Seleccionar ranura,Выбрать слот
+CONFIRM_NEW_GAME,Confirm New Game?,Confirma Novo Jogo?,确认开始新游戏？,¿Confirmar nuevo juego?,Подтвердить начало новой игры? 
+I_LOAD_GAME,Load Game?,Carregar Jogo Salvo?,载入游戏？,¿Cargar partida?,Загрузить игру? 
+GO_TO_MAIN_MENU,Exit to Main Menu,Sair para o Menu Principal,返回主菜单 ,Salir al menú principal,Выйти в главное меню 
+WAIT_A_MOMENT,Wait a minute,Aguarde um Momento,请稍候,Espera un momento,"Пожалуйста, подождите"
+SAVING_THE_GAME,Saving Game,Salvando o Jogo,正在保存游戏,Guardando el juego,Сохранение игры
+SAVED_SUCESS,Saved,Salvo com sucesso!,游戏保存成功！,¡Guardado con éxito!,Игра успешно сохранена!
+SUCESS,Sucess!,Sucesso!,成功！,¡Éxito!,Успешно!
+LOADING_THE_GAME,Loading Game,Carregando o Jogo,正在加载游戏,Cargando el juego,Загрузка игры
+LOAD_SUCESS,Loaded,Carregado com sucesso!,游戏加载成功！,¡Juego cargado con éxito!,Игра успешно загружена!
+CONFIRM_THE_ACTION,Confirm Action,Confirmar a Ação,确认操作,Confirmar acción,Подтвердить действие
+WRITE_FILE,Overwrite the file?,Deseja sobreescrever o arquivo?,是否要覆盖该文件？,¿Deseas sobrescribir el archivo?,Вы хотите перезаписать файл?

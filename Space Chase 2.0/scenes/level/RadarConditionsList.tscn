@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3c8gi62hlnlh"]
+[gd_scene load_steps=11 format=3 uid="uid://d3c8gi62hlnlh"]
 
 [ext_resource type="Texture2D" uid="uid://cjpbo3qb8nvfq" path="res://Assets/radar/Radar.png" id="1_0ni3r"]
 [ext_resource type="Script" uid="uid://bu5fk4fgjukof" path="res://scripts/level/radar_conditions_list.gd" id="1_6q7p4"]
 [ext_resource type="Theme" uid="uid://dp0bjqpdecqt8" path="res://themes/radar_list_label.tres" id="2_tssv7"]
 [ext_resource type="Theme" uid="uid://2ayqmvtsoal2" path="res://themes/item__list_label.tres" id="3_12bdm"]
 [ext_resource type="FontFile" uid="uid://dr1ok3ju4bfb3" path="res://Assets/fonts/digital-7.ttf" id="5_o5n57"]
+[ext_resource type="Script" uid="uid://ckns8yqjf675p" path="res://scripts/localization/radar_localization.gd" id="6_ixmlv"]
 
 [sub_resource type="Animation" id="Animation_64nmr"]
 length = 0.001
@@ -217,9 +218,6 @@ layout_mode = 2
 [node name="CheckBox3" type="CheckBox" parent="ItensToBuild/CheckBoxContainer"]
 layout_mode = 2
 
-[node name="CheckBox4" type="CheckBox" parent="ItensToBuild/CheckBoxContainer"]
-layout_mode = 2
-
 [node name="ItensContainer" type="VBoxContainer" parent="ItensToBuild"]
 layout_mode = 0
 offset_left = 45.0
@@ -227,10 +225,6 @@ offset_top = 56.0
 offset_right = 227.0
 offset_bottom = 158.165
 theme = ExtResource("3_12bdm")
-
-[node name="FuelTankLabel" type="Label" parent="ItensToBuild/ItensContainer"]
-layout_mode = 2
-text = "Tanque de Combustível"
 
 [node name="HyperDriveLabel" type="Label" parent="ItensToBuild/ItensContainer"]
 layout_mode = 2
@@ -272,5 +266,12 @@ offset_bottom = 452.0
 scale = Vector2(2.39363, 2.39363)
 theme_override_fonts/font = ExtResource("5_o5n57")
 text = "Voltar"
+
+[node name="Localization" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_ixmlv")
 
 [connection signal="pressed" from="CloseRadar" to="." method="_on_close_radar_pressed"]

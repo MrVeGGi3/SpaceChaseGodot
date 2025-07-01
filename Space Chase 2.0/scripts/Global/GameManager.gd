@@ -9,6 +9,7 @@ extends Node
 @export var metal : float  #Kg
 @export var water : float #Liters
 @export var organics : float #Kg
+@onready var game_resources = [oxigen, hidrogen, energy, fuel, metal, water, organics]
 
 ##Check if player is outside to adjust Oxigen loss
 @onready var is_player_outside : bool = false
@@ -104,3 +105,8 @@ func _process(delta: float) -> void:
 
 func set_construction_status(construction_var, state : String):
 	construction_var = state
+
+func _set_resources_to_zero():
+	for resource in game_resources:
+		if resource < 0.0:
+			resource = 0.0

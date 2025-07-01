@@ -44,18 +44,18 @@ func _process(delta):
 			position += movement
 	
 	for value in [oxigen_tank, hungry, thirsty, crazyness, sleepy]:
-		if value < 0:
-			value = 0
+		if value < 0.0:
+			value = 0.0
 	
-	if oxigen_tank <= 0:
+	if oxigen_tank <= 0.0:
 		is_oxygen_limit = true
-	if thirsty <= 0 :
+	if thirsty <= 0.0:
 		is_crazyness_limit = true
-	if hungry <= 0:
+	if hungry <= 0.0:
 		is_hungry_limit = true
-	if thirsty <=0:
+	if thirsty <=0.0:
 		is_thirsty_limit = true
-	if sleepy <= 0:
+	if sleepy <= 0.0:
 		is_sleepy_limit = true
 
 func _set_hungry_limit(state : bool):

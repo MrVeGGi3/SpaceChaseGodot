@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://w8if7rx07dgx"]
+[gd_scene load_steps=45 format=3 uid="uid://w8if7rx07dgx"]
 
 [ext_resource type="Script" uid="uid://scnpgcpgdf2b" path="res://scripts/ui/StatusControl.gd" id="1_3lw74"]
 [ext_resource type="Texture2D" uid="uid://4mglc54cb7de" path="res://Assets/images/buttons/StatusControl/Normal/Play.png" id="2_axoxj"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://b5cb4owq4aksq" path="res://Assets/icons/tools/Hammer.png" id="23_bnaua"]
 [ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="24_0se2m"]
 [ext_resource type="Texture2D" uid="uid://cxyict88un1iu" path="res://Assets/icons/studies/BookIcon.png" id="24_wbfcl"]
+[ext_resource type="Script" uid="uid://oqih52l3vynh" path="res://scripts/localization/status_loc.gd" id="26_wbfcl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgupp"]
 
@@ -472,6 +473,12 @@ theme_override_fonts/font = ExtResource("24_0se2m")
 theme_override_font_sizes/font_size = 25
 text = "Studies"
 horizontal_alignment = 1
+
+[node name="Localization" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("26_wbfcl")
 
 [connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/PlayTime" to="." method="_on_play_time_pressed"]
 [connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/PauseTime" to="." method="_on_pause_time_pressed"]

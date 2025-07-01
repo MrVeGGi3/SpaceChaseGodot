@@ -6,8 +6,13 @@ extends Control
 @export var electronics_interface : Control
 
 
+@onready var studies_label: Label = $StudiesLabel
+@onready var voltar: Button = $Voltar
 
-
+func _process(delta: float) -> void:
+	studies_label.text = tr("STUDIES_TITLE")
+	voltar.text = tr("BACK_HIDE")
+	
 func _on_metalurgic_button_pressed() -> void:
 	mechanics_interface.show()
 	hide()

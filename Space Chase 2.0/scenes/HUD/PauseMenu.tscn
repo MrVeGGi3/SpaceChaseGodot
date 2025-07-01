@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjfvruhxlnppn"]
+[gd_scene load_steps=18 format=3 uid="uid://cjfvruhxlnppn"]
 
 [ext_resource type="Texture2D" uid="uid://c4m2bdn4fuyeg" path="res://Assets/images/UI/PlayerStatusBackground.png" id="1_0ssw5"]
 [ext_resource type="Script" uid="uid://ccfy2i0wkxbus" path="res://scripts/ui/pause_menu.gd" id="1_g1alh"]
@@ -13,7 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://bfod4f2lw5hcb" path="res://Assets/icons/languages/brasil.png" id="8_chup0"]
 [ext_resource type="Texture2D" uid="uid://bmc5auaul0fop" path="res://Assets/icons/languages/estados-unidos.png" id="9_o0trb"]
 [ext_resource type="Texture2D" uid="uid://c30xnwj34xlli" path="res://Assets/icons/languages/china.png" id="10_g1alh"]
+[ext_resource type="Script" uid="uid://ccwbj1bybp8vd" path="res://scripts/languages_control.gd" id="11_ioki4"]
 [ext_resource type="Texture2D" uid="uid://cgsyca0oue1gh" path="res://Assets/icons/languages/espanha (1).png" id="11_o0trb"]
+[ext_resource type="Texture2D" uid="uid://wamaybmg7wy6" path="res://Assets/icons/languages/russia.png" id="16_ppg8d"]
+[ext_resource type="Script" uid="uid://bli07nm2584qg" path="res://scripts/localization/go_main_menu_loc.gd" id="17_3j3d8"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -21,10 +24,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -71.0
-offset_top = 13.0
-offset_right = -71.0
-offset_bottom = 13.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.06115, 1.06115)
@@ -41,26 +42,30 @@ texture = ExtResource("1_0ssw5")
 
 [node name="PauseTitleLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 530.0
-offset_top = 200.0
-offset_right = 650.0
-offset_bottom = 253.0
+offset_left = 355.275
+offset_top = 184.705
+offset_right = 855.275
+offset_bottom = 237.705
 theme_override_fonts/font = ExtResource("2_othrb")
 theme_override_font_sizes/font_size = 40
 text = "Pausa"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioControl" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 300.617
+offset_top = 250.671
+offset_right = 340.617
+offset_bottom = 290.671
 script = ExtResource("4_ama3m")
 
 [node name="SoundContainer" type="VBoxContainer" parent="AudioControl"]
-layout_mode = 2
-offset_left = 350.0
-offset_top = 250.0
-offset_right = 480.0
-offset_bottom = 326.0
+layout_mode = 0
+offset_left = 1.88475
+offset_top = -2.82712
+offset_right = 201.885
+offset_bottom = 124.173
 
 [node name="AudioLabel" type="Label" parent="AudioControl/SoundContainer"]
 layout_mode = 2
@@ -68,31 +73,30 @@ theme_override_fonts/font = ExtResource("3_hqi60")
 text = "Ajuste de Áudio"
 horizontal_alignment = 1
 
-[node name="BGMBar" type="HScrollBar" parent="AudioControl/SoundContainer"]
+[node name="SFXContainer" type="VBoxContainer" parent="AudioControl/SoundContainer"]
+layout_mode = 2
+
+[node name="SFXBar" type="HScrollBar" parent="AudioControl/SoundContainer/SFXContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 step = 1.0
 
-[node name="SFXBar" type="HScrollBar" parent="AudioControl/SoundContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-step = 1.0
-
-[node name="NamesBusContainer" type="VBoxContainer" parent="AudioControl"]
-layout_mode = 2
-offset_left = 303.0
-offset_top = 277.0
-offset_right = 340.0
-offset_bottom = 353.0
-
-[node name="SFXLabel" type="Label" parent="AudioControl/NamesBusContainer"]
+[node name="SFXLabel" type="Label" parent="AudioControl/SoundContainer/SFXContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "SFX"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="BGMLabel" type="Label" parent="AudioControl/NamesBusContainer"]
+[node name="BGMContainer" type="VBoxContainer" parent="AudioControl/SoundContainer"]
+layout_mode = 2
+
+[node name="BGMBar" type="HScrollBar" parent="AudioControl/SoundContainer/BGMContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 1.0
+
+[node name="BGMLabel" type="Label" parent="AudioControl/SoundContainer/BGMContainer"]
 layout_mode = 2
 text = "BGM
 "
@@ -109,21 +113,22 @@ script = ExtResource("6_kidtl")
 
 [node name="ScreenResolution" type="Label" parent="WindowControl"]
 layout_mode = 0
-offset_left = 681.0
-offset_top = 241.0
-offset_right = 910.0
-offset_bottom = 276.0
+offset_left = 662.702
+offset_top = 236.651
+offset_right = 891.702
+offset_bottom = 271.651
 theme_override_fonts/font = ExtResource("3_hqi60")
 theme_override_font_sizes/font_size = 20
 text = "Resolução de Tela"
+horizontal_alignment = 1
 
 [node name="ScreenTypeContainer" type="HBoxContainer" parent="WindowControl"]
 layout_mode = 2
-offset_left = 677.0
-offset_top = 270.0
-offset_right = 1705.0
-offset_bottom = 782.0
-scale = Vector2(0.0911211, 0.0911211)
+offset_left = 674.011
+offset_top = 266.807
+offset_right = 1718.01
+offset_bottom = 786.807
+scale = Vector2(0.0988692, 0.0988692)
 
 [node name="Fullscreen" type="Button" parent="WindowControl/ScreenTypeContainer"]
 layout_mode = 2
@@ -159,13 +164,14 @@ offset_left = 39.0
 offset_top = -8.0
 offset_right = 79.0
 offset_bottom = 32.0
+script = ExtResource("11_ioki4")
 
 [node name="LanguagesLabel" type="Label" parent="LanguagesControl"]
 layout_mode = 0
-offset_left = 435.0
-offset_top = 353.0
-offset_right = 530.0
-offset_bottom = 402.0
+offset_left = 476.478
+offset_top = 330.292
+offset_right = 676.479
+offset_bottom = 379.292
 theme_override_fonts/font = ExtResource("3_hqi60")
 text = "Linguagens
 "
@@ -173,10 +179,10 @@ horizontal_alignment = 1
 
 [node name="LanguagesContainer" type="HBoxContainer" parent="LanguagesControl"]
 layout_mode = 0
-offset_left = 540.0
-offset_top = 349.0
-offset_right = 2600.0
-offset_bottom = 861.0
+offset_left = 487.787
+offset_top = 355.736
+offset_right = 3063.79
+offset_bottom = 867.736
 scale = Vector2(0.0678369, 0.0678369)
 
 [node name="PTBR" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
@@ -195,38 +201,44 @@ texture_normal = ExtResource("10_g1alh")
 layout_mode = 2
 texture_normal = ExtResource("11_o0trb")
 
+[node name="RU" type="TextureButton" parent="LanguagesControl/LanguagesContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_ppg8d")
+
 [node name="SaveGame" type="Button" parent="."]
 layout_mode = 0
-offset_left = 557.0
-offset_top = 260.0
-offset_right = 650.0
-offset_bottom = 291.0
+offset_left = 531.499
+offset_top = 247.844
+offset_right = 681.499
+offset_bottom = 278.844
 text = "Salvar Jogo"
 
 [node name="LoadGame" type="Button" parent="."]
 layout_mode = 0
-offset_left = 549.0
-offset_top = 293.0
-offset_right = 662.0
-offset_bottom = 324.0
+offset_left = 532.441
+offset_top = 281.77
+offset_right = 682.441
+offset_bottom = 312.77
 text = "Carregar Jogo"
+icon_alignment = 1
 
 [node name="MainMenu" type="Button" parent="."]
 layout_mode = 0
-offset_left = 307.0
-offset_top = 392.0
-offset_right = 508.0
-offset_bottom = 435.0
+offset_left = 294.963
+offset_top = 387.316
+offset_right = 544.963
+offset_bottom = 430.316
 theme_override_fonts/font = ExtResource("3_hqi60")
 theme_override_font_sizes/font_size = 25
 text = "Menu Principal"
+icon_alignment = 1
 
 [node name="BackGame" type="Button" parent="."]
 layout_mode = 0
-offset_left = 734.0
-offset_top = 389.0
-offset_right = 922.0
-offset_bottom = 432.0
+offset_left = 696.414
+offset_top = 387.316
+offset_right = 946.414
+offset_bottom = 430.316
 theme_override_fonts/font = ExtResource("3_hqi60")
 theme_override_font_sizes/font_size = 25
 text = "Voltar ao Jogo"
@@ -235,7 +247,7 @@ text = "Voltar ao Jogo"
 title = "Sair para o Menu Principal"
 initial_position = 1
 size = Vector2i(300, 100)
-visible = false
+script = ExtResource("17_3j3d8")
 
 [node name="CloseWindow" type="Label" parent="GoMainMenuWindow"]
 offset_left = 48.0
@@ -243,6 +255,8 @@ offset_top = 32.0
 offset_right = 251.0
 offset_bottom = 55.0
 text = "Tem certeza que seja sair?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Yes" type="Button" parent="GoMainMenuWindow"]
 offset_left = 1.0
@@ -259,14 +273,20 @@ offset_right = 297.0
 offset_bottom = 99.0
 text = "Não"
 
-[connection signal="value_changed" from="AudioControl/SoundContainer/BGMBar" to="AudioControl" method="_on_bgm_bar_value_changed"]
-[connection signal="value_changed" from="AudioControl/SoundContainer/SFXBar" to="AudioControl" method="_on_sfx_bar_value_changed"]
+[connection signal="value_changed" from="AudioControl/SoundContainer/SFXContainer/SFXBar" to="AudioControl" method="_on_sfx_bar_value_changed"]
+[connection signal="value_changed" from="AudioControl/SoundContainer/BGMContainer/BGMBar" to="AudioControl" method="_on_bgm_bar_value_changed"]
 [connection signal="pressed" from="WindowControl/ScreenTypeContainer/Fullscreen" to="WindowControl" method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="WindowControl/ScreenTypeContainer/Windowed" to="WindowControl" method="_on_windowed_pressed"]
 [connection signal="pressed" from="WindowControl/BorderTypeContaine/Borderless" to="WindowControl" method="_on_borderless_pressed"]
 [connection signal="pressed" from="WindowControl/BorderTypeContaine/WithBorder" to="WindowControl" method="_on_with_border_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/PTBR" to="LanguagesControl" method="_on_ptbr_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/EN" to="LanguagesControl" method="_on_en_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/CH" to="LanguagesControl" method="_on_ch_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/ES" to="LanguagesControl" method="_on_es_pressed"]
+[connection signal="pressed" from="LanguagesControl/LanguagesContainer/RU" to="LanguagesControl" method="_on_ru_pressed"]
 [connection signal="pressed" from="SaveGame" to="." method="_on_save_game_pressed"]
 [connection signal="pressed" from="LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="BackGame" to="." method="_on_back_game_pressed"]
+[connection signal="pressed" from="GoMainMenuWindow/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="GoMainMenuWindow/No" to="." method="_on_no_pressed"]

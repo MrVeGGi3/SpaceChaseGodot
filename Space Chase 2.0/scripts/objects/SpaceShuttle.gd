@@ -5,6 +5,11 @@ extends Node2D
 @onready var status_control: Control = $"../StatusControl"
 @onready var inside_space_shuttle: Node2D = $"../InsideSpaceShuttle"
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var enter_ship_button: Button = $CanInteractUI/EnterShipButton
+
+
+func _process(delta: float) -> void:
+	enter_ship_button.text = tr("ENTER_ROCKET")
 
 var can_action = false
 # Called when the node enters the scene tree for the first time.
