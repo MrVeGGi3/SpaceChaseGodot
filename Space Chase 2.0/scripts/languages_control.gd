@@ -3,6 +3,9 @@ extends Control
 
 @onready var languages_label: Label = $LanguagesLabel
 
+
+
+
 func _process(delta: float) -> void:
 	languages_label.text = tr("LANGUAGES_TITLE")
 

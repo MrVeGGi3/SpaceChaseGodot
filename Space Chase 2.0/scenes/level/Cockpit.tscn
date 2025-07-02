@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://db2gi84m138so"]
+[gd_scene load_steps=17 format=3 uid="uid://db2gi84m138so"]
 
 [ext_resource type="Script" uid="uid://xu4uyfcd738h" path="res://scripts/Storage/cockpit.gd" id="1_t41jj"]
 [ext_resource type="Texture2D" uid="uid://cs3oddtnv7hfs" path="res://Assets/images/cockpit/Cockpit.png" id="1_yqgw5"]
 [ext_resource type="Texture2D" uid="uid://bc2xg7tq65o1p" path="res://Assets/images/buttons/Cockpit/Cockpit Check.png" id="2_5j1b6"]
 [ext_resource type="Texture2D" uid="uid://bcmey65au8v4d" path="res://Assets/images/buttons/Cockpit/ToTakeOverButton.png" id="2_pmufa"]
 [ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="4_uxtjb"]
+[ext_resource type="AudioStream" uid="uid://pfgppbw23p4n" path="res://Assets/sounds/Cockpit/radar_open.wav" id="6_ovqmj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dy0f"]
 texture = ExtResource("2_5j1b6")
@@ -256,6 +257,12 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_uxtjb")
 theme_override_font_sizes/font_size = 20
 text = "Itens pendentes!!"
+
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="RadarOpened" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("6_ovqmj")
+bus = &"SFX"
 
 [connection signal="pressed" from="Cockpit" to="." method="_on_cockpit_pressed"]
 [connection signal="pressed" from="ToTakeOver" to="." method="_on_to_take_over_pressed"]

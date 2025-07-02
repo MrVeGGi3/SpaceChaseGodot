@@ -16,8 +16,6 @@ extends Node
 @onready var is_player_touching_interaction_area = false
 ##Check the Game's Difficulty
 @onready var game_type
-##Check Condition to win the Game
-@onready var can_take_off : bool = false
 
 @onready var can_activate_sint_ui : bool = false
 
@@ -63,10 +61,12 @@ var type_game
 var is_new_game : bool
 var is_paused : bool = false
 
+@export_category("Win Game Conditions")
+var have_enough_fuel : bool
+var have_enough_robot : bool
+
 func get_player_outside():
 	return is_player_outside
-func get_can_take_off():
-	return can_take_off
 	
 func set_color_status(state : String):
 	match state:
@@ -110,3 +110,9 @@ func _set_resources_to_zero():
 	for resource in game_resources:
 		if resource < 0.0:
 			resource = 0.0
+			
+func get_win_game_status() -> bool:
+	if have_enough_fuel and have_enough_robot:
+		return true
+	else:
+		return false

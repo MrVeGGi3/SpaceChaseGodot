@@ -9,6 +9,13 @@ extends Control
 @onready var studies_label: Label = $StudiesLabel
 @onready var voltar: Button = $Voltar
 
+func _unhandled_input(event: InputEvent) -> void:
+	if visible:
+		if event is InputEventKey:
+			if event.keycode == KEY_ESCAPE and event.pressed:
+				GameManager.is_paused = false
+				hide()
+
 func _process(delta: float) -> void:
 	studies_label.text = tr("STUDIES_TITLE")
 	voltar.text = tr("BACK_HIDE")

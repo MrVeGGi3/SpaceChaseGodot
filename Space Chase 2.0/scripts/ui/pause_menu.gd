@@ -1,4 +1,6 @@
 extends Control
+class_name PauseMenu
+
 @onready var go_main_menu_window: Window = $GoMainMenuWindow
 
 @export var save_manager : SaveLoadMainGame
@@ -12,6 +14,7 @@ extends Control
 @onready var pause_title_label: Label = $PauseTitleLabel
 
 
+@export var button_effect : AudioStreamPlayer
 
 var no_ui_open = true
 const MENU = "res://scenes/menu/menu.tscn"
@@ -46,22 +49,30 @@ func _on_back_game_pressed() -> void:
 	GameManager.is_paused = false
 
 func _on_main_menu_pressed() -> void:
+	_play_button_sound()
 	go_main_menu_window.show()
 
 func _on_no_pressed() -> void:
+	_play_button_sound()
 	go_main_menu_window.hide()
 
 
 func _on_save_game_pressed() -> void:
+	_play_button_sound()
 	save_manager.hide_pause_menu()
 	save_manager.show()
 	save_manager.save_or_load = "Save"
 
 func _on_load_game_pressed() -> void:
+	_play_button_sound()
 	save_manager.hide_pause_menu()
 	save_manager.show()
 	save_manager.save_or_load = "Load"
 
-
 func _on_yes_pressed() -> void:
+	_play_button_sound()
 	get_tree().change_scene_to_file(MENU)
+
+
+func _play_button_sound():
+	button_effect.play()

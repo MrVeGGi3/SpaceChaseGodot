@@ -1,6 +1,8 @@
 extends Control
 @onready var screen_resolution: Label = $ScreenResolution
 
+
+
 func _process(delta: float) -> void:
 	screen_resolution.text = tr("SCREEN_MODE")
 

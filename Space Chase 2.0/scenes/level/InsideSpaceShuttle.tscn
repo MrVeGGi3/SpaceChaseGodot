@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://htmt4jmpujlc"]
+[gd_scene load_steps=36 format=3 uid="uid://htmt4jmpujlc"]
 
 [ext_resource type="Script" uid="uid://c0o6c2r7d1ew8" path="res://scripts/level/inside_space_shuttle.gd" id="1_afms6"]
 [ext_resource type="Texture2D" uid="uid://d0lmktf0c2e4u" path="res://Assets/images/backgrounds/Space Shuttle.png" id="1_nx75k"]
@@ -12,6 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://be14gcws0sq0m" path="res://Assets/images/objects/normal/ToFunNormal.png" id="9_f6x5r"]
 [ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="10_4vyve"]
 [ext_resource type="Script" uid="uid://dy83y478jd114" path="res://scripts/localization/inside_ss_loc.gd" id="12_gu5fr"]
+[ext_resource type="AudioStream" uid="uid://2k2yuqq1yin3" path="res://Assets/sounds/eat_light.wav" id="13_thhnp"]
+[ext_resource type="AudioStream" uid="uid://c1davylpj4s3r" path="res://Assets/sounds/driking.wav" id="14_8lr48"]
+[ext_resource type="AudioStream" uid="uid://d1p11dein64yi" path="res://Assets/sounds/eat_heavy.wav" id="15_px07i"]
+[ext_resource type="AudioStream" uid="uid://exjwj7tbonl2" path="res://Assets/sounds/drink_critical_state.wav" id="16_eim2x"]
+[ext_resource type="AudioStream" uid="uid://cxo27ii5sl4ho" path="res://Assets/sounds/Piano/Mozart.wav" id="17_tu208"]
+[ext_resource type="AudioStream" uid="uid://bkvjav27nsua0" path="res://Assets/sounds/Piano/Chopin.wav" id="18_x7w4g"]
+[ext_resource type="AudioStream" uid="uid://dvfjhog6tptqf" path="res://Assets/sounds/Piano/Marriage.wav" id="19_jl02u"]
+[ext_resource type="AudioStream" uid="uid://do8jpeiuvjc4k" path="res://Assets/sounds/Piano/PaganiniLiszt - La Campanella.wav" id="20_aaalk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biof4"]
 texture = ExtResource("3_u4cne")
@@ -265,6 +273,43 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("12_gu5fr")
+
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="EatLightSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("13_thhnp")
+bus = &"SFX"
+
+[node name="DrinkLightSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("14_8lr48")
+bus = &"SFX"
+
+[node name="EatHardSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("15_px07i")
+bus = &"SFX"
+
+[node name="DrinkHardSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("16_eim2x")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="PianoSounds" type="Node" parent="AudioManager"]
+
+[node name="Mozart" type="AudioStreamPlayer" parent="AudioManager/PianoSounds"]
+stream = ExtResource("17_tu208")
+bus = &"SFX"
+
+[node name="Chopin" type="AudioStreamPlayer" parent="AudioManager/PianoSounds"]
+stream = ExtResource("18_x7w4g")
+bus = &"SFX"
+
+[node name="Marriage" type="AudioStreamPlayer" parent="AudioManager/PianoSounds"]
+stream = ExtResource("19_jl02u")
+bus = &"SFX"
+
+[node name="Liszt" type="AudioStreamPlayer" parent="AudioManager/PianoSounds"]
+stream = ExtResource("20_aaalk")
+bus = &"SFX"
 
 [connection signal="pressed" from="EatButton" to="." method="_on_eat_button_pressed"]
 [connection signal="pressed" from="DrinkButton" to="." method="_on_drink_button_pressed"]

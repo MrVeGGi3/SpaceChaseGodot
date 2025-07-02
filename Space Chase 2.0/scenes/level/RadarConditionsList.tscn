@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3c8gi62hlnlh"]
+[gd_scene load_steps=13 format=3 uid="uid://d3c8gi62hlnlh"]
 
 [ext_resource type="Texture2D" uid="uid://cjpbo3qb8nvfq" path="res://Assets/radar/Radar.png" id="1_0ni3r"]
 [ext_resource type="Script" uid="uid://bu5fk4fgjukof" path="res://scripts/level/radar_conditions_list.gd" id="1_6q7p4"]
 [ext_resource type="Theme" uid="uid://dp0bjqpdecqt8" path="res://themes/radar_list_label.tres" id="2_tssv7"]
 [ext_resource type="Theme" uid="uid://2ayqmvtsoal2" path="res://themes/item__list_label.tres" id="3_12bdm"]
+[ext_resource type="Script" uid="uid://dwus2w78egr7x" path="res://scripts/check_box_win_condition.gd" id="4_i32k1"]
 [ext_resource type="FontFile" uid="uid://dr1ok3ju4bfb3" path="res://Assets/fonts/digital-7.ttf" id="5_o5n57"]
 [ext_resource type="Script" uid="uid://ckns8yqjf675p" path="res://scripts/localization/radar_localization.gd" id="6_ixmlv"]
+[ext_resource type="AudioStream" uid="uid://c61h1it2gq6rp" path="res://Assets/sounds/Cockpit/radar_closed.wav" id="8_lqtqp"]
 
 [sub_resource type="Animation" id="Animation_64nmr"]
 length = 0.001
@@ -208,14 +210,12 @@ offset_left = 15.0
 offset_top = 52.0
 offset_right = 67.0
 offset_bottom = 160.0
+script = ExtResource("4_i32k1")
 
 [node name="CheckBox" type="CheckBox" parent="ItensToBuild/CheckBoxContainer"]
 layout_mode = 2
 
 [node name="CheckBox2" type="CheckBox" parent="ItensToBuild/CheckBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox3" type="CheckBox" parent="ItensToBuild/CheckBoxContainer"]
 layout_mode = 2
 
 [node name="ItensContainer" type="VBoxContainer" parent="ItensToBuild"]
@@ -225,10 +225,6 @@ offset_top = 56.0
 offset_right = 227.0
 offset_bottom = 158.165
 theme = ExtResource("3_12bdm")
-
-[node name="HyperDriveLabel" type="Label" parent="ItensToBuild/ItensContainer"]
-layout_mode = 2
-text = "HyperDrive"
 
 [node name="FuelDriveLabel" type="Label" parent="ItensToBuild/ItensContainer"]
 layout_mode = 2
@@ -273,5 +269,9 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_ixmlv")
+
+[node name="RadarClosed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lqtqp")
+bus = &"SFX"
 
 [connection signal="pressed" from="CloseRadar" to="." method="_on_close_radar_pressed"]

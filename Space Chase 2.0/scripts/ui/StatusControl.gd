@@ -30,6 +30,10 @@ extends Control
 @export var studies : Control
 #booleanas de controle de status
 @onready var is_time_slowed : bool = false
+
+@export var studies_effect : AudioStreamPlayer
+@export var cons_effect : AudioStreamPlayer
+@export var time_button : AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -67,20 +71,28 @@ func _process(_delta):
 	
 
 func _on_play_time_pressed() -> void:
+	_play_time_button()
 	print("Botão Play Apertado")
 	get_tree().paused = false
 	Engine.time_scale = 1.0
 
 func _on_pause_time_pressed() -> void:
+	_play_time_button()
 	print("Botão Pausa Apertado")
-	get_tree().paused = true
+	Engine.time_scale = 0.0
 	
 func _on_accelerate_time_pressed() -> void:
+	_play_time_button()
 	print("Botão Acelerar Apertado")
 	Engine.time_scale += 0.5
 		
 func _on_construction_button_pressed() -> void:
+	cons_effect.play()
 	constructions.show()
 
 func _on_studies_button_pressed() -> void:
+	studies_effect.play()
 	studies.show()
+
+func _play_time_button():
+	time_button.play()
