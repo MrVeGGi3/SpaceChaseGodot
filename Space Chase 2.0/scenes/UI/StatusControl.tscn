@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://w8if7rx07dgx"]
+[gd_scene load_steps=50 format=3 uid="uid://w8if7rx07dgx"]
 
 [ext_resource type="Script" uid="uid://scnpgcpgdf2b" path="res://scripts/ui/StatusControl.gd" id="1_3lw74"]
 [ext_resource type="Texture2D" uid="uid://4mglc54cb7de" path="res://Assets/images/buttons/StatusControl/Normal/Play.png" id="2_axoxj"]
 [ext_resource type="Texture2D" uid="uid://c4m2bdn4fuyeg" path="res://Assets/images/UI/PlayerStatusBackground.png" id="3_a48nf"]
 [ext_resource type="Texture2D" uid="uid://bhw30uc2mywdu" path="res://Assets/images/buttons/StatusControl/Hovered/Play_hoverd.png" id="3_mbhrl"]
+[ext_resource type="Script" uid="uid://dbaqkf1dn8af4" path="res://scripts/effects/status_background_effect.gd" id="3_ywlma"]
 [ext_resource type="Texture2D" uid="uid://dujrqsabh5utq" path="res://Assets/images/buttons/StatusControl/Hovered/Pause_hovered.png" id="4_0bm72"]
 [ext_resource type="Texture2D" uid="uid://c6feb57840qm0" path="res://Assets/images/UI/ResourcesBackground.png" id="4_mu47a"]
 [ext_resource type="Texture2D" uid="uid://dpw5yrxmrl65h" path="res://Assets/icons/status/desidratacao.png" id="4_ylwg3"]
@@ -85,6 +86,61 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnaua"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="Animation" id="Animation_ywlma"]
+resource_name = "critical_state"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.76667),
+"transitions": PackedFloat32Array(0.267944, 0.148651, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.975665, 1.27546e-06, 5.77569e-07, 1), Color(1, 1, 1, 1), Color(0.975665, 1.27546e-06, 5.77569e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6pgmf"]
+resource_name = "normal_state"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q6iky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2ytk"]
+_data = {
+&"RESET": SubResource("Animation_q6iky"),
+&"critical_state": SubResource("Animation_ywlma"),
+&"normal_state": SubResource("Animation_6pgmf")
+}
+
 [node name="StatusControl" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -99,6 +155,7 @@ position = Vector2(49, 326)
 rotation = 1.5708
 scale = Vector2(0.57, 0.57)
 texture = ExtResource("3_a48nf")
+script = ExtResource("3_ywlma")
 
 [node name="ResourcesBackground" type="Sprite2D" parent="."]
 position = Vector2(589, 586)
@@ -479,6 +536,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("26_wbfcl")
+
+[node name="StatusAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_v2ytk")
+}
+autoplay = "normal_state"
 
 [connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/PlayTime" to="." method="_on_play_time_pressed"]
 [connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/PauseTime" to="." method="_on_pause_time_pressed"]

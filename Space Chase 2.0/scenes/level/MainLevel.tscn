@@ -1,11 +1,15 @@
-[gd_scene load_steps=62 format=3 uid="uid://fq3h44myryer"]
+[gd_scene load_steps=104 format=3 uid="uid://fq3h44myryer"]
 
 [ext_resource type="Script" uid="uid://dcpwvi02ossnq" path="res://scripts/level/main_level.gd" id="1_0ohvt"]
 [ext_resource type="PackedScene" uid="uid://dx4ckn55atgno" path="res://scenes/Player/Player.tscn" id="3_lyp37"]
-[ext_resource type="PackedScene" uid="uid://w8if7rx07dgx" path="res://scenes/UI/StatusControl.tscn" id="4_kx0l0"]
+[ext_resource type="Script" uid="uid://scnpgcpgdf2b" path="res://scripts/ui/StatusControl.gd" id="5_p0abj"]
+[ext_resource type="Texture2D" uid="uid://c4m2bdn4fuyeg" path="res://Assets/images/UI/PlayerStatusBackground.png" id="6_5f6f4"]
 [ext_resource type="Theme" uid="uid://2i0nh2wxufd" path="res://themes/saveloadbuttons.tres" id="6_jqri7"]
+[ext_resource type="Script" uid="uid://dbaqkf1dn8af4" path="res://scripts/effects/status_background_effect.gd" id="7_5unfp"]
 [ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="7_urreh"]
 [ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="8_rig81"]
+[ext_resource type="Texture2D" uid="uid://c6feb57840qm0" path="res://Assets/images/UI/ResourcesBackground.png" id="8_w4qqc"]
+[ext_resource type="Theme" uid="uid://1dap8ynrqq1t" path="res://themes/resource_labels.tres" id="9_0nxdk"]
 [ext_resource type="Theme" uid="uid://b4krcgr3ui2kl" path="res://themes/date_time.tres" id="9_kbucc"]
 [ext_resource type="Theme" uid="uid://cu6vt75448gf1" path="res://themes/resources_theme.tres" id="10_w5lk1"]
 [ext_resource type="Texture2D" uid="uid://yy47cs44sjl" path="res://Assets/icons/resources/oxygentankicon.png" id="11_5v3bo"]
@@ -14,18 +18,32 @@
 [ext_resource type="Texture2D" uid="uid://cm7ygp88d04ws" path="res://Assets/icons/resources/saladicon.png" id="14_l6d0w"]
 [ext_resource type="Texture2D" uid="uid://5wgsxsshlrd3" path="res://Assets/icons/resources/metalicon.png" id="15_q3c1u"]
 [ext_resource type="Texture2D" uid="uid://bprnrlptjv0yk" path="res://Assets/icons/resources/watericon.png" id="16_2wktj"]
+[ext_resource type="Texture2D" uid="uid://4mglc54cb7de" path="res://Assets/images/buttons/StatusControl/Normal/Play.png" id="16_uxhes"]
 [ext_resource type="Theme" uid="uid://cby0yb3qwi843" path="res://themes/game_dt.tres" id="17_37lut"]
+[ext_resource type="Texture2D" uid="uid://bhw30uc2mywdu" path="res://Assets/images/buttons/StatusControl/Hovered/Play_hoverd.png" id="17_onhml"]
+[ext_resource type="Texture2D" uid="uid://ces3ljhyhcuv2" path="res://Assets/images/buttons/StatusControl/Normal/Pause.png" id="18_ecvc3"]
 [ext_resource type="Theme" uid="uid://bmy37obfh77ks" path="res://themes/gamehour_dt.tres" id="18_emuio"]
 [ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="19_0x7jq"]
+[ext_resource type="Texture2D" uid="uid://dujrqsabh5utq" path="res://Assets/images/buttons/StatusControl/Hovered/Pause_hovered.png" id="19_hjxo0"]
 [ext_resource type="PackedScene" uid="uid://egtw8jclboos" path="res://scenes/SaveLoad/SaveManager.tscn" id="20_52mor"]
+[ext_resource type="Texture2D" uid="uid://d28g2c01722hb" path="res://Assets/images/buttons/StatusControl/Normal/Avançar.png" id="20_e36fq"]
+[ext_resource type="Texture2D" uid="uid://b0bnkplgf6ius" path="res://Assets/images/buttons/StatusControl/Hovered/Forward_hovered.png" id="21_d4ht2"]
 [ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="21_l44ek"]
 [ext_resource type="PackedScene" uid="uid://wsgrpqkfr77x" path="res://scenes/objects/SpaceShuttle.tscn" id="22_0jwsq"]
+[ext_resource type="FontFile" uid="uid://dr1ok3ju4bfb3" path="res://Assets/fonts/digital-7.ttf" id="22_higyy"]
 [ext_resource type="PackedScene" uid="uid://htmt4jmpujlc" path="res://scenes/level/InsideSpaceShuttle.tscn" id="22_y21cn"]
+[ext_resource type="Texture2D" uid="uid://dpw5yrxmrl65h" path="res://Assets/icons/status/desidratacao.png" id="23_k13fv"]
 [ext_resource type="PackedScene" uid="uid://db2gi84m138so" path="res://scenes/level/Cockpit.tscn" id="23_tudxn"]
 [ext_resource type="PackedScene" uid="uid://d3c8gi62hlnlh" path="res://scenes/level/RadarConditionsList.tscn" id="24_ket2d"]
+[ext_resource type="Texture2D" uid="uid://e5ewdwut52gn" path="res://Assets/icons/status/abdominal.png" id="24_lyako"]
 [ext_resource type="AudioStream" uid="uid://dbobwgolq67k2" path="res://Assets/sounds/button_sound.wav" id="24_q4n8g"]
+[ext_resource type="Texture2D" uid="uid://bu61mwuqt0nr1" path="res://Assets/icons/status/oxygen-mask.png" id="25_ks0wr"]
 [ext_resource type="PackedScene" uid="uid://4h42ngd7gsgq" path="res://scenes/HUD/Constructions.tscn" id="25_olgf2"]
+[ext_resource type="Texture2D" uid="uid://cpuo5hhujrkbv" path="res://Assets/icons/status/cansado.png" id="26_h0oad"]
+[ext_resource type="Texture2D" uid="uid://cgua2cqm3pmqp" path="res://Assets/icons/status/fear.png" id="27_ae205"]
 [ext_resource type="PackedScene" uid="uid://ms6kfek6qqtt" path="res://scenes/HUD/SintetyzeInterfacer.tscn" id="28_0jp4e"]
+[ext_resource type="Texture2D" uid="uid://b5cb4owq4aksq" path="res://Assets/icons/tools/Hammer.png" id="28_ancl3"]
+[ext_resource type="Texture2D" uid="uid://cxyict88un1iu" path="res://Assets/icons/studies/BookIcon.png" id="29_1fhf2"]
 [ext_resource type="PackedScene" uid="uid://briv7ry08pp32" path="res://scenes/HUD/Studies.tscn" id="29_l5pqo"]
 [ext_resource type="Script" uid="uid://b55uxyci8lkk" path="res://scripts/studies/Botanics/botanics_interface.gd" id="30_4mgjs"]
 [ext_resource type="Texture2D" uid="uid://dgrhlbo6gk11g" path="res://Assets/icons/studies/UI/BaseButtonIcon.png" id="30_dvuug"]
@@ -33,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://c74nxjdu7j7so" path="res://Assets/icons/studies/GearIcon.png" id="31_4mgjs"]
 [ext_resource type="Texture2D" uid="uid://ni2enu11sd3v" path="res://Assets/icons/studies/BotanicsIcon.png" id="31_aw8ai"]
 [ext_resource type="PackedScene" uid="uid://cjfvruhxlnppn" path="res://scenes/HUD/PauseMenu.tscn" id="31_dfkow"]
+[ext_resource type="Script" uid="uid://oqih52l3vynh" path="res://scripts/localization/status_loc.gd" id="31_fwx71"]
 [ext_resource type="Texture2D" uid="uid://c4ye828xakky8" path="res://Assets/images/UI/constructions/ConstructionDescription.png" id="31_s25i6"]
 [ext_resource type="Script" uid="uid://cr2s4vc4tp8xl" path="res://scripts/GameSaveLoadScreen.gd" id="32_dfkow"]
 [ext_resource type="Texture2D" uid="uid://dp4efbb57gtt7" path="res://Assets/images/constructions/Hidropônica.png" id="34_q4n8g"]
@@ -50,6 +69,120 @@
 [ext_resource type="AudioStream" uid="uid://3rgchrai7678" path="res://Assets/sounds/studies/studies_button.wav" id="48_5o2ny"]
 [ext_resource type="AudioStream" uid="uid://cemyebp5swc0n" path="res://Assets/sounds/Cons/cons_sound.wav" id="49_5n4ke"]
 [ext_resource type="AudioStream" uid="uid://co1xvluioe0ao" path="res://Assets/sounds/cockpit_button_pressed.wav" id="50_ogag5"]
+[ext_resource type="Script" uid="uid://l3jddfpbg8ay" path="res://scripts/constructions/time_cons_audio_set.gd" id="70_0ib6l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgupp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nya4q"]
+texture = ExtResource("16_uxhes")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fw5u5"]
+texture = ExtResource("17_onhml")
+
+[sub_resource type="Theme" id="Theme_pmxrp"]
+Button/styles/normal = SubResource("StyleBoxTexture_nya4q")
+Button/styles/pressed = SubResource("StyleBoxTexture_fw5u5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w735y"]
+texture = ExtResource("17_onhml")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btlyh"]
+texture = ExtResource("16_uxhes")
+modulate_color = Color(0.00241332, 0.778671, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4i8e"]
+texture = ExtResource("16_uxhes")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83j5c"]
+texture = ExtResource("19_hjxo0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kjkn4"]
+texture = ExtResource("19_hjxo0")
+modulate_color = Color(0.172549, 0.615686, 0.2, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxbmj"]
+texture = ExtResource("18_ecvc3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iognr"]
+texture = ExtResource("21_d4ht2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkpfa"]
+texture = ExtResource("21_d4ht2")
+modulate_color = Color(0.152631, 0.744199, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vo8yl"]
+texture = ExtResource("20_e36fq")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rad0f"]
+bg_color = Color(1, 0.0392157, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es1hr"]
+bg_color = Color(0.192766, 0.881255, 0, 1)
+
+[sub_resource type="Theme" id="Theme_f20o5"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_rad0f")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_es1hr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0se2m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnaua"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_ywlma"]
+resource_name = "critical_state"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.76667),
+"transitions": PackedFloat32Array(0.267944, 0.148651, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.975665, 1.27546e-06, 5.77569e-07, 1), Color(1, 1, 1, 1), Color(0.975665, 1.27546e-06, 5.77569e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6pgmf"]
+resource_name = "normal_state"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q6iky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2ytk"]
+_data = {
+&"RESET": SubResource("Animation_q6iky"),
+&"critical_state": SubResource("Animation_ywlma"),
+&"normal_state": SubResource("Animation_6pgmf")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3258"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -114,13 +247,414 @@ scale = Vector2(1.51391, 1.51391)
 visible = false
 z_index = 2
 
-[node name="StatusControl" parent="." node_paths=PackedStringArray("constructions", "studies", "studies_effect", "cons_effect", "time_button") instance=ExtResource("4_kx0l0")]
+[node name="StatusControl" type="Control" parent="." node_paths=PackedStringArray("constructions", "studies", "time_cons_audio_set", "studies_effect", "cons_effect", "time_button")]
 z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_p0abj")
 constructions = NodePath("../Constructions")
 studies = NodePath("../Studies")
+time_cons_audio_set = NodePath("../TimeConsAudioSet")
 studies_effect = NodePath("../AudioManager/StudiesButton")
 cons_effect = NodePath("../AudioManager/ConsButton")
 time_button = NodePath("../AudioManager/TimeSound")
+
+[node name="StatusBackground" type="Sprite2D" parent="StatusControl"]
+position = Vector2(49, 326)
+rotation = 1.5708
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("6_5f6f4")
+script = ExtResource("7_5unfp")
+
+[node name="ResourcesBackground" type="Sprite2D" parent="StatusControl"]
+position = Vector2(589, 586)
+scale = Vector2(0.518117, 0.518117)
+texture = ExtResource("8_w4qqc")
+
+[node name="WaterVBoxContainer" type="VBoxContainer" parent="StatusControl/ResourcesBackground"]
+offset_left = -438.125
+offset_top = 25.0909
+offset_right = -331.125
+offset_bottom = 71.0909
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Water" type="Label" parent="StatusControl/ResourcesBackground/WaterVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_0nxdk")
+text = "WATER"
+horizontal_alignment = 1
+
+[node name="WaterSprite" type="Sprite2D" parent="StatusControl/ResourcesBackground/WaterVBoxContainer"]
+position = Vector2(52.1119, -59.832)
+scale = Vector2(0.236576, 0.236576)
+texture = ExtResource("16_2wktj")
+
+[node name="O2VBoxContainer" type="VBoxContainer" parent="StatusControl/ResourcesBackground"]
+offset_left = -248.979
+offset_top = 27.0209
+offset_right = -207.979
+offset_bottom = 73.0209
+
+[node name="O2" type="Label" parent="StatusControl/ResourcesBackground/O2VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_0nxdk")
+text = "O2"
+horizontal_alignment = 1
+
+[node name="O2Sprite" type="Sprite2D" parent="StatusControl/ResourcesBackground/O2VBoxContainer"]
+position = Vector2(25.0913, -57.902)
+scale = Vector2(0.22749, 0.22749)
+texture = ExtResource("11_5v3bo")
+
+[node name="H2VBoxContainer" type="VBoxContainer" parent="StatusControl/ResourcesBackground"]
+offset_left = -90.7131
+offset_top = 27.0209
+offset_right = -50.7131
+offset_bottom = 73.0209
+
+[node name="H2" type="Label" parent="StatusControl/ResourcesBackground/H2VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_0nxdk")
+text = "H2
+"
+horizontal_alignment = 1
+
+[node name="H2Sprite" type="Sprite2D" parent="StatusControl/ResourcesBackground/H2VBoxContainer"]
+position = Vector2(21.2307, -61.7621)
+scale = Vector2(0.262119, 0.262119)
+texture = ExtResource("12_2tist")
+
+[node name="EnergyVBoxContainer" type="VBoxContainer" parent="StatusControl/ResourcesBackground"]
+offset_left = 25.0909
+offset_top = 27.0209
+offset_right = 146.091
+offset_bottom = 73.0209
+
+[node name="Energy" type="Label" parent="StatusControl/ResourcesBackground/EnergyVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_0nxdk")
+text = "Energy"
+horizontal_alignment = 1
+
+[node name="EnergySprite" type="Sprite2D" parent="StatusControl/ResourcesBackground/EnergyVBoxContainer"]
+position = Vector2(67.5524, -54.0419)
+scale = Vector2(0.213783, 0.213783)
+texture = ExtResource("13_v5m83")
+
+[node name="MetalVBoxContainer" type="VBoxContainer" parent="StatusControl/ResourcesBackground"]
+offset_left = 196.867
+offset_top = 28.951
+offset_right = 296.867
+offset_bottom = 74.951
+
+[node name="Metal" type="Label" parent="StatusControl/ResourcesBackground/MetalVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_0nxdk")
+text = "Metal"
+horizontal_alignment = 1
+
+[node name="MetalSprite" type="Sprite2D" parent="StatusControl/ResourcesBackground/MetalVBoxContainer"]
+position = Vector2(50.1818, -59.832)
+scale = Vector2(0.208055, 0.208055)
+texture = ExtResource("15_q3c1u")
+
+[node name="FoodVBoxContainer" type="VBoxContainer" parent="StatusControl/ResourcesBackground"]
+offset_left = 358.992
+offset_top = 27.0209
+offset_right = 444.992
+offset_bottom = 73.0209
+
+[node name="Food" type="Label" parent="StatusControl/ResourcesBackground/FoodVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_0nxdk")
+text = "Food
+"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="StatusControl/ResourcesBackground/FoodVBoxContainer"]
+position = Vector2(44.3916, -61.7621)
+scale = Vector2(0.246441, 0.246441)
+texture = ExtResource("14_l6d0w")
+
+[node name="GameTimeDisplayBackground" type="Sprite2D" parent="StatusControl"]
+position = Vector2(577, 48)
+scale = Vector2(0.446049, 0.446049)
+texture = ExtResource("8_w4qqc")
+
+[node name="TimeDisplay" type="Panel" parent="StatusControl/GameTimeDisplayBackground"]
+offset_left = 22.4191
+offset_top = -49.3219
+offset_right = 62.4191
+offset_bottom = -9.32194
+scale = Vector2(10.9502, 2.89168)
+theme_override_styles/panel = SubResource("StyleBoxFlat_dgupp")
+
+[node name="PlayTime" type="Button" parent="StatusControl/GameTimeDisplayBackground/TimeDisplay"]
+process_mode = 3
+layout_mode = 0
+offset_left = 1.43316
+offset_top = 3.87646
+offset_right = 150.433
+offset_bottom = 158.876
+scale = Vector2(0.0763199, 0.204024)
+theme = SubResource("Theme_pmxrp")
+theme_override_icons/icon = ExtResource("16_uxhes")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w735y")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btlyh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t4i8e")
+
+[node name="PauseTime" type="Button" parent="StatusControl/GameTimeDisplayBackground/TimeDisplay"]
+process_mode = 3
+layout_mode = 0
+offset_left = 14.9458
+offset_top = 10.0788
+offset_right = 147.946
+offset_bottom = 129.079
+scale = Vector2(0.0681822, 0.183062)
+theme_override_icons/icon = ExtResource("18_ecvc3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_83j5c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kjkn4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fxbmj")
+
+[node name="AccelerateTime" type="Button" parent="StatusControl/GameTimeDisplayBackground/TimeDisplay"]
+process_mode = 3
+layout_mode = 0
+offset_left = 26.6158
+offset_top = 10.0788
+offset_right = 178.616
+offset_bottom = 83.0788
+scale = Vector2(0.0880133, 0.287997)
+theme_override_icons/icon = ExtResource("20_e36fq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iognr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tkpfa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_vo8yl")
+
+[node name="HourLabel" type="Label" parent="StatusControl"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 11.0
+offset_right = 472.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("22_higyy")
+theme_override_font_sizes/font_size = 50
+text = "20:00"
+
+[node name="DateLabel" type="Label" parent="StatusControl"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 57.0
+offset_right = 535.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("22_higyy")
+theme_override_font_sizes/font_size = 30
+text = "14/12/2000"
+
+[node name="TimeScaleLabel" type="Label" parent="StatusControl"]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 4.0
+offset_right = 627.0
+offset_bottom = 27.0
+text = "Escala de Tempo: "
+
+[node name="ThirstyVBoxContainer" type="VBoxContainer" parent="StatusControl"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 144.0
+offset_right = 72.97
+offset_bottom = 184.0
+scale = Vector2(0.833945, 0.833945)
+theme = SubResource("Theme_f20o5")
+
+[node name="ThirstyProgressBar" type="ProgressBar" parent="StatusControl/ThirstyVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="StatusControl/ThirstyVBoxContainer"]
+position = Vector2(22.0112, -53.8058)
+scale = Vector2(0.147081, 0.147081)
+texture = ExtResource("23_k13fv")
+
+[node name="HungryVBoxContainer" type="VBoxContainer" parent="StatusControl"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 273.0
+offset_right = 71.97
+offset_bottom = 313.0
+scale = Vector2(0.898872, 0.898872)
+theme = SubResource("Theme_f20o5")
+
+[node name="HungryProgressBar" type="ProgressBar" parent="StatusControl/HungryVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="StatusControl/HungryVBoxContainer"]
+position = Vector2(22.0112, -53.8058)
+scale = Vector2(0.173595, 0.173595)
+texture = ExtResource("24_lyako")
+
+[node name="OxygenVBoxContainer2" type="VBoxContainer" parent="StatusControl"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 501.0
+offset_right = 75.97
+offset_bottom = 541.0
+scale = Vector2(0.82273, 0.82273)
+theme = SubResource("Theme_f20o5")
+
+[node name="OxygenProgressBar" type="ProgressBar" parent="StatusControl/OxygenVBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="StatusControl/OxygenVBoxContainer2"]
+position = Vector2(22.0112, -53.8058)
+scale = Vector2(0.173595, 0.173595)
+texture = ExtResource("25_ks0wr")
+
+[node name="TiredVBoxContainer3" type="VBoxContainer" parent="StatusControl"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 617.0
+offset_right = 79.97
+offset_bottom = 657.0
+scale = Vector2(0.730813, 0.730813)
+theme = SubResource("Theme_f20o5")
+
+[node name="TiredProgressBar" type="ProgressBar" parent="StatusControl/TiredVBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="StatusControl/TiredVBoxContainer3"]
+position = Vector2(22.0112, -53.8058)
+scale = Vector2(0.173595, 0.173595)
+texture = ExtResource("26_h0oad")
+
+[node name="CrazynessVBoxContainer4" type="VBoxContainer" parent="StatusControl"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 393.0
+offset_right = 75.97
+offset_bottom = 433.0
+scale = Vector2(0.831606, 0.831606)
+theme = SubResource("Theme_f20o5")
+
+[node name="CrazynessProgressBar" type="ProgressBar" parent="StatusControl/CrazynessVBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="StatusControl/CrazynessVBoxContainer4"]
+position = Vector2(9.61994, -52.9097)
+scale = Vector2(0.173595, 0.173595)
+texture = ExtResource("27_ae205")
+
+[node name="ToolsControl" type="Control" parent="StatusControl"]
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 62.0
+offset_right = 296.0
+offset_bottom = 102.0
+
+[node name="ToolsButtonsBackground" type="TextureRect" parent="StatusControl/ToolsControl"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -70.0
+offset_right = 953.0
+offset_bottom = 178.0
+scale = Vector2(0.152079, 0.499888)
+texture = ExtResource("8_w4qqc")
+
+[node name="Hammer" type="TextureRect" parent="StatusControl/ToolsControl/ToolsButtonsBackground"]
+layout_mode = 0
+offset_left = 256.445
+offset_top = 16.0036
+offset_right = 768.445
+offset_bottom = 528.004
+scale = Vector2(0.944992, 0.340061)
+texture = ExtResource("28_ancl3")
+
+[node name="ToolsButtonsBackground2" type="TextureRect" parent="StatusControl/ToolsControl"]
+layout_mode = 0
+offset_left = 541.0
+offset_top = -71.0
+offset_right = 1547.0
+offset_bottom = 177.0
+scale = Vector2(0.152079, 0.499888)
+texture = ExtResource("8_w4qqc")
+
+[node name="Book" type="TextureRect" parent="StatusControl/ToolsControl/ToolsButtonsBackground2"]
+layout_mode = 0
+offset_left = 164.388
+offset_top = 16.0036
+offset_right = 676.388
+offset_bottom = 528.004
+scale = Vector2(1.31935, 0.334561)
+texture = ExtResource("29_1fhf2")
+
+[node name="ConstructionsLabel" type="Label" parent="StatusControl/ToolsControl"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = 15.0
+offset_right = 98.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("19_0x7jq")
+theme_override_font_sizes/font_size = 30
+text = "Build"
+horizontal_alignment = 1
+
+[node name="StudiesButton" type="Button" parent="StatusControl/ToolsControl"]
+layout_mode = 0
+offset_left = 542.0
+offset_top = -66.0
+offset_right = 1042.0
+offset_bottom = 364.0
+scale = Vector2(0.296119, 0.276295)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0se2m")
+
+[node name="ConstructionButton" type="Button" parent="StatusControl/ToolsControl"]
+layout_mode = 0
+offset_left = -49.0
+offset_top = -61.0
+offset_right = 101.0
+offset_bottom = 59.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bnaua")
+
+[node name="StudiesLabel" type="Label" parent="StatusControl/ToolsControl"]
+layout_mode = 0
+offset_left = 538.0
+offset_top = 16.0
+offset_right = 700.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("19_0x7jq")
+theme_override_font_sizes/font_size = 25
+text = "Studies"
+horizontal_alignment = 1
+
+[node name="Localization" type="Control" parent="StatusControl"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("31_fwx71")
+
+[node name="StatusAnimation" type="AnimationPlayer" parent="StatusControl"]
+libraries = {
+&"": SubResource("AnimationLibrary_v2ytk")
+}
+autoplay = "normal_state"
 
 [node name="Cockpit" parent="." instance=ExtResource("23_tudxn")]
 visible = false
@@ -1386,6 +1920,14 @@ stream = ExtResource("50_ogag5")
 volume_db = -5.0
 bus = &"SFX"
 
+[node name="TimeConsAudioSet" type="Node" parent="."]
+script = ExtResource("70_0ib6l")
+
+[connection signal="pressed" from="StatusControl/GameTimeDisplayBackground/TimeDisplay/PlayTime" to="StatusControl" method="_on_play_time_pressed"]
+[connection signal="pressed" from="StatusControl/GameTimeDisplayBackground/TimeDisplay/PauseTime" to="StatusControl" method="_on_pause_time_pressed"]
+[connection signal="pressed" from="StatusControl/GameTimeDisplayBackground/TimeDisplay/AccelerateTime" to="StatusControl" method="_on_accelerate_time_pressed"]
+[connection signal="pressed" from="StatusControl/ToolsControl/StudiesButton" to="StatusControl" method="_on_studies_button_pressed"]
+[connection signal="pressed" from="StatusControl/ToolsControl/ConstructionButton" to="StatusControl" method="_on_construction_button_pressed"]
 [connection signal="pressed" from="BotanicsInterface/Voltar" to="BotanicsInterface" method="_on_voltar_pressed"]
 [connection signal="pressed" from="MechanicsInterface/Voltar" to="MechanicsInterface" method="_on_voltar_pressed"]
 [connection signal="pressed" from="ElectronicInterface/Voltar" to="ElectronicInterface" method="_on_voltar_pressed"]

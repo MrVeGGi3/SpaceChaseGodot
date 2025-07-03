@@ -2,7 +2,7 @@ class_name Construction
 extends Node2D
 
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var player : Player = get_tree().get_first_node_in_group("Player")
 
 
 var metal_price : float
@@ -107,6 +107,12 @@ func construction_button_pressed():
 	player.play_working_sound()
 	construction_progress_bar.show()
 
+func check_stop_time():
+	if is_in_construction:
+		if get_tree().paused:
+			player.stop_working_sound()
+		else:
+			player.play_working_sound()
 
 func see_bodies_around():
 	return construction_area_2d.get_overlapping_bodies()

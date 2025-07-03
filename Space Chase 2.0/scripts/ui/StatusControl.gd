@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player : Player = get_tree().get_first_node_in_group("player")
 @onready var hora_minutos = $HourLabel
 @onready var dia_month = $DateLabel
 
@@ -28,6 +28,12 @@ extends Control
 
 @export var constructions : Control
 @export var studies : Control
+@export var time_cons_audio_set : Node
+@onready var status_animation: AnimationPlayer = $StatusAnimation
+
+
+
+
 #booleanas de controle de status
 @onready var is_time_slowed : bool = false
 
@@ -74,11 +80,14 @@ func _on_play_time_pressed() -> void:
 	_play_time_button()
 	print("Botão Play Apertado")
 	get_tree().paused = false
+	time_cons_audio_set.emit_signal("set_cons_audio")
 	Engine.time_scale = 1.0
 
 func _on_pause_time_pressed() -> void:
 	_play_time_button()
 	print("Botão Pausa Apertado")
+	get_tree().paused = true
+	time_cons_audio_set.emit_signal("set_cons_audio")
 	Engine.time_scale = 0.0
 	
 func _on_accelerate_time_pressed() -> void:
@@ -96,3 +105,6 @@ func _on_studies_button_pressed() -> void:
 
 func _play_time_button():
 	time_button.play()
+	
+func play_status_animation(animation : String):
+	status_animation.play(animation)

@@ -22,6 +22,7 @@ scale = Vector2(1.22319, 0.971974)
 shape = SubResource("CapsuleShape2D_njbqs")
 
 [node name="WorkingSound" type="AudioStreamPlayer" parent="."]
+process_mode = 1
 stream = ExtResource("3_bvqhm")
 
 [connection signal="finished" from="WorkingSound" to="." method="_on_working_sound_finished"]

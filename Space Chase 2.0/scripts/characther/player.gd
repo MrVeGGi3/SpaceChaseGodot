@@ -17,9 +17,13 @@ extends CharacterBody2D
 @export var is_crazyness_limit : bool = false
 @export var is_sleepy_limit : bool = false
 @export var is_oxygen_limit : bool = false
+@onready var limits = [is_hungry_limit, is_thirsty_limit, is_crazyness_limit, is_sleepy_limit, is_oxygen_limit]
+@onready var critical_limit : bool = false
 
 @onready var working_sound: AudioStreamPlayer = $WorkingSound
 
+@export_category("Nós de Conexão")
+@export var status_ui: Control
 
 func _ready():
 	target_position = position
@@ -46,7 +50,10 @@ func _process(delta):
 	for value in [oxigen_tank, hungry, thirsty, crazyness, sleepy]:
 		if value < 0.0:
 			value = 0.0
-	
+			
+	_check_limits()
+
+func _check_limits():
 	if oxigen_tank <= 0.0:
 		is_oxygen_limit = true
 	if thirsty <= 0.0:
@@ -57,6 +64,14 @@ func _process(delta):
 		is_thirsty_limit = true
 	if sleepy <= 0.0:
 		is_sleepy_limit = true
+	
+	for limit in limits:
+		if limit == true:
+			critical_limit = true
+			break
+		else:
+			continue
+	
 
 func _set_hungry_limit(state : bool):
 	is_hungry_limit = state
@@ -79,6 +94,8 @@ func _get_sleepy_limit():
 	return is_sleepy_limit
 func _get_oxigen_limit():
 	return is_oxygen_limit
+func _get_critical_limit():
+	return critical_limit
 
 
 func _keep_status_limit():
