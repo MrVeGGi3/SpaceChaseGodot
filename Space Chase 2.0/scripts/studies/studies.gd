@@ -164,23 +164,23 @@ func show_actual_stats():
 			level_upgrade = get_upgrade_level("Metal", actual_level)
 			type_upgrade = tr("METAL")
 			if actual_translation == "cmn":
-				message = "+ {0}个" + "{1}" + tr("KG_OF") .format([level_upgrade, type_upgrade]) 
+				message = str("+ {0}个" + "{1}" + tr("KG_OF")).format([level_upgrade, type_upgrade]) 
 			else:
-				message = "+ {0}  " + tr("KG_OF") + "{1}" .format([level_upgrade, type_upgrade])
+				message = str("+{0}" + tr("KG_OF") + "{1}").format([level_upgrade, type_upgrade])
 		"Electronics":
 			level_upgrade = get_upgrade_level("Eletronic", actual_level)
 			type_upgrade = tr("CONS_TITLE")
 			if actual_translation == "cmn":
-				message = "-{0}个" + "{1}" + tr("HOUR_OF") .format([level_upgrade, type_upgrade])
+				message = str("-{0}个" + "{1}" + tr("HOUR_OF")).format([level_upgrade, type_upgrade])
 			else:
-				message = " -{0}" + tr("HOUR_OF") + "{1}" .format(([level_upgrade, type_upgrade]))
+				message = str("-{0}" + tr("HOUR_OF") + "{1}").format(([level_upgrade, type_upgrade]))
 		"Botanics":
 			level_upgrade = get_upgrade_level("Botanic", actual_level)
 			type_upgrade = tr("ORGANICS")
 			if actual_translation == "cmn":
-				message = "- {0}个" + "{1}" + tr("HOUR_OF") .format(([level_upgrade, type_upgrade]))
+				message = str("-{0}个" + "{1}" + tr("KG_OF")).format(([level_upgrade, type_upgrade]))
 			else:	
-				message = " + {0} kg de {1}".format(([level_upgrade, type_upgrade]))
+				message = str("+{0}" + tr("KG_OF") + "{1}").format(([level_upgrade, type_upgrade]))
 	actual_level_effects_text.text = message
 func show_upgrades_bars():
 	show_actual_stats()

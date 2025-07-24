@@ -247,6 +247,7 @@ text = "Voltar ao Jogo"
 title = "Sair para o Menu Principal"
 initial_position = 1
 size = Vector2i(300, 100)
+visible = false
 script = ExtResource("17_3j3d8")
 
 [node name="CloseWindow" type="Label" parent="GoMainMenuWindow"]

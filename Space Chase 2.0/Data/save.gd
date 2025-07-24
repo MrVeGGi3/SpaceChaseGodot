@@ -539,7 +539,7 @@ func get_syntetizor_stats():
 		syntetizor_pos = sint.position
 		syntetizor_time_cons = sint.time_constructed
 		syntetizor_time_to_fix = sint.time_to_fix
-		syntetizor_time_to_man = sint.time_to_manutence
+		syntetizor_time_to_man = sint.time_to_go_manutence
 		syntetizor_is_constructed = sint.is_constructed
 		syntetizor_is_in_construction = sint.is_in_construction
 		syntetizor_is_broken = sint.is_broken
@@ -552,7 +552,7 @@ func get_water_cond_stats():
 		wcondenser_pos = wcondenser.position
 		wcondenser_time_cons = wcondenser.time_constructed
 		wcondenser_time_to_fix = wcondenser.time_to_fix
-		wcondenser_time_to_man = wcondenser.time_to_manutence
+		wcondenser_time_to_man = wcondenser.time_to_go_manutence
 		wcondenser_water_earnt = wcondenser.water_earnt
 		wcondenser_is_constructed = wcondenser.is_constructed
 		wcondenser_is_in_construction = wcondenser.is_in_construction

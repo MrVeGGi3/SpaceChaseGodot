@@ -664,6 +664,7 @@ z_index = 3
 z_index = 4
 
 [node name="Constructions" parent="." instance=ExtResource("25_olgf2")]
+visible = false
 z_index = 6
 
 [node name="ImportantNodesStorage" type="Node" parent="." node_paths=PackedStringArray("status_ui", "main_level", "constructions")]
@@ -786,6 +787,7 @@ theme_override_fonts/font = ExtResource("19_0x7jq")
 theme_override_font_sizes/font_size = 40
 text = "Melhorias Atuais:"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ActualUpgrade" type="RichTextLabel" parent="BotanicsInterface/ActualLevelEffects"]
 layout_mode = 0
@@ -833,6 +835,7 @@ theme_override_fonts/font = ExtResource("19_0x7jq")
 theme_override_font_sizes/font_size = 45
 text = "Proximo Nível:"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NextUpgrade" type="RichTextLabel" parent="BotanicsInterface/LevelEffects"]
 layout_mode = 0
@@ -1835,6 +1838,7 @@ theme = SubResource("Theme_atach")
 title = "Começar Novo Jogo"
 position = Vector2i(365, 270)
 size = Vector2i(395, 150)
+visible = false
 
 [node name="Text" type="Label" parent="SaveLoadScreen/SaveLoadWindow"]
 anchors_preset = 5
@@ -1895,6 +1899,7 @@ offset_bottom = 40.0
 script = ExtResource("46_g5vla")
 
 [node name="Localization" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
