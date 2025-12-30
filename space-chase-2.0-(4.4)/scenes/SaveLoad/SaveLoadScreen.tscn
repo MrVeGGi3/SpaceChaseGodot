@@ -1,0 +1,622 @@
+[gd_scene load_steps=25 format=3 uid="uid://bvvxr3j4ck2q3"]
+
+[ext_resource type="Script" uid="uid://cy55rivqtb3a1" path="res://Data/save_screen.gd" id="1_ef01h"]
+[ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="1_wugry"]
+[ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="2_d178d"]
+[ext_resource type="Theme" uid="uid://2i0nh2wxufd" path="res://themes/saveloadbuttons.tres" id="2_tmdnt"]
+[ext_resource type="Theme" uid="uid://cu6vt75448gf1" path="res://themes/resources_theme.tres" id="3_s22ks"]
+[ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="4_6qyfs"]
+[ext_resource type="Theme" uid="uid://b4krcgr3ui2kl" path="res://themes/date_time.tres" id="5_m3isi"]
+[ext_resource type="Texture2D" uid="uid://yy47cs44sjl" path="res://Assets/icons/resources/oxygentankicon.png" id="6_h50yv"]
+[ext_resource type="Texture2D" uid="uid://ogxh7s6wya8a" path="res://Assets/icons/resources/hydrogenicon.png" id="7_xbds4"]
+[ext_resource type="Texture2D" uid="uid://dc2233wp3ycad" path="res://Assets/icons/resources/energyicon.png" id="8_5i4y6"]
+[ext_resource type="Texture2D" uid="uid://cm7ygp88d04ws" path="res://Assets/icons/resources/saladicon.png" id="9_dsnf6"]
+[ext_resource type="Texture2D" uid="uid://5wgsxsshlrd3" path="res://Assets/icons/resources/metalicon.png" id="10_g73vu"]
+[ext_resource type="Texture2D" uid="uid://bprnrlptjv0yk" path="res://Assets/icons/resources/watericon.png" id="11_i7u65"]
+[ext_resource type="Theme" uid="uid://cby0yb3qwi843" path="res://themes/game_dt.tres" id="12_b7qcp"]
+[ext_resource type="Theme" uid="uid://bmy37obfh77ks" path="res://themes/gamehour_dt.tres" id="13_mqrxb"]
+[ext_resource type="PackedScene" uid="uid://egtw8jclboos" path="res://scenes/SaveLoad/SaveManager.tscn" id="15_gsdy1"]
+[ext_resource type="Theme" uid="uid://22q8k4bxvtt8" path="res://themes/quit_button.tres" id="17_rcc8e"]
+[ext_resource type="AudioStream" uid="uid://dbobwgolq67k2" path="res://Assets/sounds/button_sound.wav" id="18_buxhw"]
+[ext_resource type="Script" uid="uid://ci33hb37lhg7c" path="res://scripts/localization/menu_new_load_loc.gd" id="19_ouvoe"]
+
+[sub_resource type="Theme" id="Theme_6yx32"]
+Label/colors/font_color = Color(0.933333, 1, 0, 1)
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("2_d178d")
+
+[sub_resource type="Theme" id="Theme_hj82k"]
+Label/colors/font_color = Color(1, 1, 0, 1)
+Label/font_sizes/font_size = 25
+Label/fonts/font = ExtResource("4_6qyfs")
+
+[sub_resource type="Theme" id="Theme_cqxda"]
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_wugry")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0v65"]
+
+[sub_resource type="Theme" id="Theme_atach"]
+Panel/styles/panel = SubResource("StyleBoxFlat_q0v65")
+
+[node name="SaveLoadScreen" type="Node2D"]
+script = ExtResource("1_ef01h")
+
+[node name="Save1" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 79.0
+offset_right = 1024.0
+offset_bottom = 249.0
+theme = ExtResource("2_tmdnt")
+
+[node name="GameType" type="Label" parent="Save1"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 42.0
+offset_right = 360.0
+offset_bottom = 118.0
+theme = SubResource("Theme_6yx32")
+text = "Interstelar"
+
+[node name="LastTimeContainer" type="HBoxContainer" parent="Save1"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 2.0
+offset_right = 539.0
+offset_bottom = 59.0
+
+[node name="LastTime Played" type="Label" parent="Save1/LastTimeContainer"]
+layout_mode = 2
+theme = SubResource("Theme_hj82k")
+text = "Last Time Played: "
+horizontal_alignment = 1
+
+[node name="LastDateTimeSaved" type="Label" parent="Save1/LastTimeContainer"]
+layout_mode = 2
+theme = ExtResource("5_m3isi")
+text = "20-12-2024
+"
+
+[node name="ResourcesContainer" type="VBoxContainer" parent="Save1"]
+layout_mode = 0
+offset_left = 661.0
+offset_top = 7.0
+offset_right = 735.0
+offset_bottom = 171.0
+
+[node name="O2" type="Label" parent="Save1/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "O2"
+
+[node name="H2" type="Label" parent="Save1/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "H2"
+
+[node name="Energy" type="Label" parent="Save1/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Energy"
+
+[node name="Organics" type="Label" parent="Save1/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Organics"
+
+[node name="Metal" type="Label" parent="Save1/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Metal"
+
+[node name="Water" type="Label" parent="Save1/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Water"
+
+[node name="IconsContainer" type="VBoxContainer" parent="Save1"]
+layout_mode = 2
+offset_left = 274.0
+offset_top = -34.0
+offset_right = 843.0
+offset_bottom = -34.0
+
+[node name="Oxygen" type="Sprite2D" parent="Save1/IconsContainer"]
+position = Vector2(362, 51)
+scale = Vector2(0.0421138, 0.0421138)
+texture = ExtResource("6_h50yv")
+
+[node name="Hydrogen" type="Sprite2D" parent="Save1/IconsContainer"]
+position = Vector2(358, 78)
+scale = Vector2(0.0529727, 0.0478572)
+texture = ExtResource("7_xbds4")
+
+[node name="Energy" type="Sprite2D" parent="Save1/IconsContainer"]
+position = Vector2(359, 107)
+scale = Vector2(0.0440033, 0.0443496)
+texture = ExtResource("8_5i4y6")
+
+[node name="Organics" type="Sprite2D" parent="Save1/IconsContainer"]
+position = Vector2(358, 135)
+scale = Vector2(0.0418195, 0.0468312)
+texture = ExtResource("9_dsnf6")
+
+[node name="Metal" type="Sprite2D" parent="Save1/IconsContainer"]
+position = Vector2(359, 163)
+scale = Vector2(0.0457049, 0.0457049)
+texture = ExtResource("10_g73vu")
+
+[node name="Water" type="Sprite2D" parent="Save1/IconsContainer"]
+position = Vector2(359, 190)
+scale = Vector2(0.0458441, 0.0458441)
+texture = ExtResource("11_i7u65")
+
+[node name="GameTimeContainer" type="VBoxContainer" parent="Save1"]
+layout_mode = 0
+offset_left = 824.0
+offset_top = 8.0
+offset_right = 937.0
+offset_bottom = 130.0
+
+[node name="GameDateTimeLabel" type="Label" parent="Save1/GameTimeContainer"]
+layout_mode = 2
+theme = ExtResource("12_b7qcp")
+text = "12/10"
+
+[node name="GameHourTimeLabel" type="Label" parent="Save1/GameTimeContainer"]
+layout_mode = 2
+theme = ExtResource("13_mqrxb")
+text = "00:00"
+
+[node name="LastHourTimeSaved" type="Label" parent="Save1"]
+layout_mode = 2
+offset_left = 433.0
+offset_top = 17.0
+offset_right = 493.0
+offset_bottom = 74.0
+size_flags_horizontal = 4
+theme = ExtResource("5_m3isi")
+text = "18:20
+
+"
+
+[node name="SelectSlot" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 520.0
+offset_bottom = 85.0
+theme = SubResource("Theme_cqxda")
+text = "Select Slot"
+horizontal_alignment = 1
+
+[node name="Save2" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 261.0
+offset_right = 1024.0
+offset_bottom = 431.0
+theme = ExtResource("2_tmdnt")
+
+[node name="GameType" type="Label" parent="Save2"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 42.0
+offset_right = 360.0
+offset_bottom = 118.0
+theme = SubResource("Theme_6yx32")
+text = "Interstelar"
+
+[node name="LastTimeContainer" type="HBoxContainer" parent="Save2"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 2.0
+offset_right = 539.0
+offset_bottom = 59.0
+
+[node name="LastTime Played" type="Label" parent="Save2/LastTimeContainer"]
+layout_mode = 2
+theme = SubResource("Theme_hj82k")
+text = "Last Time Played: "
+horizontal_alignment = 1
+
+[node name="LastDateTimeSaved" type="Label" parent="Save2/LastTimeContainer"]
+layout_mode = 2
+theme = ExtResource("5_m3isi")
+text = "20-12-2024
+"
+
+[node name="ResourcesContainer" type="VBoxContainer" parent="Save2"]
+layout_mode = 0
+offset_left = 661.0
+offset_top = 7.0
+offset_right = 735.0
+offset_bottom = 171.0
+
+[node name="O2" type="Label" parent="Save2/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "O2"
+
+[node name="H2" type="Label" parent="Save2/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "H2"
+
+[node name="Energy" type="Label" parent="Save2/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Energy"
+
+[node name="Organics" type="Label" parent="Save2/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Organics"
+
+[node name="Metal" type="Label" parent="Save2/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Metal"
+
+[node name="Water" type="Label" parent="Save2/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Water"
+
+[node name="IconsContainer" type="VBoxContainer" parent="Save2"]
+layout_mode = 2
+offset_left = 274.0
+offset_top = -34.0
+offset_right = 843.0
+offset_bottom = -34.0
+
+[node name="Oxygen" type="Sprite2D" parent="Save2/IconsContainer"]
+position = Vector2(362, 51)
+scale = Vector2(0.0421138, 0.0421138)
+texture = ExtResource("6_h50yv")
+
+[node name="Hydrogen" type="Sprite2D" parent="Save2/IconsContainer"]
+position = Vector2(358, 78)
+scale = Vector2(0.0529727, 0.0478572)
+texture = ExtResource("7_xbds4")
+
+[node name="Energy" type="Sprite2D" parent="Save2/IconsContainer"]
+position = Vector2(359, 107)
+scale = Vector2(0.0440033, 0.0443496)
+texture = ExtResource("8_5i4y6")
+
+[node name="Organics" type="Sprite2D" parent="Save2/IconsContainer"]
+position = Vector2(358, 135)
+scale = Vector2(0.0418195, 0.0468312)
+texture = ExtResource("9_dsnf6")
+
+[node name="Metal" type="Sprite2D" parent="Save2/IconsContainer"]
+position = Vector2(359, 163)
+scale = Vector2(0.0457049, 0.0457049)
+texture = ExtResource("10_g73vu")
+
+[node name="Water" type="Sprite2D" parent="Save2/IconsContainer"]
+position = Vector2(359, 190)
+scale = Vector2(0.0458441, 0.0458441)
+texture = ExtResource("11_i7u65")
+
+[node name="GameTimeContainer" type="VBoxContainer" parent="Save2"]
+layout_mode = 0
+offset_left = 824.0
+offset_top = 8.0
+offset_right = 937.0
+offset_bottom = 130.0
+
+[node name="GameDateTimeLabel" type="Label" parent="Save2/GameTimeContainer"]
+layout_mode = 2
+theme = ExtResource("12_b7qcp")
+text = "12/10"
+
+[node name="GameHourTimeLabel" type="Label" parent="Save2/GameTimeContainer"]
+layout_mode = 2
+theme = ExtResource("13_mqrxb")
+text = "00:00"
+
+[node name="LastHourTimeSaved" type="Label" parent="Save2"]
+layout_mode = 2
+offset_left = 433.0
+offset_top = 17.0
+offset_right = 493.0
+offset_bottom = 74.0
+size_flags_horizontal = 4
+theme = ExtResource("5_m3isi")
+text = "18:20
+
+"
+
+[node name="Save3" type="Button" parent="."]
+offset_left = 25.0
+offset_top = 440.0
+offset_right = 1025.0
+offset_bottom = 610.0
+theme = ExtResource("2_tmdnt")
+
+[node name="GameType" type="Label" parent="Save3"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 42.0
+offset_right = 360.0
+offset_bottom = 118.0
+theme = SubResource("Theme_6yx32")
+text = "Interstelar"
+
+[node name="LastTimeContainer" type="HBoxContainer" parent="Save3"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 2.0
+offset_right = 539.0
+offset_bottom = 59.0
+
+[node name="LastTime Played" type="Label" parent="Save3/LastTimeContainer"]
+layout_mode = 2
+theme = SubResource("Theme_hj82k")
+text = "Last Time Played: "
+vertical_alignment = 1
+
+[node name="LastDateTimeSaved" type="Label" parent="Save3/LastTimeContainer"]
+layout_mode = 2
+theme = ExtResource("5_m3isi")
+text = "20-12-2024
+"
+
+[node name="ResourcesContainer" type="VBoxContainer" parent="Save3"]
+layout_mode = 0
+offset_left = 661.0
+offset_top = 7.0
+offset_right = 735.0
+offset_bottom = 171.0
+
+[node name="O2" type="Label" parent="Save3/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "O2"
+
+[node name="H2" type="Label" parent="Save3/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "H2"
+
+[node name="Energy" type="Label" parent="Save3/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Energy"
+
+[node name="Organics" type="Label" parent="Save3/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Organics"
+
+[node name="Metal" type="Label" parent="Save3/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Metal"
+
+[node name="Water" type="Label" parent="Save3/ResourcesContainer"]
+layout_mode = 2
+theme = ExtResource("3_s22ks")
+text = "Water"
+
+[node name="IconsContainer" type="VBoxContainer" parent="Save3"]
+layout_mode = 2
+offset_left = 274.0
+offset_top = -34.0
+offset_right = 843.0
+offset_bottom = -34.0
+
+[node name="Oxygen" type="Sprite2D" parent="Save3/IconsContainer"]
+position = Vector2(362, 51)
+scale = Vector2(0.0421138, 0.0421138)
+texture = ExtResource("6_h50yv")
+
+[node name="Hydrogen" type="Sprite2D" parent="Save3/IconsContainer"]
+position = Vector2(358, 78)
+scale = Vector2(0.0529727, 0.0478572)
+texture = ExtResource("7_xbds4")
+
+[node name="Energy" type="Sprite2D" parent="Save3/IconsContainer"]
+position = Vector2(359, 107)
+scale = Vector2(0.0440033, 0.0443496)
+texture = ExtResource("8_5i4y6")
+
+[node name="Organics" type="Sprite2D" parent="Save3/IconsContainer"]
+position = Vector2(358, 135)
+scale = Vector2(0.0418195, 0.0468312)
+texture = ExtResource("9_dsnf6")
+
+[node name="Metal" type="Sprite2D" parent="Save3/IconsContainer"]
+position = Vector2(359, 163)
+scale = Vector2(0.0457049, 0.0457049)
+texture = ExtResource("10_g73vu")
+
+[node name="Water" type="Sprite2D" parent="Save3/IconsContainer"]
+position = Vector2(359, 190)
+scale = Vector2(0.0458441, 0.0458441)
+texture = ExtResource("11_i7u65")
+
+[node name="GameTimeContainer" type="VBoxContainer" parent="Save3"]
+layout_mode = 0
+offset_left = 824.0
+offset_top = 8.0
+offset_right = 937.0
+offset_bottom = 130.0
+
+[node name="GameDateTimeLabel" type="Label" parent="Save3/GameTimeContainer"]
+layout_mode = 2
+theme = ExtResource("12_b7qcp")
+text = "12/10"
+
+[node name="GameHourTimeLabel" type="Label" parent="Save3/GameTimeContainer"]
+layout_mode = 2
+theme = ExtResource("13_mqrxb")
+text = "00:00"
+
+[node name="LastHourTimeSaved" type="Label" parent="Save3"]
+layout_mode = 2
+offset_left = 433.0
+offset_top = 17.0
+offset_right = 493.0
+offset_bottom = 74.0
+size_flags_horizontal = 4
+theme = ExtResource("5_m3isi")
+text = "18:20
+
+"
+
+[node name="SaveManager" parent="." node_paths=PackedStringArray("DateLabel", "HourLabel", "GameDateTimeLabel", "GameHourTimeLabel", "o2Label", "H2Label", "EnergyLabel", "MetalLabel", "OrganicsLabel", "GameTypeLabel", "WaterLabel") instance=ExtResource("15_gsdy1")]
+DateLabel = NodePath("../Save1/LastTimeContainer/LastDateTimeSaved")
+HourLabel = NodePath("../Save1/LastHourTimeSaved")
+GameDateTimeLabel = NodePath("../Save1/GameTimeContainer/GameDateTimeLabel")
+GameHourTimeLabel = NodePath("../Save1/GameTimeContainer/GameHourTimeLabel")
+o2Label = NodePath("../Save1/ResourcesContainer/O2")
+H2Label = NodePath("../Save1/ResourcesContainer/H2")
+EnergyLabel = NodePath("../Save1/ResourcesContainer/Energy")
+MetalLabel = NodePath("../Save1/ResourcesContainer/Metal")
+OrganicsLabel = NodePath("../Save1/ResourcesContainer/Organics")
+GameTypeLabel = NodePath("../Save1/GameType")
+WaterLabel = NodePath("../Save1/ResourcesContainer/Water")
+
+[node name="SaveManager2" parent="." node_paths=PackedStringArray("DateLabel", "HourLabel", "GameDateTimeLabel", "GameHourTimeLabel", "o2Label", "H2Label", "EnergyLabel", "MetalLabel", "OrganicsLabel", "GameTypeLabel", "WaterLabel") instance=ExtResource("15_gsdy1")]
+DateLabel = NodePath("../Save2/LastTimeContainer/LastDateTimeSaved")
+HourLabel = NodePath("../Save2/LastHourTimeSaved")
+GameDateTimeLabel = NodePath("../Save2/GameTimeContainer/GameDateTimeLabel")
+GameHourTimeLabel = NodePath("../Save2/GameTimeContainer/GameHourTimeLabel")
+o2Label = NodePath("../Save2/ResourcesContainer/O2")
+H2Label = NodePath("../Save2/ResourcesContainer/H2")
+EnergyLabel = NodePath("../Save2/ResourcesContainer/Energy")
+MetalLabel = NodePath("../Save2/ResourcesContainer/Metal")
+OrganicsLabel = NodePath("../Save2/ResourcesContainer/Organics")
+GameTypeLabel = NodePath("../Save2/GameType")
+WaterLabel = NodePath("../Save2/ResourcesContainer/Water")
+
+[node name="SaveManager3" parent="." node_paths=PackedStringArray("DateLabel", "HourLabel", "GameDateTimeLabel", "GameHourTimeLabel", "o2Label", "H2Label", "EnergyLabel", "MetalLabel", "OrganicsLabel", "GameTypeLabel", "WaterLabel") instance=ExtResource("15_gsdy1")]
+DateLabel = NodePath("../Save3/LastTimeContainer/LastDateTimeSaved")
+HourLabel = NodePath("../Save3/LastHourTimeSaved")
+GameDateTimeLabel = NodePath("../Save3/GameTimeContainer/GameDateTimeLabel")
+GameHourTimeLabel = NodePath("../Save3/GameTimeContainer/GameHourTimeLabel")
+o2Label = NodePath("../Save3/ResourcesContainer/O2")
+H2Label = NodePath("../Save3/ResourcesContainer/H2")
+EnergyLabel = NodePath("../Save3/ResourcesContainer/Energy")
+MetalLabel = NodePath("../Save3/ResourcesContainer/Metal")
+OrganicsLabel = NodePath("../Save3/ResourcesContainer/Organics")
+GameTypeLabel = NodePath("../Save3/GameType")
+WaterLabel = NodePath("../Save3/ResourcesContainer/Water")
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_atach")
+
+[node name="NewGameWindow" type="Window" parent="."]
+title = "Começar Novo Jogo"
+position = Vector2i(320, 285)
+size = Vector2i(395, 150)
+visible = false
+
+[node name="Text" type="Label" parent="NewGameWindow"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_right = 81.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Confirma Novo Jogo?"
+horizontal_alignment = 1
+
+[node name="Confirm" type="Button" parent="NewGameWindow"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.06
+offset_right = 65.64
+offset_bottom = -0.904999
+grow_vertical = 0
+theme = ExtResource("17_rcc8e")
+text = "SIM"
+icon_alignment = 1
+
+[node name="Cancel" type="Button" parent="NewGameWindow"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.17
+offset_top = -46.32
+offset_right = -3.53
+offset_bottom = -0.170013
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("17_rcc8e")
+text = "NÃO"
+
+[node name="ContinueGameWindow" type="Window" parent="."]
+auto_translate_mode = 1
+title = "Carregar"
+position = Vector2i(340, 275)
+size = Vector2i(395, 150)
+visible = false
+
+[node name="Text" type="Label" parent="ContinueGameWindow"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_right = 81.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Carregar Jogo Salvo?"
+horizontal_alignment = 1
+
+[node name="Confirm" type="Button" parent="ContinueGameWindow"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.06
+offset_right = 65.64
+offset_bottom = -0.904999
+grow_vertical = 0
+theme = ExtResource("17_rcc8e")
+text = "SIM"
+icon_alignment = 1
+
+[node name="Cancel" type="Button" parent="ContinueGameWindow"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.285
+offset_top = -46.41
+offset_right = -0.644989
+offset_bottom = -0.26001
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("17_rcc8e")
+text = "NÃO"
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_buxhw")
+
+[node name="Localization" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("19_ouvoe")
+
+[connection signal="pressed" from="Save1" to="." method="_on_save_1_pressed"]
+[connection signal="pressed" from="Save2" to="." method="_on_save_2_pressed"]
+[connection signal="pressed" from="Save3" to="." method="_on_save_3_pressed"]
+[connection signal="close_requested" from="NewGameWindow" to="." method="_on_new_game_close_requested"]
+[connection signal="pressed" from="NewGameWindow/Confirm" to="." method="_on_new_game_windoow_confirm_pressed"]
+[connection signal="pressed" from="NewGameWindow/Cancel" to="." method="_on_new_game_window_cancel_pressed"]
+[connection signal="close_requested" from="ContinueGameWindow" to="." method="_on_continue_game_close_requested"]
+[connection signal="pressed" from="ContinueGameWindow/Confirm" to="." method="_on_continue_window_confirm_pressed"]
+[connection signal="pressed" from="ContinueGameWindow/Cancel" to="." method="_on_continue_window_cancel_pressed"]

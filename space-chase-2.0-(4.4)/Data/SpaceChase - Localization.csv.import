@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bmjsou2vq4olh"
+
+[deps]
+
+files=["res://Data/SpaceChase - Localization.en.translation", "res://Data/SpaceChase - Localization.pt_BR.translation", "res://Data/SpaceChase - Localization.cmn.translation", "res://Data/SpaceChase - Localization.es.translation", "res://Data/SpaceChase - Localization.ru.translation"]
+
+source_file="res://Data/SpaceChase - Localization.csv"
+dest_files=["res://Data/SpaceChase - Localization.en.translation", "res://Data/SpaceChase - Localization.pt_BR.translation", "res://Data/SpaceChase - Localization.cmn.translation", "res://Data/SpaceChase - Localization.es.translation", "res://Data/SpaceChase - Localization.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0

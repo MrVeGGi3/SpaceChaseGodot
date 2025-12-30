@@ -1,0 +1,452 @@
+[gd_scene load_steps=15 format=3 uid="uid://4h42ngd7gsgq"]
+
+[ext_resource type="Theme" uid="uid://cmymbciinwmw0" path="res://themes/UITitleLabel.tres" id="1_ddu35"]
+[ext_resource type="Script" uid="uid://db0uqfobvtebf" path="res://scripts/ui/constructionsUI.gd" id="1_rlfvj"]
+[ext_resource type="Texture2D" uid="uid://qr456pd6cybs" path="res://Assets/images/UI/constructions/ConstructionIconIdle.png" id="2_xdeho"]
+[ext_resource type="Texture2D" uid="uid://o5wrq2k1u5rf" path="res://Assets/images/constructions/Robô de Conserto.png" id="3_ke4aa"]
+[ext_resource type="Texture2D" uid="uid://c4ye828xakky8" path="res://Assets/images/UI/constructions/ConstructionDescription.png" id="3_tp6tt"]
+[ext_resource type="Theme" uid="uid://cc2a2tuhpo033" path="res://themes/ConstructionTitle.tres" id="5_tukpp"]
+[ext_resource type="Theme" uid="uid://cny1ebumne4j5" path="res://themes/QuantityLabelConstruct.tres" id="6_d1s2a"]
+[ext_resource type="Texture2D" uid="uid://bu160wjoed6e5" path="res://Assets/images/constructions/Condensador de Água.png" id="6_toqps"]
+[ext_resource type="Texture2D" uid="uid://dp4efbb57gtt7" path="res://Assets/images/constructions/Hidropônica.png" id="7_feids"]
+[ext_resource type="Texture2D" uid="uid://ce7aeo225fvdd" path="res://Assets/images/constructions/RASSOR.png" id="8_15e8u"]
+[ext_resource type="Texture2D" uid="uid://cq32wcmejxgh6" path="res://Assets/images/constructions/Sintetizador.png" id="8_wjnxh"]
+[ext_resource type="Texture2D" uid="uid://x3pmo6q4jxow" path="res://Assets/images/constructions/Painel Solar.png" id="9_tjown"]
+[ext_resource type="Script" uid="uid://cs1onqvucn3bq" path="res://scripts/constructions/SpawnButton.gd" id="13_15e8u"]
+[ext_resource type="Script" uid="uid://das14f0gj0itx" path="res://scripts/localization/cons_localization.gd" id="14_jnwqu"]
+
+[node name="Constructions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rlfvj")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.0980392, 0.52549, 1, 1)
+layout_mode = 0
+offset_right = 1147.0
+offset_bottom = 644.0
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 910.0
+offset_bottom = 83.0
+theme = ExtResource("1_ddu35")
+text = "Construções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConsertRobotContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 80.0
+offset_right = 1190.0
+offset_bottom = 558.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="ConsertRobot" type="TextureRect" parent="ConsertRobotContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="ConsertRobot" type="TextureRect" parent="ConsertRobotContainer/ConsertRobot"]
+layout_mode = 0
+offset_left = 45.4324
+offset_top = -5.345
+offset_right = 519.432
+offset_bottom = 455.655
+texture = ExtResource("3_ke4aa")
+
+[node name="ConsertRobotDesc" type="TextureRect" parent="ConsertRobotContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="Description" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc"]
+layout_mode = 0
+offset_left = 61.9494
+offset_top = 141.642
+offset_right = 592.949
+offset_bottom = 254.642
+theme_override_font_sizes/font_size = 40
+text = "Aceleração de Construções
+ e Manutenção Automática."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ConstructQuantityLabel" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc"]
+layout_mode = 0
+offset_left = -202.628
+offset_top = 384.839
+offset_right = 143.372
+offset_bottom = 467.839
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="ConstructRobotTitleLabel" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc"]
+layout_mode = 0
+offset_left = 59.2767
+offset_top = 42.7599
+offset_right = 628.277
+offset_bottom = 118.76
+theme = ExtResource("5_tukpp")
+text = "Robô de Construção"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinerRobotContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 86.0
+offset_right = 1644.0
+offset_bottom = 564.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="MinerRobotContainer" type="TextureRect" parent="MinerRobotContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="Miner" type="TextureRect" parent="MinerRobotContainer/MinerRobotContainer"]
+layout_mode = 0
+offset_left = 10.69
+offset_top = 13.3625
+offset_right = 420.69
+offset_bottom = 212.363
+scale = Vector2(1.20703, 2.16913)
+texture = ExtResource("8_15e8u")
+
+[node name="MinerQuantityLabel" type="Label" parent="MinerRobotContainer/MinerRobotContainer"]
+layout_mode = 0
+offset_left = 355.442
+offset_top = 371.477
+offset_right = 701.442
+offset_bottom = 462.477
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="MinerRobotDesc" type="TextureRect" parent="MinerRobotContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="MinerRobotTitleLabel" type="Label" parent="MinerRobotContainer/MinerRobotDesc"]
+layout_mode = 0
+offset_left = 72.6392
+offset_top = 40.0874
+offset_right = 592.639
+offset_bottom = 116.087
+theme = ExtResource("5_tukpp")
+text = "Robô de Mineração"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinerDescription" type="Label" parent="MinerRobotContainer/MinerRobotDesc"]
+layout_mode = 0
+offset_left = 56.6043
+offset_top = 155.005
+offset_right = 609.604
+offset_bottom = 210.005
+theme_override_font_sizes/font_size = 40
+text = "Encontra Metal no Ambiente"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaterCondenserContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 264.0
+offset_right = 1189.0
+offset_bottom = 742.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="WaterCondenser" type="TextureRect" parent="WaterCondenserContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="Condenser" type="TextureRect" parent="WaterCondenserContainer/WaterCondenser"]
+layout_mode = 0
+offset_left = -77.5025
+offset_top = 24.0525
+offset_right = 543.497
+offset_bottom = 426.052
+texture = ExtResource("6_toqps")
+
+[node name="WaterQuantityLabel" type="Label" parent="WaterCondenserContainer/WaterCondenser/Condenser"]
+layout_mode = 0
+offset_left = 414.237
+offset_top = 360.787
+offset_right = 760.237
+offset_bottom = 451.787
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="WaterCondenserDesc" type="TextureRect" parent="WaterCondenserContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="WaterCondenserTitleLabel" type="Label" parent="WaterCondenserContainer/WaterCondenserDesc"]
+layout_mode = 0
+offset_left = 40.5692
+offset_top = 34.7425
+offset_right = 632.569
+offset_bottom = 110.742
+theme = ExtResource("5_tukpp")
+text = "Condensador de Água"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaterDescription" type="Label" parent="WaterCondenserContainer/WaterCondenserDesc"]
+layout_mode = 0
+offset_left = 37.8968
+offset_top = 157.677
+offset_right = 630.897
+offset_bottom = 212.677
+theme_override_font_sizes/font_size = 40
+text = "Gerador de Água através do Ar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HidroponicContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 269.0
+offset_right = 1642.0
+offset_bottom = 747.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="Hidroponic" type="TextureRect" parent="HidroponicContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="HidroponicImage" type="TextureRect" parent="HidroponicContainer/Hidroponic"]
+layout_mode = 0
+offset_left = 45.4325
+offset_top = 32.07
+offset_right = 545.432
+offset_bottom = 532.07
+scale = Vector2(0.848408, 0.848408)
+texture = ExtResource("7_feids")
+
+[node name="HidroQuantityLabel" type="Label" parent="HidroponicContainer/Hidroponic"]
+layout_mode = 0
+offset_left = 360.787
+offset_top = 374.149
+offset_right = 706.787
+offset_bottom = 465.149
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="HidroDesc" type="TextureRect" parent="HidroponicContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="HidroTitleLabel" type="Label" parent="HidroponicContainer/HidroDesc"]
+layout_mode = 0
+offset_left = 51.2593
+offset_top = 48.1049
+offset_right = 643.259
+offset_bottom = 124.105
+theme = ExtResource("5_tukpp")
+text = "Hidropônica"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HidroDescription" type="Label" parent="HidroponicContainer/HidroDesc"]
+layout_mode = 0
+offset_left = 59.2767
+offset_top = 149.66
+offset_right = 652.277
+offset_bottom = 204.66
+theme_override_font_sizes/font_size = 40
+text = "Gera Orgânicos e Alimentos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sintetizator" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 449.0
+offset_right = 1189.0
+offset_bottom = 927.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="Sintetizator" type="TextureRect" parent="Sintetizator"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="Sintetizer" type="TextureRect" parent="Sintetizator/Sintetizator"]
+layout_mode = 0
+offset_left = 2.67242
+offset_top = -21.38
+offset_right = 502.672
+offset_bottom = 478.62
+texture = ExtResource("8_wjnxh")
+
+[node name="SintQuantityLabel" type="Label" parent="Sintetizator/Sintetizator"]
+layout_mode = 0
+offset_left = 350.097
+offset_top = 374.15
+offset_right = 696.097
+offset_bottom = 465.15
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="SintDesc" type="TextureRect" parent="Sintetizator"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="SintTitleLabel" type="Label" parent="Sintetizator/SintDesc"]
+layout_mode = 0
+offset_left = 61.9492
+offset_top = 48.105
+offset_right = 653.949
+offset_bottom = 124.105
+theme = ExtResource("5_tukpp")
+text = "Sintetizador"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SintDescription" type="Label" parent="Sintetizator/SintDesc"]
+layout_mode = 0
+offset_left = 40.5693
+offset_top = 141.642
+offset_right = 633.569
+offset_bottom = 196.642
+theme_override_font_sizes/font_size = 40
+text = "Converte Recursos em outros"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SolarPanelContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 451.0
+offset_right = 1643.0
+offset_bottom = 929.0
+scale = Vector2(0.374182, 0.374182)
+
+[node name="SolarPanel" type="TextureRect" parent="SolarPanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_xdeho")
+
+[node name="TextureRect" type="TextureRect" parent="SolarPanelContainer/SolarPanel"]
+layout_mode = 0
+offset_left = 45.4324
+offset_top = 93.5374
+offset_right = 340.432
+offset_bottom = 311.537
+scale = Vector2(1.4141, 1.4141)
+texture = ExtResource("9_tjown")
+
+[node name="SolarQuantityLabel" type="Label" parent="SolarPanelContainer/SolarPanel"]
+layout_mode = 0
+offset_left = 350.097
+offset_top = 374.15
+offset_right = 696.097
+offset_bottom = 465.15
+theme = ExtResource("6_d1s2a")
+theme_override_font_sizes/font_size = 60
+text = "10/10"
+
+[node name="SolarPanelDesc" type="TextureRect" parent="SolarPanelContainer"]
+layout_mode = 2
+texture = ExtResource("3_tp6tt")
+
+[node name="SolarTitleLabel" type="Label" parent="SolarPanelContainer/SolarPanelDesc"]
+layout_mode = 0
+offset_left = 51.2593
+offset_top = 29.3975
+offset_right = 643.259
+offset_bottom = 105.397
+theme = ExtResource("5_tukpp")
+text = "Painel Solar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SolarDescription" type="Label" parent="SolarPanelContainer/SolarPanelDesc"]
+layout_mode = 0
+offset_left = 48.5867
+offset_top = 128.28
+offset_right = 641.587
+offset_bottom = 183.28
+theme_override_font_sizes/font_size = 40
+text = "Gera Energia "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConstructButtons" type="Control" parent="."]
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_15e8u")
+
+[node name="ConsRobotBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 221.0
+offset_right = 396.0
+offset_bottom = 252.0
+text = "Build"
+icon_alignment = 1
+
+[node name="MinerRobotBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 225.0
+offset_right = 855.0
+offset_bottom = 256.0
+text = "Build"
+icon_alignment = 1
+
+[node name="WaterCondenserBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 401.0
+offset_right = 396.0
+offset_bottom = 432.0
+text = "Build"
+icon_alignment = 1
+
+[node name="HidroponicsBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 405.0
+offset_right = 855.0
+offset_bottom = 436.0
+text = "Build"
+
+[node name="SintetizorBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 583.0
+offset_right = 397.0
+offset_bottom = 614.0
+text = "Build"
+icon_alignment = 1
+
+[node name="SolarPanelBuild" type="Button" parent="ConstructButtons"]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 586.0
+offset_right = 853.0
+offset_bottom = 617.0
+text = "Build"
+icon_alignment = 1
+
+[node name="Localization" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_jnwqu")
+
+[connection signal="pressed" from="ConstructButtons/ConsRobotBuild" to="ConstructButtons" method="_on_cons_robot_build_pressed"]
+[connection signal="pressed" from="ConstructButtons/MinerRobotBuild" to="ConstructButtons" method="_on_miner_robot_build_pressed"]
+[connection signal="pressed" from="ConstructButtons/WaterCondenserBuild" to="ConstructButtons" method="_on_water_condenser_build_pressed"]
+[connection signal="pressed" from="ConstructButtons/HidroponicsBuild" to="ConstructButtons" method="_on_hidroponics_buikd_pressed"]
+[connection signal="pressed" from="ConstructButtons/SintetizorBuild" to="ConstructButtons" method="_on_sintetizor_build_pressed"]
+[connection signal="pressed" from="ConstructButtons/SolarPanelBuild" to="ConstructButtons" method="_on_solar_panel_build_pressed"]

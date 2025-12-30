@@ -2,8 +2,8 @@ class_name Hidroponic
 extends Construction
 
 @onready var organics_earnt : float = 0.0
-@onready var max_organics_collect : float  = 14.0
-@onready var min_organics_collect: float = 2.0
+@export var max_organics_collect : float  = 14.0
+@export var min_organics_collect: float = 2.0
 const ORGANICS_GENERATED_PER_MINUTE = 0.003
 
 # Called when the node enters the scene tree for the first time.
@@ -54,5 +54,6 @@ func _on_hidroponics_button_pressed() -> void:
 
 func _on_organics_earnt_pressed() -> void:
 	GameManager.organics += organics_earnt
+	print("Coletei os Orgânicos")
 	organics_earnt = 0.0
 	material_collect_button.hide()

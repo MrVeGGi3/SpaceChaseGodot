@@ -1,0 +1,550 @@
+[gd_scene load_steps=50 format=3 uid="uid://w8if7rx07dgx"]
+
+[ext_resource type="Script" uid="uid://scnpgcpgdf2b" path="res://scripts/ui/StatusControl.gd" id="1_3lw74"]
+[ext_resource type="Texture2D" uid="uid://4mglc54cb7de" path="res://Assets/images/buttons/StatusControl/Normal/Play.png" id="2_axoxj"]
+[ext_resource type="Texture2D" uid="uid://c4m2bdn4fuyeg" path="res://Assets/images/UI/PlayerStatusBackground.png" id="3_a48nf"]
+[ext_resource type="Texture2D" uid="uid://bhw30uc2mywdu" path="res://Assets/images/buttons/StatusControl/Hovered/Play_hoverd.png" id="3_mbhrl"]
+[ext_resource type="Script" uid="uid://dbaqkf1dn8af4" path="res://scripts/effects/status_background_effect.gd" id="3_ywlma"]
+[ext_resource type="Texture2D" uid="uid://dujrqsabh5utq" path="res://Assets/images/buttons/StatusControl/Hovered/Pause_hovered.png" id="4_0bm72"]
+[ext_resource type="Texture2D" uid="uid://c6feb57840qm0" path="res://Assets/images/UI/ResourcesBackground.png" id="4_mu47a"]
+[ext_resource type="Texture2D" uid="uid://dpw5yrxmrl65h" path="res://Assets/icons/status/desidratacao.png" id="4_ylwg3"]
+[ext_resource type="Texture2D" uid="uid://ces3ljhyhcuv2" path="res://Assets/images/buttons/StatusControl/Normal/Pause.png" id="5_0jiih"]
+[ext_resource type="Theme" uid="uid://1dap8ynrqq1t" path="res://themes/resource_labels.tres" id="5_cauw1"]
+[ext_resource type="Texture2D" uid="uid://e5ewdwut52gn" path="res://Assets/icons/status/abdominal.png" id="5_pfoqj"]
+[ext_resource type="Texture2D" uid="uid://b0bnkplgf6ius" path="res://Assets/images/buttons/StatusControl/Hovered/Forward_hovered.png" id="6_clvev"]
+[ext_resource type="Texture2D" uid="uid://bprnrlptjv0yk" path="res://Assets/icons/resources/watericon.png" id="6_ne224"]
+[ext_resource type="Texture2D" uid="uid://bu61mwuqt0nr1" path="res://Assets/icons/status/oxygen-mask.png" id="6_pbnk0"]
+[ext_resource type="Texture2D" uid="uid://cpuo5hhujrkbv" path="res://Assets/icons/status/cansado.png" id="7_44i78"]
+[ext_resource type="Texture2D" uid="uid://d28g2c01722hb" path="res://Assets/images/buttons/StatusControl/Normal/Avançar.png" id="7_hgh6y"]
+[ext_resource type="Texture2D" uid="uid://yy47cs44sjl" path="res://Assets/icons/resources/oxygentankicon.png" id="7_xoql2"]
+[ext_resource type="Texture2D" uid="uid://ogxh7s6wya8a" path="res://Assets/icons/resources/hydrogenicon.png" id="8_76ynm"]
+[ext_resource type="Texture2D" uid="uid://cgua2cqm3pmqp" path="res://Assets/icons/status/fear.png" id="8_bhjbb"]
+[ext_resource type="Texture2D" uid="uid://dc2233wp3ycad" path="res://Assets/icons/resources/energyicon.png" id="9_ffnn0"]
+[ext_resource type="Texture2D" uid="uid://5wgsxsshlrd3" path="res://Assets/icons/resources/metalicon.png" id="10_4gc56"]
+[ext_resource type="Texture2D" uid="uid://cm7ygp88d04ws" path="res://Assets/icons/resources/saladicon.png" id="11_u6e36"]
+[ext_resource type="FontFile" uid="uid://dr1ok3ju4bfb3" path="res://Assets/fonts/digital-7.ttf" id="22_fdxt1"]
+[ext_resource type="Texture2D" uid="uid://b5cb4owq4aksq" path="res://Assets/icons/tools/Hammer.png" id="23_bnaua"]
+[ext_resource type="FontFile" uid="uid://85of40xamnwn" path="res://Assets/fonts/SPACE.ttf" id="24_0se2m"]
+[ext_resource type="Texture2D" uid="uid://cxyict88un1iu" path="res://Assets/icons/studies/BookIcon.png" id="24_wbfcl"]
+[ext_resource type="Script" uid="uid://oqih52l3vynh" path="res://scripts/localization/status_loc.gd" id="26_wbfcl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgupp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nya4q"]
+texture = ExtResource("2_axoxj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fw5u5"]
+texture = ExtResource("3_mbhrl")
+
+[sub_resource type="Theme" id="Theme_pmxrp"]
+Button/styles/normal = SubResource("StyleBoxTexture_nya4q")
+Button/styles/pressed = SubResource("StyleBoxTexture_fw5u5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w735y"]
+texture = ExtResource("3_mbhrl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btlyh"]
+texture = ExtResource("2_axoxj")
+modulate_color = Color(0.00241332, 0.778671, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4i8e"]
+texture = ExtResource("2_axoxj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83j5c"]
+texture = ExtResource("4_0bm72")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kjkn4"]
+texture = ExtResource("4_0bm72")
+modulate_color = Color(0.172549, 0.615686, 0.2, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxbmj"]
+texture = ExtResource("5_0jiih")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iognr"]
+texture = ExtResource("6_clvev")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkpfa"]
+texture = ExtResource("6_clvev")
+modulate_color = Color(0.152631, 0.744199, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vo8yl"]
+texture = ExtResource("7_hgh6y")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rad0f"]
+bg_color = Color(1, 0.0392157, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es1hr"]
+bg_color = Color(0.192766, 0.881255, 0, 1)
+
+[sub_resource type="Theme" id="Theme_f20o5"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_rad0f")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_es1hr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0se2m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnaua"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_ywlma"]
+resource_name = "critical_state"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.76667),
+"transitions": PackedFloat32Array(0.267944, 0.148651, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.975665, 1.27546e-06, 5.77569e-07, 1), Color(1, 1, 1, 1), Color(0.975665, 1.27546e-06, 5.77569e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6pgmf"]
+resource_name = "normal_state"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q6iky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2ytk"]
+_data = {
+&"RESET": SubResource("Animation_q6iky"),
+&"critical_state": SubResource("Animation_ywlma"),
+&"normal_state": SubResource("Animation_6pgmf")
+}
+
+[node name="StatusControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3lw74")
+
+[node name="StatusBackground" type="Sprite2D" parent="."]
+position = Vector2(49, 326)
+rotation = 1.5708
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("3_a48nf")
+script = ExtResource("3_ywlma")
+
+[node name="ResourcesBackground" type="Sprite2D" parent="."]
+position = Vector2(589, 586)
+scale = Vector2(0.518117, 0.518117)
+texture = ExtResource("4_mu47a")
+
+[node name="WaterVBoxContainer" type="VBoxContainer" parent="ResourcesBackground"]
+offset_left = -438.125
+offset_top = 25.0909
+offset_right = -331.125
+offset_bottom = 71.0909
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Water" type="Label" parent="ResourcesBackground/WaterVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_cauw1")
+text = "WATER"
+horizontal_alignment = 1
+
+[node name="WaterSprite" type="Sprite2D" parent="ResourcesBackground/WaterVBoxContainer"]
+position = Vector2(52.1119, -59.832)
+scale = Vector2(0.236576, 0.236576)
+texture = ExtResource("6_ne224")
+
+[node name="O2VBoxContainer" type="VBoxContainer" parent="ResourcesBackground"]
+offset_left = -248.979
+offset_top = 27.0209
+offset_right = -207.979
+offset_bottom = 73.0209
+
+[node name="O2" type="Label" parent="ResourcesBackground/O2VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_cauw1")
+text = "O2"
+horizontal_alignment = 1
+
+[node name="O2Sprite" type="Sprite2D" parent="ResourcesBackground/O2VBoxContainer"]
+position = Vector2(25.0913, -57.902)
+scale = Vector2(0.22749, 0.22749)
+texture = ExtResource("7_xoql2")
+
+[node name="H2VBoxContainer" type="VBoxContainer" parent="ResourcesBackground"]
+offset_left = -90.7131
+offset_top = 27.0209
+offset_right = -50.7131
+offset_bottom = 73.0209
+
+[node name="H2" type="Label" parent="ResourcesBackground/H2VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_cauw1")
+text = "H2
+"
+horizontal_alignment = 1
+
+[node name="H2Sprite" type="Sprite2D" parent="ResourcesBackground/H2VBoxContainer"]
+position = Vector2(21.2307, -61.7621)
+scale = Vector2(0.262119, 0.262119)
+texture = ExtResource("8_76ynm")
+
+[node name="EnergyVBoxContainer" type="VBoxContainer" parent="ResourcesBackground"]
+offset_left = 25.0909
+offset_top = 27.0209
+offset_right = 146.091
+offset_bottom = 73.0209
+
+[node name="Energy" type="Label" parent="ResourcesBackground/EnergyVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_cauw1")
+text = "Energy"
+horizontal_alignment = 1
+
+[node name="EnergySprite" type="Sprite2D" parent="ResourcesBackground/EnergyVBoxContainer"]
+position = Vector2(67.5524, -54.0419)
+scale = Vector2(0.213783, 0.213783)
+texture = ExtResource("9_ffnn0")
+
+[node name="MetalVBoxContainer" type="VBoxContainer" parent="ResourcesBackground"]
+offset_left = 196.867
+offset_top = 28.951
+offset_right = 296.867
+offset_bottom = 74.951
+
+[node name="Metal" type="Label" parent="ResourcesBackground/MetalVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_cauw1")
+text = "Metal"
+horizontal_alignment = 1
+
+[node name="MetalSprite" type="Sprite2D" parent="ResourcesBackground/MetalVBoxContainer"]
+position = Vector2(50.1818, -59.832)
+scale = Vector2(0.208055, 0.208055)
+texture = ExtResource("10_4gc56")
+
+[node name="FoodVBoxContainer" type="VBoxContainer" parent="ResourcesBackground"]
+offset_left = 358.992
+offset_top = 27.0209
+offset_right = 444.992
+offset_bottom = 73.0209
+
+[node name="Food" type="Label" parent="ResourcesBackground/FoodVBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_cauw1")
+text = "Food
+"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ResourcesBackground/FoodVBoxContainer"]
+position = Vector2(44.3916, -61.7621)
+scale = Vector2(0.246441, 0.246441)
+texture = ExtResource("11_u6e36")
+
+[node name="GameTimeDisplayBackground" type="Sprite2D" parent="."]
+position = Vector2(577, 48)
+scale = Vector2(0.446049, 0.446049)
+texture = ExtResource("4_mu47a")
+
+[node name="TimeDisplay" type="Panel" parent="GameTimeDisplayBackground"]
+offset_left = 22.4191
+offset_top = -49.3219
+offset_right = 62.4191
+offset_bottom = -9.32194
+scale = Vector2(10.9502, 2.89168)
+theme_override_styles/panel = SubResource("StyleBoxFlat_dgupp")
+
+[node name="PlayTime" type="Button" parent="GameTimeDisplayBackground/TimeDisplay"]
+process_mode = 3
+layout_mode = 0
+offset_left = 1.43316
+offset_top = 3.87646
+offset_right = 150.433
+offset_bottom = 158.876
+scale = Vector2(0.0763199, 0.204024)
+theme = SubResource("Theme_pmxrp")
+theme_override_icons/icon = ExtResource("2_axoxj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w735y")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btlyh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t4i8e")
+
+[node name="PauseTime" type="Button" parent="GameTimeDisplayBackground/TimeDisplay"]
+process_mode = 3
+layout_mode = 0
+offset_left = 14.9458
+offset_top = 10.0788
+offset_right = 147.946
+offset_bottom = 129.079
+scale = Vector2(0.0681822, 0.183062)
+theme_override_icons/icon = ExtResource("5_0jiih")
+theme_override_styles/hover = SubResource("StyleBoxTexture_83j5c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kjkn4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fxbmj")
+
+[node name="AccelerateTime" type="Button" parent="GameTimeDisplayBackground/TimeDisplay"]
+process_mode = 3
+layout_mode = 0
+offset_left = 26.6158
+offset_top = 10.0788
+offset_right = 178.616
+offset_bottom = 83.0788
+scale = Vector2(0.0880133, 0.287997)
+theme_override_icons/icon = ExtResource("7_hgh6y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iognr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tkpfa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_vo8yl")
+
+[node name="HourLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 11.0
+offset_right = 472.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("22_fdxt1")
+theme_override_font_sizes/font_size = 50
+text = "20:00"
+
+[node name="DateLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 57.0
+offset_right = 535.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("22_fdxt1")
+theme_override_font_sizes/font_size = 30
+text = "14/12/2000"
+
+[node name="TimeScaleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 4.0
+offset_right = 627.0
+offset_bottom = 27.0
+text = "Escala de Tempo: "
+
+[node name="ThirstyVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 144.0
+offset_right = 72.97
+offset_bottom = 184.0
+scale = Vector2(0.833945, 0.833945)
+theme = SubResource("Theme_f20o5")
+
+[node name="ThirstyProgressBar" type="ProgressBar" parent="ThirstyVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ThirstyVBoxContainer"]
+position = Vector2(22.0112, -53.8058)
+scale = Vector2(0.147081, 0.147081)
+texture = ExtResource("4_ylwg3")
+
+[node name="HungryVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 273.0
+offset_right = 71.97
+offset_bottom = 313.0
+scale = Vector2(0.898872, 0.898872)
+theme = SubResource("Theme_f20o5")
+
+[node name="HungryProgressBar" type="ProgressBar" parent="HungryVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="HungryVBoxContainer"]
+position = Vector2(22.0112, -53.8058)
+scale = Vector2(0.173595, 0.173595)
+texture = ExtResource("5_pfoqj")
+
+[node name="OxygenVBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 501.0
+offset_right = 75.97
+offset_bottom = 541.0
+scale = Vector2(0.82273, 0.82273)
+theme = SubResource("Theme_f20o5")
+
+[node name="OxygenProgressBar" type="ProgressBar" parent="OxygenVBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="OxygenVBoxContainer2"]
+position = Vector2(22.0112, -53.8058)
+scale = Vector2(0.173595, 0.173595)
+texture = ExtResource("6_pbnk0")
+
+[node name="TiredVBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 617.0
+offset_right = 79.97
+offset_bottom = 657.0
+scale = Vector2(0.730813, 0.730813)
+theme = SubResource("Theme_f20o5")
+
+[node name="TiredProgressBar" type="ProgressBar" parent="TiredVBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TiredVBoxContainer3"]
+position = Vector2(22.0112, -53.8058)
+scale = Vector2(0.173595, 0.173595)
+texture = ExtResource("7_44i78")
+
+[node name="CrazynessVBoxContainer4" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 393.0
+offset_right = 75.97
+offset_bottom = 433.0
+scale = Vector2(0.831606, 0.831606)
+theme = SubResource("Theme_f20o5")
+
+[node name="CrazynessProgressBar" type="ProgressBar" parent="CrazynessVBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+step = 1.0
+value = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CrazynessVBoxContainer4"]
+position = Vector2(9.61994, -52.9097)
+scale = Vector2(0.173595, 0.173595)
+texture = ExtResource("8_bhjbb")
+
+[node name="ToolsControl" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 62.0
+offset_right = 296.0
+offset_bottom = 102.0
+
+[node name="ToolsButtonsBackground" type="TextureRect" parent="ToolsControl"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -70.0
+offset_right = 953.0
+offset_bottom = 178.0
+scale = Vector2(0.152079, 0.499888)
+texture = ExtResource("4_mu47a")
+
+[node name="Hammer" type="TextureRect" parent="ToolsControl/ToolsButtonsBackground"]
+layout_mode = 0
+offset_left = 256.445
+offset_top = 16.0036
+offset_right = 768.445
+offset_bottom = 528.004
+scale = Vector2(0.944992, 0.340061)
+texture = ExtResource("23_bnaua")
+
+[node name="ToolsButtonsBackground2" type="TextureRect" parent="ToolsControl"]
+layout_mode = 0
+offset_left = 541.0
+offset_top = -71.0
+offset_right = 1547.0
+offset_bottom = 177.0
+scale = Vector2(0.152079, 0.499888)
+texture = ExtResource("4_mu47a")
+
+[node name="Book" type="TextureRect" parent="ToolsControl/ToolsButtonsBackground2"]
+layout_mode = 0
+offset_left = 164.388
+offset_top = 16.0036
+offset_right = 676.388
+offset_bottom = 528.004
+scale = Vector2(1.31935, 0.334561)
+texture = ExtResource("24_wbfcl")
+
+[node name="ConstructionsLabel" type="Label" parent="ToolsControl"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = 15.0
+offset_right = 98.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("24_0se2m")
+theme_override_font_sizes/font_size = 30
+text = "Build"
+horizontal_alignment = 1
+
+[node name="StudiesButton" type="Button" parent="ToolsControl"]
+layout_mode = 0
+offset_left = 542.0
+offset_top = -66.0
+offset_right = 1042.0
+offset_bottom = 364.0
+scale = Vector2(0.296119, 0.276295)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0se2m")
+
+[node name="ConstructionButton" type="Button" parent="ToolsControl"]
+layout_mode = 0
+offset_left = -49.0
+offset_top = -61.0
+offset_right = 101.0
+offset_bottom = 59.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bnaua")
+
+[node name="StudiesLabel" type="Label" parent="ToolsControl"]
+layout_mode = 0
+offset_left = 538.0
+offset_top = 16.0
+offset_right = 700.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("24_0se2m")
+theme_override_font_sizes/font_size = 25
+text = "Studies"
+horizontal_alignment = 1
+
+[node name="Localization" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("26_wbfcl")
+
+[node name="StatusAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_v2ytk")
+}
+autoplay = "normal_state"
+
+[connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/PlayTime" to="." method="_on_play_time_pressed"]
+[connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/PauseTime" to="." method="_on_pause_time_pressed"]
+[connection signal="pressed" from="GameTimeDisplayBackground/TimeDisplay/AccelerateTime" to="." method="_on_accelerate_time_pressed"]
+[connection signal="pressed" from="ToolsControl/StudiesButton" to="." method="_on_studies_button_pressed"]
+[connection signal="pressed" from="ToolsControl/ConstructionButton" to="." method="_on_construction_button_pressed"]

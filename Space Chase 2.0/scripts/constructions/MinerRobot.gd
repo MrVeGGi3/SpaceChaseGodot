@@ -2,8 +2,8 @@ class_name MinerRobot
 extends Construction
 
 @onready var iron_earnt : float = 0.0
-@onready var maximum_iron_to_collect : float = 20.0
-@onready var minimum_iron_to_collect : float = 5.0
+@export var maximum_iron_to_collect : float = 20.0
+@export var minimum_iron_to_collect : float = 5.0
 var iron_generated_per_minute = randf_range(0.15, 1.66)
 
 # Called when the node enters the scene tree for the first time.

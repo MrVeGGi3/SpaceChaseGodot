@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5y6yoxxl0un1"]
+
+[ext_resource type="Theme" uid="uid://dpreusu3w6xc7" path="res://themes/title.tres" id="1_cx6oj"]
+
+[node name="GameTitle" type="Label"]
+offset_left = -306.0
+offset_top = -150.0
+offset_right = 341.0
+offset_bottom = -83.0
+theme = ExtResource("1_cx6oj")
+text = "Space Chase 2.0"

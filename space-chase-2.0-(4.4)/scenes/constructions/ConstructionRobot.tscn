@@ -1,0 +1,200 @@
+[gd_scene load_steps=17 format=3 uid="uid://brxq6gqs3oq2k"]
+
+[ext_resource type="Texture2D" uid="uid://cnswtp4lwfyw3" path="res://Assets/sprites/construction_robot/Robô de Conserto - 1.png" id="1_affxe"]
+[ext_resource type="Script" uid="uid://kiyjgk4slmg" path="res://scripts/constructions/ConstructRobot.gd" id="1_pn8mt"]
+[ext_resource type="Texture2D" uid="uid://o5wrq2k1u5rf" path="res://Assets/images/constructions/Robô de Conserto.png" id="1_w2ogn"]
+[ext_resource type="Texture2D" uid="uid://lsklews31k8o" path="res://Assets/sprites/construction_robot/Robô de Conserto - 2.png" id="2_pn8mt"]
+[ext_resource type="Texture2D" uid="uid://cveelcfqmqi27" path="res://Assets/sprites/construction_robot/Robô de Conserto - 3.png" id="3_368yl"]
+[ext_resource type="Texture2D" uid="uid://cjj7a16s5dxqp" path="res://Assets/sprites/construction_robot/Robô de Conserto - 4.png" id="4_6d2s1"]
+[ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="6_ig0we"]
+[ext_resource type="Script" uid="uid://ds8cqayoo84lg" path="res://scripts/constructions/ProgressBar/robot_progress_bar.gd" id="8_368yl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6gm5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_affxe")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pn8mt")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_368yl")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6d2s1")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w2ogn")
+}],
+"loop": true,
+"name": &"Constructed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxxqu"]
+size = Vector2(111, 160)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pn8mt"]
+bg_color = Color(0.6, 0.964706, 0.6, 1)
+
+[sub_resource type="Animation" id="Animation_6d2s1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RobotProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_pn8mt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RobotProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0.964706, 0.6, 1)]
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_368yl"]
+bg_color = Color(0.6, 0.964706, 0.6, 1)
+
+[sub_resource type="Animation" id="Animation_368yl"]
+resource_name = "construction_progress_color"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RobotProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_368yl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RobotProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0.964706, 0.6, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ig0we"]
+resource_name = "manutence_progress_color"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RobotProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_pn8mt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RobotProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.785524, 0.360722, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsqau"]
+_data = {
+&"RESET": SubResource("Animation_6d2s1"),
+&"construction_progress_color": SubResource("Animation_368yl"),
+&"manutence_progress_color": SubResource("Animation_ig0we")
+}
+
+[node name="ConstructionRobot" type="Node2D" groups=["Construction", "FixRobot"]]
+script = ExtResource("1_pn8mt")
+
+[node name="RobotAnimSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.378692, 0.378692)
+sprite_frames = SubResource("SpriteFrames_l6gm5")
+animation = &"1"
+autoplay = "1"
+
+[node name="RobotArea2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RobotArea2D"]
+shape = SubResource("RectangleShape2D_wxxqu")
+
+[node name="RobotConstruction" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RobotConstruction"]
+shape = SubResource("RectangleShape2D_wxxqu")
+
+[node name="ChangeProgressBarColor" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rsqau")
+}
+
+[node name="ConstructFixButton" type="Button" parent="."]
+offset_left = -74.0
+offset_top = -20.0
+offset_right = 73.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("6_ig0we")
+theme_override_font_sizes/font_size = 25
+text = "Construir"
+
+[node name="RobotProgressBar" type="ProgressBar" parent="."]
+offset_left = -60.0
+offset_top = -83.0
+offset_right = 60.0
+offset_bottom = -56.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_pn8mt")
+step = 1.0
+script = ExtResource("8_368yl")
+
+[connection signal="body_entered" from="RobotArea2D" to="." method="_on_robot_area_2d_body_entered"]
+[connection signal="body_exited" from="RobotArea2D" to="." method="_on_robot_area_2d_body_exited"]
+[connection signal="pressed" from="ConstructFixButton" to="." method="_on_construct_fix_button_pressed"]

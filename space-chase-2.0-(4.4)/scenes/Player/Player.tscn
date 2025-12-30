@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx4ckn55atgno"]
+
+[ext_resource type="Script" uid="uid://cqn1i8n7ijxvo" path="res://scripts/characther/player.gd" id="1_1xff8"]
+[ext_resource type="Texture2D" uid="uid://df3dks4drsr2h" path="res://Assets/images/test/astronaut.png" id="2_by7u5"]
+[ext_resource type="AudioStream" uid="uid://n7bkm1kbrgi" path="res://Assets/sounds/WorkingSound.wav" id="3_bvqhm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njbqs"]
+radius = 46.3522
+height = 272.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(0.254931, 0.254931)
+script = ExtResource("1_1xff8")
+speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_by7u5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 14)
+scale = Vector2(1.22319, 0.971974)
+shape = SubResource("CapsuleShape2D_njbqs")
+
+[node name="WorkingSound" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("3_bvqhm")
+
+[connection signal="finished" from="WorkingSound" to="." method="_on_working_sound_finished"]

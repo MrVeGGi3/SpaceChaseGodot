@@ -111,12 +111,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_jix5d")
 }
 
-[node name="HidroponicsProgressBar" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_n4usr")
-script = ExtResource("2_jix5d")
-
 [node name="HidroponicsButton" type="Button" parent="."]
 offset_left = -78.0
 offset_top = -24.0
@@ -133,6 +127,14 @@ offset_right = 503.0
 offset_bottom = 405.0
 scale = Vector2(0.0661369, 0.0684585)
 theme_override_icons/icon = ExtResource("5_lnq8y")
+
+[node name="HidroponicsProgressBar" type="ProgressBar" parent="."]
+offset_left = -1.0
+offset_top = -52.0
+offset_right = 3.0
+offset_bottom = -25.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_n4usr")
+script = ExtResource("2_jix5d")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

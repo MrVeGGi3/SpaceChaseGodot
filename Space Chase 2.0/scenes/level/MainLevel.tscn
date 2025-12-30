@@ -83,35 +83,35 @@ texture = ExtResource("17_onhml")
 Button/styles/normal = SubResource("StyleBoxTexture_nya4q")
 Button/styles/pressed = SubResource("StyleBoxTexture_fw5u5")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w735y"]
-texture = ExtResource("17_onhml")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4i8e"]
+texture = ExtResource("16_uxhes")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btlyh"]
 texture = ExtResource("16_uxhes")
 modulate_color = Color(0.00241332, 0.778671, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4i8e"]
-texture = ExtResource("16_uxhes")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w735y"]
+texture = ExtResource("17_onhml")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83j5c"]
-texture = ExtResource("19_hjxo0")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxbmj"]
+texture = ExtResource("18_ecvc3")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kjkn4"]
 texture = ExtResource("19_hjxo0")
 modulate_color = Color(0.172549, 0.615686, 0.2, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxbmj"]
-texture = ExtResource("18_ecvc3")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83j5c"]
+texture = ExtResource("19_hjxo0")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iognr"]
-texture = ExtResource("21_d4ht2")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vo8yl"]
+texture = ExtResource("20_e36fq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkpfa"]
 texture = ExtResource("21_d4ht2")
 modulate_color = Color(0.152631, 0.744199, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vo8yl"]
-texture = ExtResource("20_e36fq")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iognr"]
+texture = ExtResource("21_d4ht2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rad0f"]
 bg_color = Color(1, 0.0392157, 0, 1)
@@ -128,6 +128,21 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnaua"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_q6iky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatusBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ywlma"]
 resource_name = "critical_state"
@@ -162,21 +177,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_q6iky"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StatusBackground:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v2ytk"]
 _data = {
 &"RESET": SubResource("Animation_q6iky"),
@@ -184,22 +184,22 @@ _data = {
 &"normal_state": SubResource("Animation_6pgmf")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3258"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uqyj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pe7x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uqyj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3258"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v66gi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cgdq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kltau"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cgdq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v66gi"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Theme" id="Theme_6yx32"]
@@ -404,9 +404,9 @@ offset_bottom = 158.876
 scale = Vector2(0.0763199, 0.204024)
 theme = SubResource("Theme_pmxrp")
 theme_override_icons/icon = ExtResource("16_uxhes")
-theme_override_styles/hover = SubResource("StyleBoxTexture_w735y")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_btlyh")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t4i8e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_btlyh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w735y")
 
 [node name="PauseTime" type="Button" parent="StatusControl/GameTimeDisplayBackground/TimeDisplay"]
 process_mode = 3
@@ -417,9 +417,9 @@ offset_right = 147.946
 offset_bottom = 129.079
 scale = Vector2(0.0681822, 0.183062)
 theme_override_icons/icon = ExtResource("18_ecvc3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_83j5c")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_kjkn4")
 theme_override_styles/normal = SubResource("StyleBoxTexture_fxbmj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kjkn4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_83j5c")
 
 [node name="AccelerateTime" type="Button" parent="StatusControl/GameTimeDisplayBackground/TimeDisplay"]
 process_mode = 3
@@ -430,9 +430,9 @@ offset_right = 178.616
 offset_bottom = 83.0788
 scale = Vector2(0.0880133, 0.287997)
 theme_override_icons/icon = ExtResource("20_e36fq")
-theme_override_styles/hover = SubResource("StyleBoxTexture_iognr")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_tkpfa")
 theme_override_styles/normal = SubResource("StyleBoxTexture_vo8yl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tkpfa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iognr")
 
 [node name="HourLabel" type="Label" parent="StatusControl"]
 layout_mode = 0
@@ -742,9 +742,9 @@ offset_top = 306.0
 offset_right = 1058.0
 offset_bottom = 719.0
 scale = Vector2(0.136663, 0.147634)
-theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4uqyj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
 icon = ExtResource("30_dvuug")
 
 [node name="LevelNumber" type="Label" parent="BotanicsInterface"]
@@ -764,9 +764,9 @@ offset_left = 555.0
 offset_top = 208.0
 offset_right = 650.0
 offset_bottom = 293.0
-theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5cgdq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
 
 [node name="ActualLevelEffects" type="TextureRect" parent="BotanicsInterface"]
 layout_mode = 0
@@ -924,9 +924,9 @@ offset_top = 306.0
 offset_right = 1058.0
 offset_bottom = 719.0
 scale = Vector2(0.136663, 0.147634)
-theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4uqyj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
 icon = ExtResource("30_dvuug")
 
 [node name="LevelNumber" type="Label" parent="MechanicsInterface"]
@@ -946,9 +946,9 @@ offset_left = 555.0
 offset_top = 208.0
 offset_right = 650.0
 offset_bottom = 293.0
-theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5cgdq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
 
 [node name="ActualLevelEffects" type="TextureRect" parent="MechanicsInterface"]
 layout_mode = 0
@@ -976,8 +976,8 @@ offset_left = 58.3527
 offset_top = 236.843
 offset_right = 633.353
 offset_bottom = 286.843
-theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_italics_font_size = 20
 
 [node name="MetalIcon" type="TextureRect" parent="MechanicsInterface/ActualLevelEffects"]
 layout_mode = 0
@@ -1023,8 +1023,8 @@ offset_left = 61.7852
 offset_top = 219.681
 offset_right = 636.785
 offset_bottom = 269.681
-theme_override_font_sizes/bold_italics_font_size = 30
 theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
 
 [node name="MetalIcon2" type="TextureRect" parent="MechanicsInterface/LevelEffects"]
 layout_mode = 0
@@ -1113,9 +1113,9 @@ offset_top = 306.0
 offset_right = 1058.0
 offset_bottom = 719.0
 scale = Vector2(0.136663, 0.147634)
-theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4uqyj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pe7x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u3258")
 icon = ExtResource("30_dvuug")
 
 [node name="LevelNumber" type="Label" parent="ElectronicInterface"]
@@ -1135,9 +1135,9 @@ offset_left = 555.0
 offset_top = 208.0
 offset_right = 650.0
 offset_bottom = 293.0
-theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5cgdq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kltau")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v66gi")
 
 [node name="ActualLevelEffects" type="TextureRect" parent="ElectronicInterface"]
 layout_mode = 0
@@ -1426,7 +1426,7 @@ theme = ExtResource("10_w5lk1")
 text = "Water"
 
 [node name="IconsContainer" type="VBoxContainer" parent="SaveLoadScreen/Save1"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 274.0
 offset_top = -34.0
 offset_right = 843.0
@@ -1480,7 +1480,7 @@ theme = ExtResource("18_emuio")
 text = "00:00"
 
 [node name="LastHourTimeSaved" type="Label" parent="SaveLoadScreen/Save1"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 433.0
 offset_top = 17.0
 offset_right = 493.0
@@ -1572,7 +1572,7 @@ theme = ExtResource("10_w5lk1")
 text = "Water"
 
 [node name="IconsContainer" type="VBoxContainer" parent="SaveLoadScreen/Save2"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 274.0
 offset_top = -34.0
 offset_right = 843.0
@@ -1626,7 +1626,7 @@ theme = ExtResource("18_emuio")
 text = "00:00"
 
 [node name="LastHourTimeSaved" type="Label" parent="SaveLoadScreen/Save2"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 433.0
 offset_top = 17.0
 offset_right = 493.0
@@ -1710,7 +1710,7 @@ theme = ExtResource("10_w5lk1")
 text = "Water"
 
 [node name="IconsContainer" type="VBoxContainer" parent="SaveLoadScreen/Save3"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 274.0
 offset_top = -34.0
 offset_right = 843.0
@@ -1764,7 +1764,7 @@ theme = ExtResource("18_emuio")
 text = "00:00"
 
 [node name="LastHourTimeSaved" type="Label" parent="SaveLoadScreen/Save3"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 433.0
 offset_top = 17.0
 offset_right = 493.0
@@ -1939,8 +1939,8 @@ script = ExtResource("70_0ib6l")
 [connection signal="pressed" from="SaveLoadScreen/Save1" to="SaveLoadScreen" method="_on_save_1_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/Save2" to="SaveLoadScreen" method="_on_save_2_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/Save3" to="SaveLoadScreen" method="_on_save_3_pressed"]
-[connection signal="close_requested" from="SaveLoadScreen/SaveLoadWindow" to="SaveLoadScreen" method="_on_save_load_window_close_requested"]
 [connection signal="close_requested" from="SaveLoadScreen/SaveLoadWindow" to="SaveLoadScreen" method="_on_new_game_close_requested"]
+[connection signal="close_requested" from="SaveLoadScreen/SaveLoadWindow" to="SaveLoadScreen" method="_on_save_load_window_close_requested"]
 [connection signal="pressed" from="SaveLoadScreen/SaveLoadWindow/Confirm" to="SaveLoadScreen" method="_on_confirm_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/SaveLoadWindow/Cancel" to="SaveLoadScreen" method="_on_cancel_pressed"]
 [connection signal="pressed" from="SaveLoadScreen/SaveLoadWindow/OK" to="SaveLoadScreen" method="_on_ok_pressed"]

@@ -71,7 +71,7 @@ theme_override_font_sizes/font_size = 40
 text = "Aceleração de Construções
  e Manutenção Automática."
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="ConstructQuantityLabel" type="Label" parent="ConsertRobotContainer/ConsertRobotDesc"]
 layout_mode = 0
@@ -379,7 +379,6 @@ vertical_alignment = 1
 
 [node name="ConstructButtons" type="Control" parent="."]
 z_index = 6
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

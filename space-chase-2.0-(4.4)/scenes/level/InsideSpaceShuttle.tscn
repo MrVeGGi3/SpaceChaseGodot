@@ -1,0 +1,319 @@
+[gd_scene load_steps=36 format=3 uid="uid://htmt4jmpujlc"]
+
+[ext_resource type="Script" uid="uid://c0o6c2r7d1ew8" path="res://scripts/level/inside_space_shuttle.gd" id="1_afms6"]
+[ext_resource type="Texture2D" uid="uid://d0lmktf0c2e4u" path="res://Assets/images/backgrounds/Space Shuttle.png" id="1_nx75k"]
+[ext_resource type="Texture2D" uid="uid://eck4p6bxx7jq" path="res://Assets/images/objects/normal/ToEatNormal.png" id="2_u67ih"]
+[ext_resource type="Texture2D" uid="uid://de4pidbsyexkn" path="res://Assets/images/objects/hovered/ToEatHovered.png" id="3_u4cne"]
+[ext_resource type="Texture2D" uid="uid://dmgiv7m0ie2gw" path="res://Assets/images/objects/normal/ToDrinkNormal.png" id="4_rapy5"]
+[ext_resource type="Texture2D" uid="uid://dumuuluf50xeh" path="res://Assets/images/objects/hovered/ToDrinkHovered.png" id="5_pxlex"]
+[ext_resource type="Texture2D" uid="uid://co115oaq4jc6n" path="res://Assets/images/objects/hovered/ToSleepHovered.png" id="6_lpea7"]
+[ext_resource type="Texture2D" uid="uid://ghw3n5wtgqnv" path="res://Assets/images/objects/normal/ToSleepNormal.png" id="7_alp4c"]
+[ext_resource type="Texture2D" uid="uid://bqrdwg01yirae" path="res://Assets/images/objects/hovered/ToFunHovered.png" id="8_dir4p"]
+[ext_resource type="Texture2D" uid="uid://be14gcws0sq0m" path="res://Assets/images/objects/normal/ToFunNormal.png" id="9_f6x5r"]
+[ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="10_4vyve"]
+[ext_resource type="Script" uid="uid://dy83y478jd114" path="res://scripts/localization/inside_ss_loc.gd" id="12_gu5fr"]
+[ext_resource type="AudioStream" uid="uid://2k2yuqq1yin3" path="res://Assets/sounds/eat_light.wav" id="13_thhnp"]
+[ext_resource type="AudioStream" uid="uid://c1davylpj4s3r" path="res://Assets/sounds/driking.wav" id="14_8lr48"]
+[ext_resource type="AudioStream" uid="uid://d1p11dein64yi" path="res://Assets/sounds/eat_heavy.wav" id="15_px07i"]
+[ext_resource type="AudioStream" uid="uid://exjwj7tbonl2" path="res://Assets/sounds/drink_critical_state.wav" id="16_eim2x"]
+[ext_resource type="AudioStream" uid="uid://cxo27ii5sl4ho" path="res://Assets/sounds/Piano/Mozart.wav" id="17_tu208"]
+[ext_resource type="AudioStream" uid="uid://bkvjav27nsua0" path="res://Assets/sounds/Piano/Chopin.wav" id="18_x7w4g"]
+[ext_resource type="AudioStream" uid="uid://dvfjhog6tptqf" path="res://Assets/sounds/Piano/Marriage.wav" id="19_jl02u"]
+[ext_resource type="AudioStream" uid="uid://do8jpeiuvjc4k" path="res://Assets/sounds/Piano/PaganiniLiszt - La Campanella.wav" id="20_aaalk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biof4"]
+texture = ExtResource("3_u4cne")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_osaa3"]
+texture = ExtResource("2_u67ih")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_muqwj"]
+texture = ExtResource("5_pxlex")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wqg1"]
+texture = ExtResource("4_rapy5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4o26l"]
+texture = ExtResource("6_lpea7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wd8y3"]
+texture = ExtResource("7_alp4c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1v5aq"]
+texture = ExtResource("8_dir4p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1fhi8"]
+texture = ExtResource("9_f6x5r")
+
+[sub_resource type="Animation" id="Animation_huen1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/GoCabinButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/GoOutButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SleepButton:button_pressed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_iq6rh"]
+resource_name = "sleep"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1, 4),
+"transitions": PackedFloat32Array(0.5, 6.9644, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/GoCabinButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/GoOutButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SleepButton:button_pressed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlgfp"]
+_data = {
+&"RESET": SubResource("Animation_huen1"),
+&"sleep": SubResource("Animation_iq6rh")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xjut"]
+bg_color = Color(0.513726, 0.764706, 0.960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uj6mb"]
+bg_color = Color(0.247059, 0.380392, 0.839216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmgab"]
+bg_color = Color(0.512853, 0.763512, 0.959121, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu30b"]
+bg_color = Color(0.36369, 0.124643, 0.0660927, 1)
+
+[node name="InsideSpaceShuttle" type="Node2D"]
+position = Vector2(-2, 0)
+script = ExtResource("1_afms6")
+subtract_organics_when_eating = 0.5
+subtract_water_when_drinking = 1.0
+sleepy_increase_status = 50.0
+hungry_increase_status = 50.0
+crazyness_increase_status = 20.0
+thirsty_increase_status = 50.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.05176e-05
+offset_top = -4.0
+offset_right = 500.0
+offset_bottom = 496.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.31894, 1.29368)
+texture = ExtResource("1_nx75k")
+
+[node name="EatButton" type="Button" parent="."]
+offset_left = 661.0
+offset_top = 284.0
+offset_right = 1190.0
+offset_bottom = 756.0
+scale = Vector2(0.364054, 0.364054)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_icons/icon = ExtResource("2_u67ih")
+theme_override_styles/hover = SubResource("StyleBoxTexture_biof4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_osaa3")
+
+[node name="DrinkButton" type="Button" parent="."]
+offset_left = -87.0
+offset_top = 117.0
+offset_right = 444.0
+offset_bottom = 587.0
+scale = Vector2(0.750085, 0.750085)
+theme_override_styles/hover = SubResource("StyleBoxTexture_muqwj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5wqg1")
+
+[node name="SleepButton" type="Button" parent="."]
+offset_left = 901.0
+offset_top = 334.0
+offset_right = 909.0
+offset_bottom = 342.0
+scale = Vector2(39.3097, 39.3097)
+theme_override_styles/hover = SubResource("StyleBoxTexture_4o26l")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wd8y3")
+
+[node name="FunButton" type="Button" parent="."]
+offset_left = 420.0
+offset_top = 246.0
+offset_right = 428.0
+offset_bottom = 254.0
+rotation = 0.596678
+scale = Vector2(25.24, 25.24)
+theme_override_styles/hover = SubResource("StyleBoxTexture_1v5aq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1fhi8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qlgfp")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 340.0
+offset_top = 464.0
+offset_right = 842.98
+offset_bottom = 504.0
+
+[node name="GoOutButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_4vyve")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_7xjut")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uj6mb")
+text = "Sair para Fora"
+
+[node name="GoCabinButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_4vyve")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_qmgab")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cu30b")
+text = "Cabine de Decolagem"
+
+[node name="Localization" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_gu5fr")
+
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="EatLightSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("13_thhnp")
+bus = &"SFX"
+
+[node name="DrinkLightSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("14_8lr48")
+bus = &"SFX"
+
+[node name="EatHardSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("15_px07i")
+bus = &"SFX"
+
+[node name="DrinkHardSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("16_eim2x")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="PianoSounds" type="Node" parent="AudioManager"]
+
+[node name="Mozart" type="AudioStreamPlayer" parent="AudioManager/PianoSounds"]
+stream = ExtResource("17_tu208")
+bus = &"SFX"
+
+[node name="Chopin" type="AudioStreamPlayer" parent="AudioManager/PianoSounds"]
+stream = ExtResource("18_x7w4g")
+bus = &"SFX"
+
+[node name="Marriage" type="AudioStreamPlayer" parent="AudioManager/PianoSounds"]
+stream = ExtResource("19_jl02u")
+bus = &"SFX"
+
+[node name="Liszt" type="AudioStreamPlayer" parent="AudioManager/PianoSounds"]
+stream = ExtResource("20_aaalk")
+bus = &"SFX"
+
+[connection signal="pressed" from="EatButton" to="." method="_on_eat_button_pressed"]
+[connection signal="pressed" from="DrinkButton" to="." method="_on_drink_button_pressed"]
+[connection signal="pressed" from="SleepButton" to="." method="_on_sleep_button_pressed"]
+[connection signal="pressed" from="FunButton" to="." method="_on_fun_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/GoOutButton" to="." method="_on_go_out_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/GoCabinButton" to="." method="_on_go_cabin_button_pressed"]

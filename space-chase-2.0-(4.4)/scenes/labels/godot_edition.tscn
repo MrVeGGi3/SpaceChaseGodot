@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckweb0fnjli80"]
+
+[ext_resource type="FontFile" uid="uid://ctjwyprvt3njg" path="res://Assets/fonts/LilitaOne-Regular.ttf" id="1_fyrff"]
+
+[node name="Label" type="Label"]
+offset_left = 108.0
+offset_top = 69.0
+offset_right = 148.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("1_fyrff")
+text = "GODOT EDITION"

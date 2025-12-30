@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=3 uid="uid://dx2o2ve3myprn"]
+
+[ext_resource type="Script" uid="uid://ub3so5dw3ri5" path="res://scripts/constructions/MinerRobot.gd" id="1_oiexs"]
+[ext_resource type="Texture2D" uid="uid://ce7aeo225fvdd" path="res://Assets/images/constructions/RASSOR.png" id="2_oiexs"]
+[ext_resource type="FontFile" uid="uid://b4yua3jl2d103" path="res://Assets/fonts/Efourpro-OPrP.ttf" id="2_w22jy"]
+[ext_resource type="Texture2D" uid="uid://5wgsxsshlrd3" path="res://Assets/icons/resources/metalicon.png" id="3_kns8i"]
+[ext_resource type="Script" uid="uid://5ydusgn70c1x" path="res://scripts/constructions/ProgressBar/miner_progress_bar.gd" id="4_c2wd8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w22jy"]
+size = Vector2(174, 130.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kns8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oiexs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2wd8"]
+bg_color = Color(0.773228, 0.593494, 0.270368, 1)
+
+[sub_resource type="Animation" id="Animation_g6i8k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MinerProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_c2wd8")]
+}
+
+[sub_resource type="Animation" id="Animation_wgtj5"]
+resource_name = "construction_progress_color"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MinerProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_c2wd8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MinerProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0.964706, 0.6, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4jxc4"]
+resource_name = "manutence_progress_color"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MinerProgressBar:theme_override_styles/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_c2wd8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MinerProgressBar:theme_override_styles/fill:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.773228, 0.593494, 0.270368, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l3lwg"]
+_data = {
+&"RESET": SubResource("Animation_g6i8k"),
+&"construction_progress_color": SubResource("Animation_wgtj5"),
+&"manutence_progress_color": SubResource("Animation_4jxc4")
+}
+
+[node name="MinerRobot" type="Node2D" groups=["Construction", "MinerRobot"]]
+script = ExtResource("1_oiexs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_w22jy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_w22jy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+scale = Vector2(0.797746, 0.797746)
+sprite_frames = SubResource("SpriteFrames_kns8i")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="MinerConstructButton" type="Button" parent="."]
+offset_left = -74.0
+offset_top = -1.0
+offset_right = 82.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("2_w22jy")
+theme_override_font_sizes/font_size = 25
+text = "Construct"
+
+[node name="MinerProgressBar" type="ProgressBar" parent="."]
+offset_left = -63.0
+offset_top = -65.0
+offset_right = 64.0
+offset_bottom = -38.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_c2wd8")
+step = 1.0
+script = ExtResource("4_c2wd8")
+
+[node name="CatchIronButton" type="Button" parent="."]
+offset_left = -28.0
+offset_top = -125.0
+offset_right = 492.0
+offset_bottom = 395.0
+scale = Vector2(0.0978889, 0.0978889)
+theme_override_icons/icon = ExtResource("3_kns8i")
+
+[node name="ChangeProgressBarColor" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_l3lwg")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="MinerConstructButton" to="." method="_on_miner_construct_button_pressed"]
+[connection signal="pressed" from="CatchIronButton" to="." method="_on_catch_iron_button_pressed"]

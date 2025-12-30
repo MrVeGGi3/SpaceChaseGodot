@@ -1,0 +1,269 @@
+[gd_scene load_steps=17 format=3 uid="uid://db2gi84m138so"]
+
+[ext_resource type="Script" uid="uid://xu4uyfcd738h" path="res://scripts/Storage/cockpit.gd" id="1_t41jj"]
+[ext_resource type="Texture2D" uid="uid://cs3oddtnv7hfs" path="res://Assets/images/cockpit/Cockpit.png" id="1_yqgw5"]
+[ext_resource type="Texture2D" uid="uid://bc2xg7tq65o1p" path="res://Assets/images/buttons/Cockpit/Cockpit Check.png" id="2_5j1b6"]
+[ext_resource type="Texture2D" uid="uid://bcmey65au8v4d" path="res://Assets/images/buttons/Cockpit/ToTakeOverButton.png" id="2_pmufa"]
+[ext_resource type="FontFile" uid="uid://bhigehvyc2nom" path="res://Assets/fonts/JetBrainsMono-Bold.ttf" id="4_uxtjb"]
+[ext_resource type="AudioStream" uid="uid://pfgppbw23p4n" path="res://Assets/sounds/Cockpit/radar_open.wav" id="6_ovqmj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dy0f"]
+texture = ExtResource("2_5j1b6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hemo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ipoki"]
+texture = ExtResource("2_pmufa")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcd6i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rub7k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4gwy"]
+bg_color = Color(0.0466008, 0.305585, 0.512015, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brld4"]
+bg_color = Color(0.45896, 0.565638, 0.988202, 1)
+
+[sub_resource type="Animation" id="Animation_o4yes"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/CantTravel:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/CantTravel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/CantTravel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(499, 336)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(487, 365)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1l5wo"]
+resource_name = "can't travel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/CantTravel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/CantTravel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/CantTravel:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.566667, 0.766667, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.783111, 0, 0.147424, 1), Color(1, 1, 1, 1), Color(0.783111, 0, 0.147424, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.55, 0.766667, 0.93),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(487, 365), Vector2(395, 260)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pupa2"]
+_data = {
+&"RESET": SubResource("Animation_o4yes"),
+&"can\'t travel": SubResource("Animation_1l5wo")
+}
+
+[node name="Cockpit" type="Node2D"]
+script = ExtResource("1_t41jj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(582, 308)
+scale = Vector2(1.22261, 1.22261)
+texture = ExtResource("1_yqgw5")
+
+[node name="Cockpit" type="Button" parent="."]
+offset_left = 478.0
+offset_top = 476.0
+offset_right = 486.0
+offset_bottom = 484.0
+scale = Vector2(26.6017, 26.6017)
+theme_override_styles/hover = SubResource("StyleBoxTexture_3dy0f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1hemo")
+
+[node name="ToTakeOver" type="Button" parent="."]
+offset_left = 490.0
+offset_top = 378.0
+offset_right = 498.0
+offset_bottom = 386.0
+scale = Vector2(23.1096, 12.0017)
+theme_override_styles/hover = SubResource("StyleBoxTexture_ipoki")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dcd6i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rub7k")
+
+[node name="GoToShuttle" type="Button" parent="."]
+offset_left = 422.0
+offset_top = 324.0
+offset_right = 758.0
+offset_bottom = 379.0
+theme_override_fonts/font = ExtResource("4_uxtjb")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b4gwy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_brld4")
+text = "Voltar"
+
+[node name="CockpitAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pupa2")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 487.0
+offset_top = 365.0
+offset_right = 687.0
+offset_bottom = 405.0
+
+[node name="CantTravel" type="Label" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 499.0
+offset_top = 336.0
+offset_right = 703.0
+offset_bottom = 406.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_uxtjb")
+theme_override_font_sizes/font_size = 20
+text = "Itens pendentes!!"
+
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="RadarOpened" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("6_ovqmj")
+bus = &"SFX"
+
+[connection signal="pressed" from="Cockpit" to="." method="_on_cockpit_pressed"]
+[connection signal="pressed" from="ToTakeOver" to="." method="_on_to_take_over_pressed"]
+[connection signal="pressed" from="GoToShuttle" to="." method="_on_go_to_shuttle_pressed"]

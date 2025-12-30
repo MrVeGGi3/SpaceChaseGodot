@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dp0bjqpdecqt8"]
+
+[ext_resource type="FontFile" uid="uid://dr1ok3ju4bfb3" path="res://Assets/fonts/digital-7.ttf" id="1_vehnj"]
+
+[resource]
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_vehnj")
