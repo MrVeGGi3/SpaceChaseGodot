@@ -6,6 +6,7 @@ See GDD here: https://github.com/MrVeGGi3/SpaceChaseGodot/blob/main/Space%20Chas
 ## Implementations:
 - Engine Time Scale;
 - Complex System of Variables for Management;
+- Construction and Manutence System;
 
 ## Description
 Genre:  2D Survival Management
