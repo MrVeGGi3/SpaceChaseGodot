@@ -3,6 +3,10 @@ Adaptation of My First Game in Construct to Godot Engine for Santander Bootcamp 
 
 See GDD here: https://github.com/MrVeGGi3/SpaceChaseGodot/blob/main/Space%20Chase%202.0/SPACE%20CHASE%20GDD.pdf
 
+## Implementations:
+- Engine Time Scale;
+- Complex System of Variables for Management;
+
 ## Description
 Genre:  2D Survival Management
 Platforms: Web, PC.
